@@ -20,33 +20,27 @@ export default function Menu() {
   const card: Botao[] = [
     {
       id: 1,
-      title: "AGENDAMENTO",
-      descricao: "Realize seu agendamento",
-      icon: "today-outline",
+      title: "PACIENTES",
+      descricao: "Gerencie e visualize informações dos pacientes",
+      icon: "people-outline",
     },
     {
       id: 2,
-      title: "RESULTADOS",
-      descricao: "Veja os Resultados Clinicos",
+      title: "PRONTUÁRIOS MÉDICOS",
+      descricao: "Visuazie os Prontuários",
       icon: "document-text-outline",
     },
     {
       id: 3,
-      title: "MEDICAMENTOS",
-      descricao: "Qual Medicamento receitado",
-      icon: "bandage-outline",
+      title: "AGENDA MÉDICA",
+      descricao: "Gerenciamento de consultas e compromissos",
+      icon: "calendar-outline",
     },
     {
       id: 4,
-      title: "PLANOS",
-      descricao: "Atualize seu plano",
-      icon: "heart-circle-outline",
-    },
-    {
-      id: 5,
-      title: "CHATBOT",
-      descricao: "Entre em contato",
-      icon: "chatbubbles-outline",
+      title: "CLASSIFICAÇÃO CID-10",
+      descricao: "Atestados e Relatórios Médicos",
+      icon: "clipboard-outline",
     },
   ];
 
