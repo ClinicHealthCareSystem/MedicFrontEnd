@@ -2,9 +2,9 @@ import { View, ScrollView } from "react-native";
 import styles from "../styles/menu";
 
 import { Ionicons } from "@expo/vector-icons";
-import TabsNavegation from "./componentes/tabsNavegation";
-import HeaderHome from "./componentes/headerHome";
-import MenuCard from "./componentes/menuCard";
+import TabsNavegation from "../componentes/tabsNavegation";
+import HeaderHome from "../componentes/headerHome";
+import MenuCard from "../componentes/menuCard";
 
 type Botao = {
   id: number;

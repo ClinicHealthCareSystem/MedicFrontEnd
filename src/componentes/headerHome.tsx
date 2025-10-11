@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity, View, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import styles from "../../stylesComponents/headHome"
+import styles from "../stylesComponents/headHome"
 
 export default function HeaderHome({
   titulo = "Saúde Mania",

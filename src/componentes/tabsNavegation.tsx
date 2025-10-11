@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import tabNavegation from "../../stylesComponents/tabNavegation";
+import tabNavegation from "../stylesComponents/tabNavegation";
 
 
 
