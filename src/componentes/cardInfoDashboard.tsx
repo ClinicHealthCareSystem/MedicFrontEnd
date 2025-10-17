@@ -64,7 +64,7 @@ export default function CardInfoDashboard({ activeTab }: Props) {
             </Text>
           </View>
 
-         =
+         
           <View style={style.buttonContainer}>
             <TouchableOpacity style={style.button}>
               <Ionicons name="eye-outline" size={18} color="white" />
