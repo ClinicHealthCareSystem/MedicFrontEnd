@@ -1,5 +1,6 @@
-import { View, Text } from "react-native";
-
+import { View, Text, TouchableOpacity} from "react-native";
+import Ionicons from '@expo/vector-icons/Ionicons';
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import style from "../stylesComponents/cardInfoDashboard";
 import { useState } from "react";
 type Props = {
@@ -15,7 +16,7 @@ export default function CardInfoDashboard({ activeTab }: Props) {
           </View>
 
           <View style={style.caixa}>
-            <Text style={style.caixaTitle}>Queixa Principal: </Text>
+            <Text style={style.caixaTitle}>Resultado </Text>
             <Text style={style.caixaText}>Dor na Garganta</Text>
           </View>
 
@@ -29,6 +30,51 @@ export default function CardInfoDashboard({ activeTab }: Props) {
             <Text style={style.caixaText}>
               Prescrição de medicamentos, solicitação de exames complementares.
             </Text>
+          </View>
+        </View>
+      )}
+
+      {activeTab === "opcao2" && (
+       <View style={style.card}>
+          
+          <View style={style.header}>
+            <Text style={style.textHeader}>Hemograma Completo</Text>
+          </View>
+          <Text style={style.nomePaciente}>Maria Santos</Text>
+
+          <View style={style.dataContainer}>
+            <Ionicons name="calendar-clear-outline" size={18} color="white" />
+            <Text style={style.dataText}>15 de janeiro, 2024</Text>
+          </View>
+
+          <View style={style.caixa}>
+            <Text style={style.sectionTitle}>Resultado</Text>
+            <Text style={style.sectionContent}>
+              <Text>Hemoglobina:</Text> 13.5 g/dL{"\n"}
+              <Text>Hematócrito:</Text> 40%{"\n"}
+              <Text>Leucócitos:</Text> 7.500/mm³
+            </Text>
+          </View>
+
+          
+          <View style={style.caixa}>
+            <Text style={style.sectionTitle}>Interpretação</Text>
+            <Text style={style.sectionContent}>
+              Exame dentro dos parâmetros normais
+            </Text>
+          </View>
+
+         =
+          <View style={style.buttonContainer}>
+            <TouchableOpacity style={style.button}>
+              <Ionicons name="eye-outline" size={18} color="white" />
+              <Text style={style.buttonText}>Visualizar</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={style.button}>
+              <MaterialCommunityIcons name="download-outline" size={18} color="white" />
+              <Text style={style.buttonText}>Baixar</Text>
+            </TouchableOpacity>
           </View>
         </View>
       )}
