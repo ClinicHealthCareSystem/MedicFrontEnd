@@ -39,11 +39,6 @@ export default function CardInfoDashboard({ activeTab }: Props) {
           
           <View style={style.header}>
             <Text style={style.textHeader}>Hemograma Completo</Text>
-          </View>
-          <Text style={style.nomePaciente}>Maria Santos</Text>
-
-          <View style={style.dataContainer}>
-            <Ionicons name="calendar-clear-outline" size={18} color="white" />
             <Text style={style.dataText}>15 de janeiro, 2024</Text>
           </View>
 
@@ -77,6 +72,54 @@ export default function CardInfoDashboard({ activeTab }: Props) {
             </TouchableOpacity>
           </View>
         </View>
+      )}
+
+      {activeTab === "opcao3" && (
+        <View style={style.card}>
+       <View style={style.cardMedicTittle}>
+      <Text style={style.textHeader}>Atenolol</Text>
+
+      <View style={style.caixaActive}>
+        <Text style={style.caixaActiveText}>Ativo</Text>
+      </View>
+    </View>
+
+    
+    <View style={style.caixa}>
+      <Text style={style.sectionTitle}>Dosagem:</Text>
+      <Text style={style.sectionContent}>50mg</Text>
+    </View>
+
+    <View style={style.caixa}>
+      <Text style={style.sectionTitle}>Frequência:</Text>
+      <Text style={style.sectionContent}>1x ao dia</Text>
+    </View>
+
+    <View style={style.caixa}>
+      <Text style={style.sectionTitle}>Duração:</Text>
+      <Text style={style.sectionContent}>30 dias</Text>
+    </View>
+
+    <View style={style.caixaInstru}>
+      <Text style={style.sectionTitleInfo}>
+        Instruções:
+      </Text>
+      <Text style={style.sectionContent}>Tomar pela manhã em jejum</Text>
+    </View>
+
+    
+    <View style={style.buttonContainer}>
+      <TouchableOpacity style={style.button}>
+        <Ionicons name="eye-outline" size={18} color="white" />
+        <Text style={style.buttonText}>Visualizar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={style.button}>
+        <MaterialCommunityIcons name="download-outline" size={18} color="white" />
+        <Text style={style.buttonText}>Baixar</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
       )}
     </>
   );

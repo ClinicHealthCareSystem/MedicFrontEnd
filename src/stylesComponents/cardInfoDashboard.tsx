@@ -31,6 +31,10 @@ export default StyleSheet.create({
   caixa: {
     marginBottom: 10,
   },
+  caixaInstru:{
+    borderTopWidth: 1,
+    borderTopColor: "white",
+  },
 
   caixaTitle: {
     fontSize: RFValue(16),
@@ -44,51 +48,18 @@ export default StyleSheet.create({
     color: "white",
     lineHeight: 20,
   },
-  cardExame: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 12,
-    padding: 18,
-    marginVertical: 10,
-    marginHorizontal: 16,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    elevation: 4,
-  },
-
   headerExame: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     borderBottomWidth: 1,
-    borderBottomColor: "#E0E0E0",
+    borderBottomColor: "white",
     marginBottom: 10,
     paddingBottom: 6,
   },
-
-  nomeExame: {
-    fontSize: RFValue(16),
-    fontWeight: "700",
-    color: "#111",
-  },
-
-  nomePaciente: {
-    fontSize: RFValue(14),
-    color: "white",
-    marginBottom: 8,
-  },
-
-  dataContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-
   dataText: {
     fontSize: RFValue(13),
     color: "white",
-    marginLeft: 6,
   },
 
   sectionTitle: {
@@ -129,5 +100,36 @@ export default StyleSheet.create({
     fontWeight: "500",
     fontSize: RFValue(13),
     marginLeft: 6,
+  },
+
+  cardMedicTittle:{
+    
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderBottomWidth: 1,
+    borderBottomColor: "white",
+    marginBottom: 12,
+    paddingBottom: 6,
+      
+  },
+  caixaActive:{
+    backgroundColor: "white",
+    paddingVertical: 3,
+    paddingHorizontal: 10,
+    borderRadius: 12,
+  },
+  caixaActiveText:{
+    color: "#0D47AB", 
+    fontWeight: "bold", 
+    fontSize: 12
+  },
+  sectionTitleInfo: {
+    fontSize: RFValue(14),
+    fontWeight: "bold",
+    color: "white",
+    marginBottom: 4,
+    marginTop: 8,  
+    opacity: 0.8
   },
 });
