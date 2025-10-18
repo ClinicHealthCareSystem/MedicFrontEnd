@@ -15,14 +15,14 @@ export default function CardDashboard() {
        
         <View style={cardDashboardStyle.column}>
           <View style={cardDashboardStyle.infoRow}>
-            <Ionicons name="person-outline" size={18} color="#FFFFFF" />
+            <Ionicons name="person-outline" size={18} color="white" />
             <Text style={cardDashboardStyle.textLabel}>
               Idade:{" "} <Text style={cardDashboardStyle.textValue}>40 anos</Text>
             </Text>
           </View>
 
           <View style={cardDashboardStyle.infoRow}>
-            <Ionicons name="medkit-outline" size={18} color="#FFFFFF" />
+            <Ionicons name="medkit-outline" size={18} color="white" />
             <Text style={cardDashboardStyle.textLabel}>
               Alergia:{" "} <Text style={cardDashboardStyle.textValue}>Dipirona</Text>
             </Text>
