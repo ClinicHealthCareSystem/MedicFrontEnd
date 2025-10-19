@@ -6,8 +6,15 @@ export default function DashboardMedico(){
     return(
             <View style={styles.background}>
                 <HeaderHome  titulo = "Dashboard" mostrarBusca={false} mostrarVoltar={true}/>
-                <ScrollView>
-                    <CardCounts />
+                <ScrollView 
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{ paddingHorizontal: 10 }}>
+                    <CardCounts titulo="Pacientes Hoje" valor="0" />
+                    <CardCounts titulo="Total de Pacientes" valor="3" />
+                    <CardCounts titulo="Consultas no Mês" valor="47" />
+                    <CardCounts titulo="Exames Pendentes" valor="2" />
+                    
 
                 </ScrollView>
             </View>

@@ -8,7 +8,9 @@ cardCounts:{
     padding: 20,
     marginVertical: 20,
     marginHorizontal: 20,
-    width: "45%",
+    marginRight: 15,
+    width: 200,
+    height: 100,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.7,
@@ -25,8 +27,6 @@ textTitulo:{
 
 },
 caixaNumber:{
-
-
 },
 textNumber:{
     color: "white",
