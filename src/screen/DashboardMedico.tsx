@@ -2,6 +2,7 @@ import {View, ScrollView} from "react-native";
 import HeaderHome from "../componentes/headerHome";
 import styles from "../styles/pacientes";
 import CardCounts from "../componentes/cardCounts";
+import CardAgendados from "../componentes/cardAgendados";
 export default function DashboardMedico(){
     return(
             <View style={styles.background}>
@@ -14,8 +15,9 @@ export default function DashboardMedico(){
                     <CardCounts titulo="Total de Pacientes" valor="3" />
                     <CardCounts titulo="Consultas no Mês" valor="47" />
                     <CardCounts titulo="Exames Pendentes" valor="2" />
-                    
-
+                </ScrollView>
+                <ScrollView>
+                    <CardAgendados />
                 </ScrollView>
             </View>
     )
