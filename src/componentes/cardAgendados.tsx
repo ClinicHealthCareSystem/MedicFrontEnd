@@ -1,7 +1,11 @@
 import { View, Text, FlatList } from "react-native";
 import styles from "../stylesComponents/cardAgendados";
 
-
+const dados = [
+  { nome: "Maria", hora: "09:00", status: "Retorno" },
+  { nome: "José", hora: "10:00", status: "Consulta" },
+  { nome: "Ana", hora: "14:00", status: "Retorno" },
+];
 
 export default function CardAgendados() {
   return (
@@ -10,17 +14,22 @@ export default function CardAgendados() {
         <Text style={styles.title}>Agenda de Hoje</Text>
       </View>
 
-      <View>
+      <FlatList data={dados} keyExtractor={(item, index) => index.toString()} renderItem={({ item }) => (
           <View style={styles.item}>
             <View style={styles.info}>
-              <Text style={styles.nome}>nome</Text>
-              <Text style={styles.hora}>hora</Text>
+              <Text style={styles.nome}>{item.nome}</Text>
+              <Text style={styles.hora}>{item.hora}</Text>
             </View>
-            <View style={styles.statusContainer}>
-              <Text style={styles.statusText}> </Text>
+            <View style={[styles.statusContainer, item.status === "Consulta" ? styles.confirmado: styles.agendado,]}>
+              <Text
+                style={[styles.statusText,item.status === "Consulta"? styles.statusTextConfirmado : styles.statusTextAgendado,
+                ]}
+              > {item.status}
+              </Text>
             </View>
           </View>
-    </View>
+        )}
+      />
     </View>
   );
 }

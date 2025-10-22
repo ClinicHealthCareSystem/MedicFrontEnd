@@ -3,18 +3,25 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
   card: {
     backgroundColor: "#0D47AB",
-    borderRadius: 10,
+    borderRadius: 14,
     padding: 15,
-    margin: 20,
-    elevation: 3,
+    marginVertical: 10,
+    marginHorizontal: 16,
+    elevation: 5,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 8,
+    
   },
   header: {
     marginBottom: 10,
+    paddingBottom: 4,
   },
   title: {
     fontWeight: "bold",
     fontSize: 18,
-    color: "white",
+    color : "white",
   },
   item: {
     flexDirection: "row",
@@ -29,9 +36,9 @@ export default StyleSheet.create({
     flexDirection: "column",
   },
   nome: {
-    fontWeight: "600",
+    fontWeight: "800",
     fontSize: 15,
-    color: "#0D47AB",
+    color:  "#0D47AB",
   },
   hora: {
     color: "#0D47AB",
@@ -41,9 +48,20 @@ export default StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 10,
   },
+  agendado: {
+    backgroundColor: "#FFF5E0",
+  },
+  confirmado: {
+    backgroundColor: "#DFFCE0",
+  },
   statusText: {
     fontWeight: "bold",
     fontSize: 13,
   },
-  
+  statusTextAgendado: {
+    color: "#D97B00",
+  },
+  statusTextConfirmado: {
+    color: "#1D9A41",
+  },
 });
