@@ -15,38 +15,58 @@ export default StyleSheet.create({
     
   },
   header: {
-    marginBottom: 10,
-    paddingBottom: 4,
+    marginBottom: 15,
+    paddingBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: "white",
   },
   title: {
     fontWeight: "bold",
     fontSize: 18,
-    color : "white",
+    color: "white",
+    marginBottom: 4,
+  },
+  subtitle: {
+    color: "white",
+    fontSize: 13,
   },
   item: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "white",
-    borderRadius: 8,
-    padding: 12,
+    borderRadius: 10,
+    padding: 14,
     marginBottom: 10,
   },
   info: {
+    flex: 1,
     flexDirection: "column",
   },
   nome: {
     fontWeight: "800",
     fontSize: 15,
-    color:  "#0D47AB",
+    color: "#0D47AB",
+    marginBottom: 4,
+  },
+  especialidade: {
+    color: "black",
+    fontSize: 12,
+    marginBottom: 4,
+  },
+  horaContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   hora: {
     color: "#0D47AB",
+    fontSize: 13,
+    fontWeight: "600",
   },
   statusContainer: {
     borderRadius: 20,
-    paddingVertical: 4,
-    paddingHorizontal: 10,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
   },
   agendado: {
     backgroundColor: "#FFF5E0",
@@ -56,12 +76,21 @@ export default StyleSheet.create({
   },
   statusText: {
     fontWeight: "bold",
-    fontSize: 13,
+    fontSize: 12,
   },
   statusTextAgendado: {
     color: "#D97B00",
   },
   statusTextConfirmado: {
     color: "#1D9A41",
+  },
+  emptyState: {
+    alignItems: "center",
+    paddingVertical: 30,
+  },
+  emptyText: {
+    color: "white",
+    marginTop: 10,
+    fontSize: 14,
   },
 });

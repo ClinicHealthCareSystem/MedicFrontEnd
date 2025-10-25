@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import styles from "../stylesComponents/cardNotificacao";
 
@@ -35,21 +35,19 @@ export default function CardNotificacao() {
         <Text style={styles.title}>Alertas e Notificações</Text>
       </View>
 
-      <FlatList<Notificacao>
-        data={dados}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={[styles.item, { backgroundColor: item.backgroundColor }]}> 
-            <View style={styles.iconContainer}> 
-              <Ionicons name={item.icone} size={24} color="#0D47AB" /> 
-            </View> 
-            <View style={styles.info}> 
-              <Text style={styles.alerta}>{item.alerta}</Text> 
-              <Text style={styles.alertaDescr}>{item.alertaDescr}</Text> 
-            </View> 
+      <View>
+        {dados.map((item) => (
+          <View key={item.id} style={[styles.item, { backgroundColor: item.backgroundColor }]}>
+            <View style={styles.iconContainer}>
+              <Ionicons name={item.icone} size={24} color="#0D47AB" />
+            </View>
+            <View style={styles.info}>
+              <Text style={styles.alerta}>{item.alerta}</Text>
+              <Text style={styles.alertaDescr}>{item.alertaDescr}</Text>
+            </View>
           </View>
-        )}
-      />
+        ))}
+      </View>
     </View>
   );
 }

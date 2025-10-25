@@ -1,38 +1,41 @@
 import { StyleSheet } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
 
 export default StyleSheet.create({
-cardCounts:{
+  cardCounts: {
     backgroundColor: "#0D47AB",
-    borderRadius: 8,
-    padding: 20,
+    borderRadius: 12,
+    padding: 16,
     marginVertical: 20,
-    marginHorizontal: 20,
-    marginRight: 15,
-    width: 200,
-    height: 100,
+    marginHorizontal: 8,
+    width: 130,
+    height: 120,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.7,
     shadowRadius: 8,
-    elevation: 5,
-},
-caixaTitulo:{
-marginBottom: 10,
-},
-textTitulo:{
+    elevation: 8,
+    justifyContent: "center",
+  },
+  headerCard: {
+    alignItems: "flex-start",
+  },
+  caixaTitulo: {
+    marginTop: 8,
+  },
+  textTitulo: {
     color: "white",
     fontWeight: "600",
+    fontSize: 13,
     textAlign: "center",
-
-},
-caixaNumber:{
-},
-textNumber:{
+  },
+  caixaNumber: {
+    marginVertical: 10,
+    
+  },
+  textNumber: {
     color: "white",
+    fontSize: 32,
+    fontWeight: "bold",
     textAlign: "center",
-    fontSize: 25
-}
-
-
+  },
 });
