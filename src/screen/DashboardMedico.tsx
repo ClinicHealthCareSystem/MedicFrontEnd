@@ -3,6 +3,8 @@ import HeaderHome from "../componentes/headerHome";
 import styles from "../styles/pacientes";
 import CardCounts from "../componentes/cardCounts";
 import CardAgendados from "../componentes/cardAgendados";
+import cardNotificacao from "../stylesComponents/cardNotificacao";
+import CardNotificacao from "../componentes/cardNotificacao";
 export default function DashboardMedico(){
     return(
             <View style={styles.background}>
@@ -18,6 +20,7 @@ export default function DashboardMedico(){
                 </ScrollView>
                 <ScrollView>
                     <CardAgendados />
+                    <CardNotificacao />
                 </ScrollView>
             </View>
     )
