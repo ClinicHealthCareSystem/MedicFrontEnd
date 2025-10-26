@@ -225,11 +225,13 @@ export default function Agenda(){
               backgroundColor: '#ADD8E6',
               calendarBackground: '#ADD8E6',
               selectedDayBackgroundColor: '#3284f1',
-              selectedDayTextColor: 'red',
+              selectedDayTextColor: 'white',
               todayTextColor: 'white',
-              dayTextColor: '#2d4150',
-              textDisabledColor: '#d9e1e8',
-              arrowColor: '#3284f1',
+              dayTextColor: 'white',
+              textDisabledColor: 'black',
+              arrowColor: "#0D47AB",
+              monthTextColor: "#0D47AB",
+              
             }}
           />
         </View>
@@ -325,9 +327,7 @@ export default function Agenda(){
       </ScrollView>
 
       
-      <TouchableOpacity style={styles.fab}>
-        <Text style={styles.fabText}>+</Text>
-      </TouchableOpacity>
+      
 
       
       <View style={styles.legend}>
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     backgroundColor: '#ADD8E6',
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: 'white',
   },
   calendarButton: {
     flexDirection: 'row',
@@ -371,12 +371,12 @@ const styles = StyleSheet.create({
   calendarButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#333',
+    color: '#0D47AB',
     marginRight: 5,
   },
   calendarIcon: {
     fontSize: 12,
-    color: '#666',
+    color: '#0D47AB',
   },
   viewModeButtons: {
     flexDirection: 'row',
@@ -394,16 +394,16 @@ const styles = StyleSheet.create({
   },
   viewButtonText: {
     fontSize: 14,
-    color: '#666',
+    color: '#0D47AB',
     fontWeight: '500',
   },
   viewButtonTextActive: {
-    color: '#fff',
+    color: 'white',
   },
   calendarContainer: {
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     borderBottomWidth: 1,
-    borderBottomColor: 'red',
+    borderBottomColor: 'white',
   },
   scheduleContainer: {
     flex: 1,
@@ -412,7 +412,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#ADD8E6',
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: 'white',
     paddingVertical: 10,
   },
   timeColumnHeader: {
@@ -426,14 +426,17 @@ const styles = StyleSheet.create({
   dayHeaderSingle: {
     flex: 1,
     minWidth: width - 80,
+    
   },
   weekDayText: {
     fontSize: 12,
-    color: '#666',
+    color: '#0D47AB',
     marginBottom: 4,
+    
   },
   selectedDayText: {
-    color: '#3284f1',
+    
+    color: 'white',
     fontWeight: '600',
   },
   dayCircle: {
@@ -445,18 +448,22 @@ const styles = StyleSheet.create({
   },
   selectedDayCircle: {
     backgroundColor: '#3284f1',
+    
   },
   dayNumber: {
     fontSize: 16,
-    color: '#333',
+    color: '#0D47AB',
+    
   },
   selectedDayNumber: {
-    color: '#fff',
+    color: 'white',
     fontWeight: 'bold',
+    
   },
   scheduleGrid: {
     flexDirection: 'row',
     paddingBottom: 20,
+    
   },
   timeColumn: {
     width: 60,
@@ -469,14 +476,14 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 12,
-    color: '#666',
+    color: '#0D47AB',
     textAlign: 'right',
   },
   dayColumn: {
     flex: 1,
     minWidth: 100,
     borderLeftWidth: 1,
-    borderLeftColor: '#e0e0e0',
+    borderLeftColor: 'white',
     position: 'relative',
   },
   dayColumnSingle: {
@@ -485,7 +492,7 @@ const styles = StyleSheet.create({
   hourLine: {
     height: 60,
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
+    borderBottomColor: 'white',
   },
   appointmentBlock: {
     position: 'absolute',
@@ -521,34 +528,11 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: 4,
   },
-  fab: {
-    position: 'absolute',
-    bottom: 80,
-    right: 20,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: '#3284f1',
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-  },
-  fabText: {
-    fontSize: 32,
-    color: '#fff',
-    fontWeight: '300',
-  },
   legend: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 12,
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderTopColor: '#e0e0e0',
+    backgroundColor: '#ADD8E6',
   },
   legendItem: {
     flexDirection: 'row',
@@ -562,7 +546,7 @@ const styles = StyleSheet.create({
   },
   legendText: {
     fontSize: 12,
-    color: '#666',
+    color: '#0D47AB',
   },
 });
 
