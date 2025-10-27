@@ -1,175 +1,69 @@
-
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
-import { Calendar, LocaleConfig } from 'react-native-calendars';
-import HeaderHome from '../componentes/headerHome';
+import React, { useState } from "react";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import { Calendar } from "react-native-calendars";
+import HeaderHome from "../componentes/headerHome";
+import Legenda from "../componentes/legendaCalendario";
 import styles from "../styles/agenda";
 
+import { Appointment } from "../utils/calendarTypes";
+import {
+  getWeekDates,
+  getStatusColor,
+  getTypeColor,
+  calculateHeight,
+  calculateTop,
+  formatDate,
+} from "../utils/calendarCards";
 
+import "../utils/calendarConfig";
 
-LocaleConfig.locales['pt-br'] = {
-  monthNames: [
-    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
-    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro',
+export default function Agenda() {
+const appointments: { [key: string]: Appointment[] } = {
+  "2024-10-19": [
+    {
+      id: "1",
+      startTime: "09:00",
+      endTime: "10:00",
+      patientName: "João Silva",
+      status: "Pendente",
+      type: "Consulta",
+      description: "Consulta de rotina",
+    },
+    {
+      id: "2",
+      startTime: "10:00",
+      endTime: "11:00",
+      patientName: "Maria Santos",
+      status: "Confirmado",
+      type: "Retorno",
+      description: "Retorno pós-cirúrgico",
+    },
   ],
-  monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-  dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-  dayNamesShort: ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB'],
-  today: 'Hoje',
+  "2024-10-20": [
+    {
+      id: "3",
+      startTime: "09:00",
+      endTime: "10:00",
+      patientName: "Ana Paula",
+      status: "Confirmado",
+      type: "Exame",
+    },
+  ],
 };
-LocaleConfig.defaultLocale = 'pt-br';
-
-interface Appointment {
-  id: string;
-  startTime: string;
-  endTime: string;
-  patientName: string;
-  status: 'Pendente' | 'Confirmado' | 'Cancelado';
-  type: 'Consulta' | 'Exame' | 'Retorno';
-  description?: string;
-}
-
-export default function Agenda(){ 
-  const [selectedDate, setSelectedDate] = useState('2024-10-19');
-  const [viewMode, setViewMode] = useState<'day' | 'week'>('week');
+  const [selectedDate, setSelectedDate] = useState("2024-10-19");
+  const [viewMode, setViewMode] = useState<"day" | "week">("week");
   const [showCalendar, setShowCalendar] = useState(false);
 
-  
-  const appointments: { [key: string]: Appointment[] } = {
-    '2024-10-19': [
-      {
-        id: '1',
-        startTime: '09:00',
-        endTime: '10:00',
-        patientName: 'João Silva',
-        status: 'Pendente',
-        type: 'Consulta',
-        description: 'Consulta de rotina',
-      },
-      {
-        id: '2',
-        startTime: '10:00',
-        endTime: '11:00',
-        patientName: 'Maria Santos',
-        status: 'Confirmado',
-        type: 'Retorno',
-        description: 'Retorno pós-cirúrgico',
-      },
-      {
-        id: '3',
-        startTime: '14:00',
-        endTime: '15:30',
-        patientName: 'Carlos Oliveira',
-        status: 'Pendente',
-        type: 'Consulta',
-      },
-    ],
-    '2024-10-20': [
-      {
-        id: '4',
-        startTime: '09:00',
-        endTime: '10:00',
-        patientName: 'Ana Paula',
-        status: 'Confirmado',
-        type: 'Exame',
-      },
-      {
-        id: '5',
-        startTime: '11:00',
-        endTime: '12:00',
-        patientName: 'Pedro Costa',
-        status: 'Confirmado',
-        type: 'Consulta',
-      },
-    ],
-    '2024-10-21': [
-      {
-        id: '6',
-        startTime: '10:00',
-        endTime: '11:00',
-        patientName: 'Fernanda Lima',
-        status: 'Pendente',
-        type: 'Retorno',
-      },
-    ],
-  };
-
-  const getWeekDates = (date: string) => {
-    const current = new Date(date);
-    const week = [];
-    
-    for (let i = 0; i < 7; i++) {
-      const day = new Date(current);
-      day.setDate(current.getDate() - current.getDay() + i);
-      week.push(day.toISOString().split('T')[0]);
-    }
-    
-    return week;
-  };
-
   const weekDates = getWeekDates(selectedDate);
-  const displayDates = viewMode === 'week' ? weekDates : [selectedDate];
-
-  const getStatusColor = (status: string): string => {
-    switch (status) {
-      case 'Pendente': return '#FFA500';
-      case 'Confirmado': return '#4CAF50';
-      case 'Cancelado': return '#F44336';
-      default: return '#999';
-    }
-  };
-
-  const getTypeColor = (type: string): string => {
-    switch (type) {
-      case 'Consulta': return '#2196F3';
-      case 'Exame': return '#4CAF50';
-      case 'Retorno': return '#FFA500';
-      default: return '#999';
-    }
-  };
-
-  const timeToMinutes = (time: string): number => {
-    const [hours, minutes] = time.split(':').map(Number);
-    return hours * 60 + minutes;
-  };
-
-  const calculateHeight = (startTime: string, endTime: string): number => {
-    const start = timeToMinutes(startTime);
-    const end = timeToMinutes(endTime);
-    const duration = end - start;
-    return (duration / 60) * 60; 
-  };
-
-  const calculateTop = (time: string): number => {
-    const minutes = timeToMinutes(time);
-    const startOfDay = 8 * 60; 
-    return ((minutes - startOfDay) / 60) * 60;
-  };
-
+  const displayDates = viewMode === "week" ? weekDates : [selectedDate];
   const hours = Array.from({ length: 12 }, (_, i) => i + 8);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const weekDay = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB'][date.getDay()];
-    return { day, weekDay };
-  };
-
   const markedDates = {
-    [selectedDate]: {
-      selected: true,
-      selectedColor: '#3284f1',
-    },
+    [selectedDate]: { selected: true, selectedColor: "#3284f1" },
   };
 
   return (
-    <View style={styles.container}>
+        <View style={styles.container}>
     <HeaderHome  titulo="Calendário" 
         mostrarBusca={false}
         mostrarVoltar={true}/>
@@ -324,29 +218,8 @@ export default function Agenda(){
           </View>
         </ScrollView>
       </ScrollView>
-
       
-      
-
-      
-      <View style={styles.legend}>
-        <View style={styles.legendItem}>
-          <View style={[styles.legendDot, { backgroundColor: '#2196F3' }]} />
-          <Text style={styles.legendText}>Consulta</Text>
-        </View>
-        <View style={styles.legendItem}>
-          <View style={[styles.legendDot, { backgroundColor: '#4CAF50' }]} />
-          <Text style={styles.legendText}>Exame</Text>
-        </View>
-        <View style={styles.legendItem}>
-          <View style={[styles.legendDot, { backgroundColor: '#FFA500' }]} />
-          <Text style={styles.legendText}>Retorno</Text>
-        </View>
-      </View>
+      <Legenda />
     </View>
   );
 };
-
-
-
-
