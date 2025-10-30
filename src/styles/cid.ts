@@ -16,7 +16,6 @@ buscaContainer: {
   backgroundColor: '#F5F5F5',
   borderRadius: 12,
   paddingHorizontal: 12,
-  paddingVertical: 5,
   marginBottom: 16,
 },
 buscaIcon: {
