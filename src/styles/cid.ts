@@ -16,7 +16,7 @@ buscaContainer: {
   backgroundColor: '#F5F5F5',
   borderRadius: 12,
   paddingHorizontal: 12,
-  paddingVertical: 10,
+  paddingVertical: 5,
   marginBottom: 16,
 },
 buscaIcon: {
@@ -25,7 +25,9 @@ buscaIcon: {
 buscaInput: {
   flex: 1,
   fontSize: 16,
-  color: '#333',
+  color: 'black',
+  outlineWidth: 0,
+  overflow: "hidden",
 },
 infoContainer: {
   flexDirection: 'row',
@@ -35,7 +37,7 @@ infoContainer: {
 },
 infoTexto: {
   fontSize: 14,
-  color: '#666',
+  color: '#0D47AB',
 },
 btnLimparSelecao: {
   paddingHorizontal: 12,
@@ -49,23 +51,17 @@ lista: {
   paddingBottom: 100,
 },
 cidItem: {
-  backgroundColor: '#FFF',
+  backgroundColor: '#0D47AB',
   borderRadius: 12,
   padding: 16,
   marginBottom: 12,
-  borderWidth: 1,
-  borderColor: '#E0E0E0',
-  shadowColor: '#000',
+  shadowColor: 'black',
   shadowOffset: { width: 0, height: 2 },
   shadowOpacity: 0.05,
   shadowRadius: 4,
   elevation: 2,
 },
-cidItemSelecionado: {
-  borderColor: '#4CAF50',
-  borderWidth: 2,
-  backgroundColor: '#F1F8F4',
-},
+
 cidItemHeader: {
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -75,17 +71,17 @@ cidItemHeader: {
 cidCodigo: {
   fontSize: 18,
   fontWeight: 'bold',
-  color: '#007AFF',
+  color: 'white',
 },
 cidDescricao: {
   fontSize: 16,
-  color: '#333',
+  color: 'white',
   marginBottom: 6,
   lineHeight: 22,
 },
 cidCapitulo: {
   fontSize: 13,
-  color: '#666',
+  color: 'white',
   fontStyle: 'italic',
 },
 loadingContainer: {
@@ -101,13 +97,13 @@ emptyContainer: {
 },
 emptyTexto: {
   fontSize: 18,
-  color: '#999',
+  color: '#0D47AB',
   marginTop: 16,
   fontWeight: '600',
 },
 emptySubtexto: {
   fontSize: 14,
-  color: '#BBB',
+  color: '#0D47AB',
   marginTop: 8,
 },
 
