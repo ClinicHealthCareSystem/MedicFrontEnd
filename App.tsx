@@ -6,6 +6,7 @@ import DashboardPaciente from './src/screen/DashboardPaciente';
 import DashboardMedico from './src/screen/DashboardMedico';
 import Agenda from './src/screen/Agenda';
 import Cid10 from './src/screen/Cid-10';
+import  Perfil  from './src/screen/Perfil';
 export default function App() {
   return (
 
@@ -15,7 +16,8 @@ export default function App() {
     // <DashboardPaciente/>
     // <DashboardMedico />
     // <Agenda />
-    <Cid10 />
+    // <Cid10 />
+    <Perfil />
     
   );
 }
