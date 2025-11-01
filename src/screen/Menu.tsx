@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import TabsNavegation from "../componentes/tabsNavegation";
 import HeaderHome from "../componentes/headerHome";
 import MenuCard from "../componentes/menuCard";
+import { useRouter } from "expo-router";
 
 type Botao = {
   id: number;
@@ -15,7 +16,7 @@ type Botao = {
 };
 
 export default function Menu() {
-  
+  const router = useRouter();
 
   const card: Botao[] = [
     {
@@ -46,20 +47,17 @@ export default function Menu() {
 
   const handleNavigation = (title: string) => {
     switch (title) {
-      case "AGENDAMENTO":
-        
+      case "PACIENTES":
+        router.push("/pacientes");
         break;
-      case "RESULTADOS":
-       
+      case "PRONTUÁRIOS MÉDICOS":
+        router.push("/dashboardMedico");
         break;
-      case "MEDICAMENTOS":
-        
+      case "AGENDA MÉDICA":
+        router.push("/agenda");
         break;
-      case "PLANOS":
-      
-        break;
-      case "CHATBOT":
-        
+      case "CLASSIFICAÇÃO CID-10":
+        router.push("/CID10");
         break;
     }
   };

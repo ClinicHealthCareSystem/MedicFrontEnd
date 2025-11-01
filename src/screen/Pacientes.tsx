@@ -23,14 +23,14 @@ export default function Pacientes(){
     return(
 
     <View style={styles.background}>
-    <HeaderHome mostrarBusca={false} titulo="Pacientes" subTitulo="Gerencie seus Pacientes" />
+    <HeaderHome mostrarBusca={false} titulo="Pacientes" subTitulo="Gerencie seus Pacientes" mostrarVoltar={true}/>
     <ScrollView>
     {card.map((item) => (
             <CardPaciente
               nome={item.nome}
               detalhes={item.detalhes}
               telefone={item.telefone}
-
+              
             />
           ))}
 

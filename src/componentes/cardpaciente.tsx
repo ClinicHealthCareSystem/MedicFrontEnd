@@ -1,5 +1,6 @@
 import { View, ScrollView, Text,TouchableOpacity } from "react-native";
 import styles from "../stylesComponents/cardpaciente";
+import { router } from "expo-router";
 
 type CardTypesPaciente = {
   nome: string;
@@ -35,7 +36,7 @@ export default function CardPaciente({
             <Text style={styles.textInfo}>{telefone}</Text>
         </View>
             <View>
-                <TouchableOpacity style={styles.buttonProntu}> 
+                <TouchableOpacity style={styles.buttonProntu} onPress={() => router.push("/dashboardPaciente")}> 
                     <Text style={styles.buttonProntuText}>Ver prontuario</Text>
                 </TouchableOpacity>
             </View>

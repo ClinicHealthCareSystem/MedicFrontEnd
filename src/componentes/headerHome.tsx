@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, View, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import styles from "../stylesComponents/headHome"
+import { router } from "expo-router";
 
 export default function HeaderHome({
   titulo = "Saúde Mania",
@@ -18,8 +19,9 @@ export default function HeaderHome({
         
         {mostrarVoltar ? (
           <TouchableOpacity
-            
+            onPress={() => router.back()}
             style={styles.headerBackButton}
+
           >
             <Ionicons name="arrow-back" size={24} color="white" />
           </TouchableOpacity>
