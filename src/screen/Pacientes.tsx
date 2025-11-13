@@ -4,10 +4,10 @@ import styles from "../styles/pacientes"
 import CardPaciente from "../componentes/cardpaciente";
 type CardTypesPaciente = {
   nome: string;
-  detalhes: string;
+  idade: string;
   telefone : string;
-  
-  
+  diaConsulta: string;
+  detalhes: string;
 };
 export default function Pacientes(){
 
@@ -15,22 +15,24 @@ export default function Pacientes(){
     const card: CardTypesPaciente[] = [
     {
       nome: "José",
-      detalhes: "40 anos",
-      telefone: "(85) 9 99999999"
-      
+      idade: "40 anos",
+      telefone: "(85) 9 99999999",
+      diaConsulta: "15/08/2025",
+      detalhes: "Resfriado"
     },
 ];
     return(
 
     <View style={styles.background}>
-    <HeaderHome mostrarBusca={false} titulo="Pacientes" subTitulo="Gerencie seus Pacientes" mostrarVoltar={true}/>
+    <HeaderHome mostrarBusca={false} titulo="Pacientes" subTitulo="Visualize seus Pacientes" mostrarVoltar={true}/>
     <ScrollView>
     {card.map((item) => (
             <CardPaciente
               nome={item.nome}
-              detalhes={item.detalhes}
+              idade={item.idade}
               telefone={item.telefone}
-              
+              diaConsulta={item.diaConsulta}
+              detalhes={item.detalhes}
             />
           ))}
 

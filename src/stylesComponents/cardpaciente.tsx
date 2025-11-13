@@ -20,14 +20,20 @@ flexDirection: "row",
     marginBottom: 8,
 },
 avatar:{
-    backgroundColor:"white",
-    width: 50,
+     width: 50,
     height: 50,
-    borderRadius: 25,
-    marginRight: 12,
-    justifyContent: "center",
-alignItems: "center",
+    borderRadius: 50,
 },
+  avatarCaixa: {
+    height: 50,
+    width: 50,
+    borderRadius: 50,
+    backgroundColor: "#0D47AB",
+    justifyContent: "center",
+    alignItems: "center",
+    
+  },
+
 avatarText:{
 color: "white",
 fontWeight: "bold",
