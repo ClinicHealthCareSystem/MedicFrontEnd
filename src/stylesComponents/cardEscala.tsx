@@ -28,6 +28,7 @@ export default StyleSheet.create({
     borderRadius: 8,
     padding: 12,
     marginBottom: 10,
+    backgroundColor: 'white'
   },
   iconContainer: {
     marginRight: 12,

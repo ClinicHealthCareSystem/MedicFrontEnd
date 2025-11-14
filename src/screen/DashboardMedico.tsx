@@ -4,7 +4,7 @@ import HeaderHome from "../componentes/headerHome";
 import styles from "../styles/pacientes";
 import CardCounts from "../componentes/cardCounts";
 import CardAgendados from "../componentes/cardAgendados";
-import CardNotificacao from "../componentes/cardNotificacao";
+import CardEscala from "../componentes/cardEscala";
 import HorizontalScroll from "../componentes/horizontalScroll";
 
 export default function DashboardMedico() {
@@ -34,7 +34,7 @@ export default function DashboardMedico() {
       case "agendados":
         return <CardAgendados />;
       case "notificacoes":
-        return <CardNotificacao />;
+        return <CardEscala />;
       default:
         return null;
     }

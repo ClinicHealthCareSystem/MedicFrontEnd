@@ -27,8 +27,8 @@ export default function Menu() {
     },
     {
       id: 2,
-      title: "PRONTUÁRIOS MÉDICOS",
-      descricao: "Visuazie os Prontuários",
+      title: "Dashboard",
+      descricao: "Informações sobre sua escala",
       icon: "document-text-outline",
     },
     {
