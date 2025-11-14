@@ -18,39 +18,52 @@ export default function CardPaciente({
   telefone,
   diaConsulta,
   detalhes,
-}: CardTypesPaciente){
-    return(
-        <View style={styles.card}>
-        <View style={styles.header}> 
-            <View style={styles.avatarCaixa}>
-            <Ionicons
-              name="person-circle"
-              style={styles.avatar}
-              size={50}
-              color={"white"}
-            />
-          </View>
-        
+}: CardTypesPaciente) {
+  return (
+    <View style={styles.card}>
+
+      
+      <View style={styles.header}>
+        <View style={styles.avatarCaixa}>
+          <Ionicons
+            name="person-circle"
+            style={styles.avatar}
+            size={55}
+            color={"white"}
+          />
+        </View>
 
         <View style={styles.info}>
-            <Text style={styles.nome}>{nome}</Text>
-            <Text style={styles.detalhes}>{idade}</Text>
+          <Text style={styles.nome}>{nome}</Text>
+          <Text style={styles.detalhes}>{idade}</Text>
         </View>
-        </View>
+      </View>
+
+      <View style={styles.infosCaixa}>
         <View style={styles.linhaInfo}>
-            <Text style={styles.textInfo}>{diaConsulta}</Text>
+          <Ionicons name="call" size={14} color="white" />
+          <Text style={styles.textInfo}>{telefone}</Text>
         </View>
+
         <View style={styles.linhaInfo}>
-            <Text style={styles.textInfo}>{telefone}</Text>
+          <Ionicons name="calendar" size={14} color="white" />
+          <Text style={styles.textInfo}>Consulta: {diaConsulta}</Text>
         </View>
-        <View style={styles.linhaInfo}>
+
+        {detalhes ? (
+          <View style={styles.linhaInfo}>
+            <Ionicons name="document-text" size={14} color="white" />
             <Text style={styles.textInfo}>{detalhes}</Text>
-        </View>
-            <View>
-                <TouchableOpacity style={styles.buttonProntu} onPress={() => router.push("/dashboardPaciente")}> 
-                    <Text style={styles.buttonProntuText}>Ver prontuario</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
+          </View>
+        ) : null}
+      </View>
+      <TouchableOpacity
+        style={styles.buttonProntu}
+        onPress={() => router.push("/dashboardPaciente")}
+      >
+        <Text style={styles.buttonProntuText}>Ver prontuário</Text>
+      </TouchableOpacity>
+
+    </View>
+  );
 }

@@ -5,28 +5,27 @@ export default StyleSheet.create({
 card:{
 backgroundColor: "#0D47AB",
 borderRadius: 12,
-padding: 15,
-marginVertical: 8,
+padding: 16,
+marginVertical: 10,
 marginHorizontal: 16,
 shadowOffset: { width: 0, height: 2 },
 shadowOpacity: 0.7,
 shadowRadius: 8,
-
-
+shadowColor: "black",
 },
 header:{
 flexDirection: "row", 
     alignItems: "center",
-    marginBottom: 8,
+    marginBottom: 12,
 },
 avatar:{
-     width: 50,
-    height: 50,
+     width: 55,
+    height: 55,
     borderRadius: 50,
 },
   avatarCaixa: {
-    height: 50,
-    width: 50,
+    height: 58,
+    width: 58,
     borderRadius: 50,
     backgroundColor: "#0D47AB",
     justifyContent: "center",
@@ -41,38 +40,42 @@ fontSize: 16,
 
 
 },
+infosCaixa:{
+marginTop: 5,
+},
 
 info:{
     flex: 1,
+    marginLeft: 12,
 
 },
 nome:{
     fontWeight: "bold",
     fontSize: 15,
-    color: "white"
+    color: "white",
+    marginBottom: 2,
 
 },
 detalhes:{
     color: "white",
     fontSize: 12,
-    marginBottom: 5,
-
 },
 linhaInfo:{
 flexDirection: "row",
 alignContent: "center",
-marginBottom: 3,
+marginBottom: 6,
 
 },
 textInfo:{
 fontSize: 12,
 color: "white",
-marginLeft: 5,
+marginLeft: 6,
 },
 buttonProntu:{
     backgroundColor:  "#3284f1",
-      borderRadius: 8,
-      padding: 5,
+      borderRadius: 10,
+      paddingVertical: 10,
+      marginTop: 12,
 },
  buttonProntuText:{
     textAlign: "center",
@@ -82,8 +85,4 @@ buttonProntu:{
     
 
   },
-
-
-
-
 });

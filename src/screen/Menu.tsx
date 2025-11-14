@@ -27,7 +27,7 @@ export default function Menu() {
     },
     {
       id: 2,
-      title: "Dashboard",
+      title: "DASHBOARD",
       descricao: "Informações sobre sua escala",
       icon: "document-text-outline",
     },
@@ -50,7 +50,7 @@ export default function Menu() {
       case "PACIENTES":
         router.push("/pacientes");
         break;
-      case "PRONTUÁRIOS MÉDICOS":
+      case "DASHBOARD":
         router.push("/dashboardMedico");
         break;
       case "AGENDA MÉDICA":
