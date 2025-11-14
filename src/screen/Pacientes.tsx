@@ -1,4 +1,5 @@
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import HeaderHome from "../componentes/headerHome";
 import styles from "../styles/pacientes"
 import CardPaciente from "../componentes/cardpaciente";
@@ -25,6 +26,11 @@ export default function Pacientes(){
 
     <View style={styles.background}>
     <HeaderHome mostrarBusca={false} titulo="Pacientes" subTitulo="Visualize seus Pacientes" mostrarVoltar={true}/>
+    <View style={styles.filterIcon}>
+      <TouchableOpacity>
+      <Ionicons name="filter-outline" size={30} color="#0D47AB" />
+      </TouchableOpacity>
+      </View> 
     <ScrollView>
     {card.map((item) => (
             <CardPaciente
