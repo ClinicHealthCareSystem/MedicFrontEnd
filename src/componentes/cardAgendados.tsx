@@ -20,9 +20,15 @@ export default function CardAgendados() {
   return (
     <View style={styles.card}>
       <View style={styles.header}>
-        <Text style={styles.title}>Agenda de Hoje</Text>
-        <Text style={styles.subtitle}>{dados.length} consulta(s)</Text>
-      </View>
+      <View style={styles.headerTop}>
+    <Text style={styles.title}>Agenda de Hoje</Text>
+
+    <TouchableOpacity>
+      <Ionicons name="filter-outline" size={22} color="white" />
+    </TouchableOpacity>
+  </View>
+  <Text style={styles.subtitle}>{dados.length} consulta(s)</Text>
+</View>
 
       {dados.length === 0 ? (
         <View style={styles.emptyState}>

@@ -20,6 +20,11 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "white",
   },
+  headerTop: {
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+},
   title: {
     fontWeight: "bold",
     fontSize: 18,
@@ -30,6 +35,10 @@ export default StyleSheet.create({
     color: "white",
     fontSize: 13,
   },
+  filterIcon:{
+flexDirection: "row",
+justifyContent: "flex-end",
+},
   item: {
     flexDirection: "row",
     justifyContent: "space-between",
