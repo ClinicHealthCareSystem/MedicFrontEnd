@@ -33,6 +33,19 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: "white",
   },
+  iconContainer: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: RFValue(4),
+    },
+      cardButton: {
+      width: '100%',
+      height: '100%',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: RFValue(8),
+    },
+
 
   textCards: {
     fontSize: RFValue(18),
