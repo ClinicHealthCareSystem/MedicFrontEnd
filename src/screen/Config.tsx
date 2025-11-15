@@ -1,7 +1,7 @@
 import { View, ScrollView, Switch, TouchableOpacity, Text } from "react-native";
 import React, { useState } from "react";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import styles from "../styles/config";
+import {configStyles} from "../styles/config";
 import HeaderHome from "../componentes/headerHome";
 import TabsNavegation from "../componentes/tabsNavegation";
 
@@ -11,11 +11,11 @@ export default function Config() {
   const [SilenceNotific, SetSilenceNotific] = useState(false);
 
   return (
-    <View style={styles.background}>
+    <View style={configStyles.background}>
       <HeaderHome  mostrarBusca={false} mostrarVoltar={true} titulo="Configurações"/>
-      <ScrollView contentContainerStyle={styles.scrollArea}>
-        <View style={styles.caixa}>
-          <Text style={styles.texto}>Aumentar a Fonte</Text>
+      <ScrollView contentContainerStyle={configStyles.scrollArea}>
+        <View style={configStyles.caixa}>
+          <Text style={configStyles.texto}>Aumentar a Fonte</Text>
           <Switch
             value={FontSize}
             onValueChange={SetFontsize}
@@ -24,8 +24,8 @@ export default function Config() {
           />
         </View>
 
-        <View style={styles.caixa}>
-          <Text style={styles.texto}>Modo Escuro</Text>
+        <View style={configStyles.caixa}>
+          <Text style={configStyles.texto}>Modo Escuro</Text>
           <Switch
             value={DarkMode}
             onValueChange={SetDarkMode}
@@ -34,8 +34,8 @@ export default function Config() {
           />
         </View>
 
-        <View style={styles.caixa}>
-          <Text style={styles.texto}>Silenciar Notificação</Text>
+        <View style={configStyles.caixa}>
+          <Text style={configStyles.texto}>Silenciar Notificação</Text>
           <Switch
             value={SilenceNotific}
             onValueChange={SetSilenceNotific}
@@ -44,8 +44,8 @@ export default function Config() {
           />
         </View>
 
-        <View style={styles.caixa2}>
-          <Text style={styles.textoSair}>Sair</Text>
+        <View style={configStyles.caixa2}>
+          <Text style={configStyles.textoSair}>Sair</Text>
           <TouchableOpacity>
             <MaterialIcons name="logout" size={20} color="red" />
           </TouchableOpacity>

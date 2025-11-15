@@ -1,7 +1,7 @@
 import { View, FlatList, RefreshControl } from "react-native";
 import { useState, useCallback } from "react";
 import HeaderHome from "../componentes/headerHome";
-import styles from "../styles/pacientes";
+import {pacientesStyles} from "../styles/pacientes";
 import CardCounts from "../componentes/cardCounts";
 import CardAgendados from "../componentes/cardAgendados";
 import CardEscala from "../componentes/cardEscala";
@@ -44,7 +44,7 @@ export default function DashboardMedico() {
   const sections = ["horizontalCards", "agendados", "notificacoes"];
 
   return (
-    <View style={styles.background}>
+    <View style={pacientesStyles.background}>
       <HeaderHome titulo="Dashboard" mostrarBusca={false} mostrarVoltar={true} />
       
       <FlatList

@@ -1,6 +1,6 @@
 import {View, ScrollView} from "react-native";
 import { useState } from "react";
-import styles from "../styles/pacientes";
+import {pacientesStyles} from "../styles/pacientes";
 import CardDashboard from "../componentes/cardashboard";
 import HeaderHome from "../componentes/headerHome";
 import TabsNavegationDash from "../componentes/tabsNavegationDash";
@@ -10,7 +10,7 @@ export default function DashboardPaciente() {
     "opcao1"
   );
     return(
-        <View style={styles.background}>
+        <View style={pacientesStyles.background}>
             <HeaderHome  titulo = "Prontuario" mostrarBusca={false} mostrarVoltar={true}/>
             <ScrollView>
                 <CardDashboard/>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "../../src/styles/menu";
+import {menuStyles} from "../../src/styles/menu";
 import  { BounceInUp,FadeOut } from 'react-native-reanimated';
 import Reanimated from "react-native-reanimated";
 type CardTypes = {
@@ -18,13 +18,13 @@ export default function MenuCard({
   onPress,
 }: CardTypes) {
   return (
-    <Reanimated.View style={styles.buttonCards} entering={BounceInUp.duration(400)} exiting={FadeOut.duration(500)}>
-      <TouchableOpacity style={styles.cardButton} onPress={onPress}>
-        <View style={styles.iconContainer}>
+    <Reanimated.View style={menuStyles.buttonCards} entering={BounceInUp.duration(400)} exiting={FadeOut.duration(500)}>
+      <TouchableOpacity style={menuStyles.cardButton} onPress={onPress}>
+        <View style={menuStyles.iconContainer}>
           <Ionicons name={icon} size={40} color={"white"}/>
         </View>
-        <Text style={styles.textCards}>{title}</Text>
-        <Text style={styles.descricaoCards}>{descricao}</Text>
+        <Text style={menuStyles.textCards}>{title}</Text>
+        <Text style={menuStyles.descricaoCards}>{descricao}</Text>
       </TouchableOpacity>
     </Reanimated.View>
   );

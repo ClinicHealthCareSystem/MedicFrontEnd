@@ -1,110 +1,63 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
+import globalPagesStyles, { pageColors, pageShadows } from "../styles/globalStylesPages";
 
-export default StyleSheet.create({
+const { width } = Dimensions.get('window');
+
+
+export const loginStyles = StyleSheet.create({
   background: {
-    flex: 1,
-    backgroundColor: "#ADD8E6",
+    ...globalPagesStyles.backgroundBase,
     justifyContent: "center",
     paddingHorizontal: 20,
   },
-
   tittle: {
-    color: "#0D47AB",
-    fontSize: 32,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 80,
+    ...globalPagesStyles.titleLarge,
+    color: pageColors.primary,
   },
-
   subtittle: {
-    color: "#0D47AB",
-    fontSize: 20,
-    textAlign: "center",
+    ...globalPagesStyles.titleMedium,
+    color: pageColors.primary,
     bottom: 40,
   },
-
-  inputCaixa: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-    height: 55,
-    backgroundColor: "white",
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    marginBottom: 15,
-  },
-
-  input: {
-    flex: 1,
-    height: "100%",
-    overflow: "hidden",
-    outlineWidth: 0,
-    width: "100%",
-  },
-
+  inputCaixa: globalPagesStyles.inputContainer,
+  input: globalPagesStyles.input,
   eyeOpened: {
-    marginLeft: 10,
-    color: "#0D47AB"
+    ...globalPagesStyles.iconMarginLeft,
+    color: pageColors.primary,
   },
-
   eyeClosed: {
-    marginLeft: 10,
-    color: "#0D47AB"
+    ...globalPagesStyles.iconMarginLeft,
+    color: pageColors.primary,
   },
-
   esqueci: {
+    ...globalPagesStyles.linkText,
     alignSelf: "flex-end",
-    justifyContent: "flex-start",
-    marginBottom: 10,
-    color: "#0D47AB",
-    fontWeight: "bold",
     fontSize: RFValue(14),
-    textDecorationLine: "underline",
+    marginBottom: 10,
   },
-
   button: {
-    backgroundColor: "#3284f1",
-    justifyContent: "center",
+    ...globalPagesStyles.buttonPrimary,
     width: "100%",
-    height: 50,
-    borderRadius: 8,
-    alignItems: "center",
-    marginBottom: 15,
-    marginTop: 15,
   },
-
-  buttonText: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-
+  buttonText: globalPagesStyles.buttonText,
   cadastroCaixa: {
     marginTop: 20,
     alignItems: "center",
   },
-
   text: {
-    color: "#0D47AB",
-    fontSize: 16,
+    ...globalPagesStyles.textPrimary,
   },
-
   cadastro: {
-    fontWeight: "bold",
-    color: "#0D47AB",
-    fontSize: 16,
+    ...globalPagesStyles.textPrimary,
+    ...globalPagesStyles.textBold,
   },
-
-  
-
   id_card: {
     marginRight: 5,
-    color: "#0D47AB"
+    color: pageColors.primary,
   },
-
   lock: {
     marginRight: 5,
-    color: "#0D47AB",
+    color: pageColors.primary,
   },
 });

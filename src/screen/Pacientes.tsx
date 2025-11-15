@@ -1,7 +1,7 @@
 import { View, ScrollView, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import HeaderHome from "../componentes/headerHome";
-import styles from "../styles/pacientes"
+import {pacientesStyles} from "../styles/pacientes"
 import CardPaciente from "../componentes/cardpaciente";
 type CardTypesPaciente = {
   nome: string;
@@ -24,9 +24,9 @@ export default function Pacientes(){
 ];
     return(
 
-    <View style={styles.background}>
+    <View style={pacientesStyles.background}>
     <HeaderHome mostrarBusca={false} titulo="Pacientes" subTitulo="Visualize seus Pacientes" mostrarVoltar={true}/>
-    <View style={styles.filterIcon}>
+    <View style={pacientesStyles.filterIcon}>
       <TouchableOpacity>
       <Ionicons name="filter-outline" size={30} color="#0D47AB" />
       </TouchableOpacity>

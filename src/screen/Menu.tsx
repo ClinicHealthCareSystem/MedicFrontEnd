@@ -1,5 +1,5 @@
 import { View, ScrollView } from "react-native";
-import styles from "../styles/menu";
+import {menuStyles} from "../styles/menu";
 
 import { Ionicons } from "@expo/vector-icons";
 import TabsNavegation from "../componentes/tabsNavegation";
@@ -63,10 +63,10 @@ export default function Menu() {
   };
 
   return (
-    <View style={styles.background}>
+    <View style={menuStyles.background}>
       <HeaderHome mostrarBusca={true} />
-      <ScrollView style={styles.scrollCards}>
-        <View style={styles.cards}>
+      <ScrollView style={menuStyles.scrollCards}>
+        <View style={menuStyles.cards}>
           {card.map((item) => (
             <MenuCard
               title={item.title}

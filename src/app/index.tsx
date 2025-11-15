@@ -6,7 +6,7 @@ import {
   View,
   ScrollView,
 } from "react-native";
-import styles from "../styles/login";
+import {loginStyles} from "../styles/login";
 
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
@@ -28,24 +28,24 @@ export default function Login() {
 
 
   return (
-    <ScrollView contentContainerStyle={styles.background}>
-      <Text style={styles.tittle}>Login Médico</Text>
-      <Text style={styles.subtittle}>Bem-vindo(a) ao Saúde Mania</Text>
+    <ScrollView contentContainerStyle={loginStyles.background}>
+      <Text style={loginStyles.tittle}>Login Médico</Text>
+      <Text style={loginStyles.subtittle}>Bem-vindo(a) ao Saúde Mania</Text>
 
-      <View style={styles.inputCaixa}>
-        <Ionicons name="person-outline" size={30} style={styles.id_card} />
+      <View style={loginStyles.inputCaixa}>
+        <Ionicons name="person-outline" size={30} style={loginStyles.id_card} />
         <TextInput
-          style={styles.input}
+          style={loginStyles.input}
           placeholder="Email institucional"
           
           
         />
       </View>
      
-      <View style={styles.inputCaixa}>
-        <Ionicons name="lock-closed-outline" size={30} style={styles.lock}   />
+      <View style={loginStyles.inputCaixa}>
+        <Ionicons name="lock-closed-outline" size={30} style={loginStyles.lock}   />
         <TextInput
-          style={styles.input}
+          style={loginStyles.input}
           placeholder="Senha"
           value={password}
           onChangeText={(text) => setPassword(text)}
@@ -54,12 +54,12 @@ export default function Login() {
         />
         <TouchableOpacity onPress={passwordEyes}>
           {passwordShow ? (
-            <Ionicons name="eye-outline" size={30} style={styles.eyeOpened} />
+            <Ionicons name="eye-outline" size={30} style={loginStyles.eyeOpened} />
           ) : (
             <Ionicons
               name="eye-off-outline"
               size={30}
-              style={styles.eyeClosed}
+              style={loginStyles.eyeClosed}
             />
           )}
         </TouchableOpacity>
@@ -67,11 +67,11 @@ export default function Login() {
       
 
       <TouchableOpacity>
-        <Text style={styles.esqueci}>Esqueceu a senha?</Text>
+        <Text style={loginStyles.esqueci}>Esqueceu a senha?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={() => router.push("/menu")}>
-        <Text style={styles.buttonText}>Acessar</Text>
+      <TouchableOpacity style={loginStyles.button} onPress={() => router.push("/menu")}>
+        <Text style={loginStyles.buttonText}>Acessar</Text>
       </TouchableOpacity>
 
     </ScrollView>

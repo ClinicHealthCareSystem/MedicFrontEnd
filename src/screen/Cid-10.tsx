@@ -9,7 +9,7 @@ import {
   ListRenderItem,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "../styles/cid";
+import {cidStyles} from "../styles/cid";
 import HeaderHome from "../componentes/headerHome";
 import { CID10_API } from "../hooks/useCid10Api";
 import { useCid10 } from "../hooks/useCId10";
@@ -20,26 +20,26 @@ export default function Cid10() {
 
   const renderItem = ({ item }: {item: Cid10Item}) => (
     <View
-      style={styles.cidItem}
+      style={cidStyles.cidItem}
       
     >
-      <View style={styles.cidItemHeader}>
-        <Text style={styles.cidCodigo}>{item.codigo}</Text>
+      <View style={cidStyles.cidItemHeader}>
+        <Text style={cidStyles.cidCodigo}>{item.codigo}</Text>
       </View>
-      <Text style={styles.cidDescricao}>{item.descricao}</Text>
-      <Text style={styles.cidCapitulo}>{item.capitulo}</Text>
+      <Text style={cidStyles.cidDescricao}>{item.descricao}</Text>
+      <Text style={cidStyles.cidCapitulo}>{item.capitulo}</Text>
     </View>
   );
 
   return (
-    <View style={styles.background}>
+    <View style={cidStyles.background}>
       <HeaderHome titulo="CID-10" mostrarBusca={false} mostrarVoltar={true} />
 
-      <View style={styles.containerCid}>
-        <View style={styles.buscaContainer}>
-          <Ionicons name="search" size={20} color="#0D47AB" style={styles.buscaIcon} />
+      <View style={cidStyles.containerCid}>
+        <View style={cidStyles.buscaContainer}>
+          <Ionicons name="search" size={20} color="#0D47AB" style={cidStyles.buscaIcon} />
           <TextInput
-            style={styles.buscaInput}
+            style={cidStyles.buscaInput}
             placeholder="Buscar por código, doença ou capítulo..."
             value={busca}
             onChangeText={setBusca}
@@ -53,8 +53,8 @@ export default function Cid10() {
         </View>
 
         
-        <View style={styles.infoContainer}>
-          <Text style={styles.infoTexto}>
+        <View style={cidStyles.infoContainer}>
+          <Text style={cidStyles.infoTexto}>
             {resultados.length}{" "}
             {resultados.length === 1 ? "resultado" : "resultados"}
           </Text>
@@ -63,14 +63,14 @@ export default function Cid10() {
 
         
         {carregando ? (
-          <View style={styles.loadingContainer}>
+          <View style={cidStyles.loadingContainer}>
             <ActivityIndicator size="large" color="#007AFF" />
           </View>
         ) : resultados.length === 0 ? (
-          <View style={styles.emptyContainer}>
+          <View style={cidStyles.emptyContainer}>
             <Ionicons name="search-outline" size={48} color="#0D47AB" />
-            <Text style={styles.emptyTexto}>Nenhum resultado encontrado</Text>
-            <Text style={styles.emptySubtexto}>
+            <Text style={cidStyles.emptyTexto}>Nenhum resultado encontrado</Text>
+            <Text style={cidStyles.emptySubtexto}>
               Tente buscar por outro termo
             </Text>
           </View>
@@ -79,7 +79,7 @@ export default function Cid10() {
             data={resultados}
             renderItem={renderItem}
             keyExtractor={(item) => item.codigo}
-            contentContainerStyle={styles.lista}
+            contentContainerStyle={cidStyles.lista}
             showsVerticalScrollIndicator={false}
           />
         )}
