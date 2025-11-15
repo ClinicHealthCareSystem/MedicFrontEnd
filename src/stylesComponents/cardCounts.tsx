@@ -1,19 +1,14 @@
 import { StyleSheet } from "react-native";
-
-export default StyleSheet.create({
+import { RFValue } from "react-native-responsive-fontsize";
+import globalStyles, { colors, shadows } from "../styles/globalStyles";
+export const cardCountsStyles = StyleSheet.create({
   cardCounts: {
-    backgroundColor: "#0D47AB",
-    borderRadius: 12,
-    padding: 16,
+    ...globalStyles.cardBase,
     marginVertical: 20,
     marginHorizontal: 8,
     width: 130,
     height: 120,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.7,
-    shadowRadius: 8,
-    elevation: 8,
+    ...shadows.strong,
     justifyContent: "center",
   },
   headerCard: {
@@ -23,17 +18,16 @@ export default StyleSheet.create({
     marginTop: 8,
   },
   textTitulo: {
-    color: "white",
+    ...globalStyles.textWhite,
     fontWeight: "600",
     fontSize: 13,
     textAlign: "center",
   },
   caixaNumber: {
     marginVertical: 10,
-    
   },
   textNumber: {
-    color: "white",
+    ...globalStyles.textWhite,
     fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",

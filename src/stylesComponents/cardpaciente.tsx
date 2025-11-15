@@ -1,88 +1,49 @@
 import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-
-export default StyleSheet.create({
-card:{
-backgroundColor: "#0D47AB",
-borderRadius: 12,
-padding: 16,
-marginVertical: 10,
-marginHorizontal: 16,
-shadowOffset: { width: 0, height: 2 },
-shadowOpacity: 0.7,
-shadowRadius: 8,
-shadowColor: "black",
-},
-header:{
-flexDirection: "row", 
-    alignItems: "center",
+import globalStyles, { colors, shadows } from "../styles/globalStyles";
+export const cardPacienteStyles = StyleSheet.create({
+  card: globalStyles.cardBase,
+  header: {
+    ...globalStyles.row,
     marginBottom: 12,
-},
-avatar:{
-     width: 55,
-    height: 55,
-    borderRadius: 50,
-},
-  avatarCaixa: {
-    height: 58,
-    width: 58,
-    borderRadius: 50,
-    backgroundColor: "#0D47AB",
-    justifyContent: "center",
-    alignItems: "center",
-    
   },
-
-avatarText:{
-color: "white",
-fontWeight: "bold",
-fontSize: 16,
-
-
-},
-infosCaixa:{
-marginTop: 5,
-},
-
-info:{
+  avatar: globalStyles.avatar,
+  avatarCaixa: globalStyles.avatarContainer,
+  avatarText: {
+    ...globalStyles.textWhiteBold,
+    fontSize: 16,
+  },
+  infosCaixa: {
+    marginTop: 5,
+  },
+  info: {
     flex: 1,
     marginLeft: 12,
-
-},
-nome:{
-    fontWeight: "bold",
+  },
+  nome: {
+    ...globalStyles.textWhiteBold,
     fontSize: 15,
-    color: "white",
     marginBottom: 2,
-
-},
-detalhes:{
-    color: "white",
+  },
+  detalhes: {
+    ...globalStyles.textWhite,
     fontSize: 12,
-},
-linhaInfo:{
-flexDirection: "row",
-alignContent: "center",
-marginBottom: 6,
-
-},
-textInfo:{
-fontSize: 12,
-color: "white",
-marginLeft: 6,
-},
-buttonProntu:{
-    backgroundColor:  "#3284f1",
-      borderRadius: 10,
-      paddingVertical: 10,
-      marginTop: 12,
-},
- buttonProntuText:{
-    textAlign: "center",
-    color: "white",
+  },
+  linhaInfo: {
+    ...globalStyles.row,
+    marginBottom: 6,
+  },
+  textInfo: {
+    fontSize: 12,
+    color: colors.white,
+    marginLeft: 6,
+  },
+  buttonProntu: {
+    ...globalStyles.buttonPrimary,
+    marginTop: 12,
+  },
+  buttonProntuText: {
+    ...globalStyles.buttonText,
     fontSize: 18,
-    fontWeight: "bold",
-    
-
   },
 });

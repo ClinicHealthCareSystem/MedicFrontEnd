@@ -1,6 +1,6 @@
 import React from "react";
 import { View,Text, TouchableOpacity } from "react-native";
-import styles from "../stylesComponents/tabsNavegationDash";
+import {tabsNavegationDashStyles} from "../stylesComponents/tabsNavegationDash";
 
 type Tab ={
 label: string;
@@ -16,11 +16,11 @@ type Props = {
 
 export default function TabsNavegationDash({ tabs,  onPress }: Props) {
   return (
-    <View style={styles.tabsCaixa}>
+    <View style={tabsNavegationDashStyles.tabsCaixa}>
       {tabs.map((tab) => (
-        <TouchableOpacity key={tab.value} style={styles.tabButtonPerfil}
+        <TouchableOpacity key={tab.value} style={tabsNavegationDashStyles.tabButtonPerfil}
           onPress={() => onPress(tab.value)}>
-          <Text style={[styles.tabTextPerfil,]}>{tab.label}</Text>
+          <Text style={[tabsNavegationDashStyles.tabTextPerfil,]}>{tab.label}</Text>
         </TouchableOpacity>
       ))}
     </View>

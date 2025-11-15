@@ -1,105 +1,65 @@
 import { StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
+import globalStyles, { colors, shadows } from "../styles/globalStyles";
 
-export default StyleSheet.create({
+// ==================== CARD AGENDADO ====================
+export const cardAgendadoStyles = StyleSheet.create({
   card: {
-    backgroundColor: "#0D47AB",
-    borderRadius: 14,
+    ...globalStyles.cardLarge,
     padding: 15,
-    marginVertical: 10,
-    marginHorizontal: 16,
-    elevation: 5,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.7,
-    shadowRadius: 8,
-    
   },
   header: {
+    ...globalStyles.headerBase,
     marginBottom: 15,
     paddingBottom: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: "white",
   },
-  headerTop: {
-  flexDirection: "row",
-  justifyContent: "space-between",
-  alignItems: "center",
-},
+  headerTop: globalStyles.rowBetween,
   title: {
-    fontWeight: "bold",
-    fontSize: 18,
-    color: "white",
+    ...globalStyles.headerText,
     marginBottom: 4,
   },
   subtitle: {
-    color: "white",
+    ...globalStyles.textWhite,
     fontSize: 13,
   },
-  filterIcon:{
-flexDirection: "row",
-justifyContent: "flex-end",
-},
-  item: {
+  filterIcon: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "white",
-    borderRadius: 10,
+    justifyContent: "flex-end",
+  },
+  item: {
+    ...globalStyles.itemBase,
     padding: 14,
-    marginBottom: 10,
   },
   info: {
     flex: 1,
     flexDirection: "column",
   },
   nome: {
-    fontWeight: "800",
+    ...globalStyles.textPrimary,
     fontSize: 15,
-    color: "#0D47AB",
+    fontWeight: "800",
     marginBottom: 4,
   },
   especialidade: {
-    color: "black",
+    color: colors.black,
     fontSize: 12,
     marginBottom: 4,
   },
-  horaContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
+  horaContainer: globalStyles.row,
   hora: {
-    color: "#0D47AB",
+    color: colors.primary,
     fontSize: 13,
     fontWeight: "600",
   },
-  statusContainer: {
-    borderRadius: 20,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-  },
-  agendado: {
-    backgroundColor: "#FFF5E0",
-  },
-  confirmado: {
-    backgroundColor: "#DFFCE0",
-  },
+  statusContainer: globalStyles.statusBadge,
+  agendado: globalStyles.statusBadgeAgendado,
+  confirmado: globalStyles.statusBadgeConfirmado,
   statusText: {
     fontWeight: "bold",
     fontSize: 12,
   },
-  statusTextAgendado: {
-    color: "#D97B00",
-  },
-  statusTextConfirmado: {
-    color: "#1D9A41",
-  },
-  emptyState: {
-    alignItems: "center",
-    paddingVertical: 30,
-  },
-  emptyText: {
-    color: "white",
-    marginTop: 10,
-    fontSize: 14,
-  },
+  statusTextAgendado: globalStyles.statusTextAgendado,
+  statusTextConfirmado: globalStyles.statusTextConfirmado,
+  emptyState: globalStyles.emptyState,
+  emptyText: globalStyles.emptyText,
 });

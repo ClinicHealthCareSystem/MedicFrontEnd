@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "../stylesComponents/cardAgendados";
+import {cardAgendadoStyles}from "../stylesComponents/cardAgendados";
 
 interface Agendamento {
   id: string;
@@ -18,51 +18,51 @@ const dados: Agendamento[] = [
 export default function CardAgendados() {
 
   return (
-    <View style={styles.card}>
-      <View style={styles.header}>
-      <View style={styles.headerTop}>
-    <Text style={styles.title}>Agenda de Hoje</Text>
+    <View style={cardAgendadoStyles.card}>
+      <View style={cardAgendadoStyles.header}>
+      <View style={cardAgendadoStyles.headerTop}>
+    <Text style={cardAgendadoStyles.title}>Agenda de Hoje</Text>
 
     <TouchableOpacity>
       <Ionicons name="filter-outline" size={22} color="white" />
     </TouchableOpacity>
   </View>
-  <Text style={styles.subtitle}>{dados.length} consulta(s)</Text>
+  <Text style={cardAgendadoStyles.subtitle}>{dados.length} consulta(s)</Text>
 </View>
 
       {dados.length === 0 ? (
-        <View style={styles.emptyState}>
+        <View style={cardAgendadoStyles.emptyState}>
           <Ionicons name="calendar-outline" size={48} color="white" />
-          <Text style={styles.emptyText}>Nenhum agendamento para hoje</Text>
+          <Text style={cardAgendadoStyles.emptyText}>Nenhum agendamento para hoje</Text>
         </View>
       ) : (
         <View>
           {dados.map((item) => (
             <View
               key={item.id}
-              style={styles.item}
+              style={cardAgendadoStyles.item}
               
             >
-              <View style={styles.info}>
-                <Text style={styles.nome}>{item.nome}</Text>
+              <View style={cardAgendadoStyles.info}>
+                <Text style={cardAgendadoStyles.nome}>{item.nome}</Text>
                 
-                <View style={styles.horaContainer}>
+                <View style={cardAgendadoStyles.horaContainer}>
                   <Ionicons name="time-outline" size={14} color="#0D47AB" />
-                  <Text style={styles.hora}> {item.hora}</Text>
+                  <Text style={cardAgendadoStyles.hora}> {item.hora}</Text>
                 </View>
               </View>
               <View
                 style={[
-                  styles.statusContainer,
-                  item.status === "Consulta" ? styles.confirmado : styles.agendado,
+                  cardAgendadoStyles.statusContainer,
+                  item.status === "Consulta" ? cardAgendadoStyles.confirmado : cardAgendadoStyles.agendado,
                 ]}
               >
                 <Text
                   style={[
-                    styles.statusText,
+                    cardAgendadoStyles.statusText,
                     item.status === "Consulta"
-                      ? styles.statusTextConfirmado
-                      : styles.statusTextAgendado,
+                      ? cardAgendadoStyles.statusTextConfirmado
+                      : cardAgendadoStyles.statusTextAgendado,
                   ]}
                 >
                   {item.status}

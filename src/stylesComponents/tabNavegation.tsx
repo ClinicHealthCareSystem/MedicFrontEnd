@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
-
-export default StyleSheet.create({
+import { RFValue } from "react-native-responsive-fontsize";
+import globalStyles, { colors, shadows } from "../styles/globalStyles";
+export const tabNavegationStyles = StyleSheet.create({
   tabNavegation: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -9,19 +10,17 @@ export default StyleSheet.create({
     borderRadius: 2,
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
-    backgroundColor: "#0D47AB",
-    elevation: 8,
+    backgroundColor: colors.primary,
+    ...shadows.strong,
     borderTopWidth: 1,
-    borderColor: "white",
+    borderColor: colors.white,
   },
-
   tabButton: {
     flex: 1,
     alignItems: "center",
-    color: "#FFF",
+    color: colors.white,
   },
-
   tabText: {
-    color: "#FFF",
+    color: colors.white,
   },
 });

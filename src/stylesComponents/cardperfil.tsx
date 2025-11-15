@@ -1,76 +1,41 @@
 import { StyleSheet } from "react-native";
-
-export default StyleSheet.create({
-cardPerfil: {
-    backgroundColor: "#0D47AB",
-    borderRadius: 12,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.7,
-    shadowRadius: 8,
-    elevation: 5,
-    padding: 16,
+import { RFValue } from "react-native-responsive-fontsize";
+import globalStyles, { colors, shadows } from "../styles/globalStyles";
+export const cardPerfilStyles = StyleSheet.create({
+  cardPerfil: {
+    ...globalStyles.cardBase,
     alignItems: "center",
     marginTop: 30,
     marginHorizontal: 20,
   },
-
-  avatarCaixa: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    backgroundColor: "#0D47AB",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 12,
-  },
-
-  avatar: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
-
+  avatarCaixa: globalStyles.avatarContainerLarge,
+  avatar: globalStyles.avatarLarge,
   nome: {
-    color: "white",
+    ...globalStyles.textWhiteBold,
     fontSize: 20,
-    fontWeight: "bold",
   },
-
   info: {
-    color: "white",
+    ...globalStyles.textWhite,
     fontSize: 18,
     marginBottom: 8,
   },
-
   statusAvatar: {
     flexDirection: "row",
   },
-
   planoStatus: {
-    backgroundColor: "#3284f1",
+    backgroundColor: colors.secondary,
     paddingHorizontal: 10,
     borderRadius: 8,
     marginRight: 8,
     justifyContent: "center",
   },
-
-  planoStatusText: {
-    color: "white",
-    fontWeight: "bold",
-  },
-
+  planoStatusText: globalStyles.textWhiteBold,
   idSatus: {
-    backgroundColor: "white",
+    backgroundColor: colors.white,
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 4,
     justifyContent: "center",
   },
-
-  idStatusText: {
-    color: "#0D47AB",
-    fontWeight: "bold",
-  },
-   
+  idStatusText: globalStyles.textPrimary,
 });

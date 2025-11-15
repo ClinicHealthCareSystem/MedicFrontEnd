@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import styles from "../stylesComponents/cardEscala";
+import {cardEscalaStyles} from "../stylesComponents/cardEscala";
 
 interface Escala {
   id: string;
@@ -30,20 +30,20 @@ const dados: Escala[] = [
 
 export default function cardEscala() {
   return (
-    <View style={styles.card}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Escala</Text>
+    <View style={cardEscalaStyles.card}>
+      <View style={cardEscalaStyles.header}>
+        <Text style={cardEscalaStyles.title}>Escala</Text>
       </View>
 
       <View>
         {dados.map((item) => (
-          <View key={item.id} style={styles.item}>
-            <View style={styles.iconContainer}>
+          <View key={item.id} style={cardEscalaStyles.item}>
+            <View style={cardEscalaStyles.iconContainer}>
               <Ionicons name={item.icone} size={24} color="#0D47AB" />
             </View>
-            <View style={styles.info}>
-              <Text style={styles.alerta}>{item.dia}</Text>
-              <Text style={styles.alertaDescr}>{item.escala}</Text>
+            <View style={cardEscalaStyles.info}>
+              <Text style={cardEscalaStyles.alerta}>{item.dia}</Text>
+              <Text style={cardEscalaStyles.alertaDescr}>{item.escala}</Text>
             </View>
           </View>
         ))}

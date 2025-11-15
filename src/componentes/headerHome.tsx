@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity, View, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import styles from "../stylesComponents/headHome"
+import {headHomeStyles} from "../stylesComponents/headHome"
 import { router } from "expo-router";
 
 export default function HeaderHome({
@@ -14,13 +14,13 @@ export default function HeaderHome({
   
 
   return (
-    <View style={styles.headerView}>
-      <View style={styles.headerContent}>
+    <View style={headHomeStyles.headerView}>
+      <View style={headHomeStyles.headerContent}>
         
         {mostrarVoltar ? (
           <TouchableOpacity
             onPress={() => router.back()}
-            style={styles.headerBackButton}
+            style={headHomeStyles.headerBackButton}
 
           >
             <Ionicons name="arrow-back" size={24} color="white" />
@@ -30,10 +30,10 @@ export default function HeaderHome({
         )}
 
         
-        <Text style={styles.headerTitle}>{titulo}</Text>
+        <Text style={headHomeStyles.headerTitle}>{titulo}</Text>
 
         
-        <TouchableOpacity style={styles.headerRight}>
+        <TouchableOpacity style={headHomeStyles.headerRight}>
           <Ionicons name="notifications" size={24} color="white" />
         </TouchableOpacity>
       </View>
@@ -48,14 +48,14 @@ export default function HeaderHome({
             style={{ top: 32, width: 20, marginLeft: 5 }}
           />
           <TextInput
-            style={styles.search_bar}
+            style={headHomeStyles.search_bar}
             placeholder="O que você está procurando?"
           />
         </View>
       ) : (
         subTitulo && (
-          <View style={styles.headerInfo}>
-            <Text style={styles.headerInfoText}>{subTitulo}</Text>
+          <View style={headHomeStyles.headerInfo}>
+            <Text style={headHomeStyles.headerInfoText}>{subTitulo}</Text>
           </View>
         )
       )}

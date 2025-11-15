@@ -1,5 +1,5 @@
 import { View, ScrollView, Text,TouchableOpacity } from "react-native";
-import styles from "../stylesComponents/cardpaciente";
+import {cardPacienteStyles} from "../stylesComponents/cardpaciente";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
@@ -20,48 +20,48 @@ export default function CardPaciente({
   detalhes,
 }: CardTypesPaciente) {
   return (
-    <View style={styles.card}>
+    <View style={cardPacienteStyles.card}>
 
       
-      <View style={styles.header}>
-        <View style={styles.avatarCaixa}>
+      <View style={cardPacienteStyles.header}>
+        <View style={cardPacienteStyles.avatarCaixa}>
           <Ionicons
             name="person-circle"
-            style={styles.avatar}
+            style={cardPacienteStyles.avatar}
             size={55}
             color={"white"}
           />
         </View>
 
-        <View style={styles.info}>
-          <Text style={styles.nome}>{nome}</Text>
-          <Text style={styles.detalhes}>{idade}</Text>
+        <View style={cardPacienteStyles.info}>
+          <Text style={cardPacienteStyles.nome}>{nome}</Text>
+          <Text style={cardPacienteStyles.detalhes}>{idade}</Text>
         </View>
       </View>
 
-      <View style={styles.infosCaixa}>
-        <View style={styles.linhaInfo}>
+      <View style={cardPacienteStyles.infosCaixa}>
+        <View style={cardPacienteStyles.linhaInfo}>
           <Ionicons name="call" size={14} color="white" />
-          <Text style={styles.textInfo}>{telefone}</Text>
+          <Text style={cardPacienteStyles.textInfo}>{telefone}</Text>
         </View>
 
-        <View style={styles.linhaInfo}>
+        <View style={cardPacienteStyles.linhaInfo}>
           <Ionicons name="calendar" size={14} color="white" />
-          <Text style={styles.textInfo}>Consulta: {diaConsulta}</Text>
+          <Text style={cardPacienteStyles.textInfo}>Consulta: {diaConsulta}</Text>
         </View>
 
         {detalhes ? (
-          <View style={styles.linhaInfo}>
+          <View style={cardPacienteStyles.linhaInfo}>
             <Ionicons name="document-text" size={14} color="white" />
-            <Text style={styles.textInfo}>{detalhes}</Text>
+            <Text style={cardPacienteStyles.textInfo}>{detalhes}</Text>
           </View>
         ) : null}
       </View>
       <TouchableOpacity
-        style={styles.buttonProntu}
+        style={cardPacienteStyles.buttonProntu}
         onPress={() => router.push("/dashboardPaciente")}
       >
-        <Text style={styles.buttonProntuText}>Ver prontuário</Text>
+        <Text style={cardPacienteStyles.buttonProntuText}>Ver prontuário</Text>
       </TouchableOpacity>
 
     </View>

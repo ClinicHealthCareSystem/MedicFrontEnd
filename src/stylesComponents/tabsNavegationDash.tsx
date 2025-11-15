@@ -1,30 +1,24 @@
 import { StyleSheet } from "react-native";
-
-export default StyleSheet.create({
-   tabsCaixa: {
+import { RFValue } from "react-native-responsive-fontsize";
+import globalStyles, { colors, shadows } from "../styles/globalStyles";
+export const tabsNavegationDashStyles = StyleSheet.create({
+  tabsCaixa: {
     flexDirection: "row",
     justifyContent: "space-around",
     alignSelf: "center",
     marginHorizontal: 20,
     marginVertical: 20,
-    backgroundColor: "#0D47AB",
+    backgroundColor: colors.primary,
     width: "90%",
     padding: 5,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.7,
-    shadowRadius: 8,
-    elevation: 5,
+    ...shadows.default,
     borderRadius: 8,
   },
   tabButtonPerfil: {
     paddingVertical: 5,
     paddingHorizontal: 5,
-    backgroundColor: "#3284f1",
+    backgroundColor: colors.secondary,
     borderRadius: 8,
   },
-
-  tabTextPerfil: {
-    color: "white",
-    fontWeight: "bold",
-  },
+  tabTextPerfil: globalStyles.textWhiteBold,
 });

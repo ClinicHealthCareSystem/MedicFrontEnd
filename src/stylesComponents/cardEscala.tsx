@@ -1,34 +1,20 @@
 import { StyleSheet } from "react-native";
-
-export default StyleSheet.create({
+import { RFValue } from "react-native-responsive-fontsize";
+import globalStyles, { colors, shadows } from "../styles/globalStyles";
+export const cardEscalaStyles = StyleSheet.create({
   card: {
-    backgroundColor: "#0D47AB",
-    borderRadius: 14,
+    ...globalStyles.cardLarge,
     padding: 15,
-    marginVertical: 10,
-    marginHorizontal: 16,
-    elevation: 5,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.7,
-    shadowRadius: 8,
   },
   header: {
     marginBottom: 10,
     paddingBottom: 4,
   },
   title: {
-    fontWeight: "bold",
-    fontSize: 18,
-    color: "white",
+    ...globalStyles.headerText,
   },
   item: {
-    flexDirection: "row",
-    alignItems: "center",
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 10,
-    backgroundColor: 'white'
+    ...globalStyles.itemBase,
   },
   iconContainer: {
     marginRight: 12,
@@ -37,13 +23,13 @@ export default StyleSheet.create({
     flex: 1,
   },
   alerta: {
-    fontWeight: "800",
+    ...globalStyles.textPrimary,
     fontSize: 15,
-    color: "#0D47AB",
+    fontWeight: "800",
     marginBottom: 3,
   },
   alertaDescr: {
-    color: "#0D47AB",
+    color: colors.primary,
     fontSize: 13,
   },
 });
