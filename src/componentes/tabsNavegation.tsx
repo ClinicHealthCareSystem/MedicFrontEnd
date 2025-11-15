@@ -24,7 +24,10 @@ export default function TabsNavegation() {
         <Text style={tabNavegationStyles.tabText}>Perfil</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={tabNavegationStyles.tabButton}>
+      <TouchableOpacity style={tabNavegationStyles.tabButton}
+      onPress={() => {
+          router.push("/config");
+        }}>
         <Ionicons name="settings" size={26} color="#fff" />
         <Text style={tabNavegationStyles.tabText}>Config</Text>
       </TouchableOpacity>
