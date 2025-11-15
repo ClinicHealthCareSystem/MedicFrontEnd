@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import globalStyles, { colors, shadows } from "../styles/globalStyles";
 
-// ==================== CARD AGENDADO ====================
+
 export const cardAgendadoStyles = StyleSheet.create({
   card: {
     ...globalStyles.cardLarge,
