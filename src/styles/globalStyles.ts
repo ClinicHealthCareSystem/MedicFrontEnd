@@ -3,7 +3,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 const { width } = Dimensions.get('window');
 
-export const colors = {
+export const lightColors = {
   primary: "#0D47AB",
   secondary: "#3284f1",
   background: "#ADD8E6",
@@ -19,7 +19,14 @@ export const colors = {
   statusConfirmadoText: "#1D9A41",
 };
 
-export const shadows = {
+export const darkColors = {
+  ...lightColors,
+  primary: lightColors.black,
+  secondary: lightColors.black,
+  background: lightColors.black,
+};
+
+export const shadows = (colors) => ({
   light: {
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
@@ -41,9 +48,9 @@ export const shadows = {
     shadowRadius: 8,
     elevation: 5,
   },
-};
+});
 
-const globalStyles = StyleSheet.create({
+const getGlobalStyles = (colors) => StyleSheet.create({
   // Backgrounds
   backgroundBase: {
     flex: 1,
@@ -139,7 +146,7 @@ const globalStyles = StyleSheet.create({
     padding: 16,
     marginVertical: 10,
     marginHorizontal: 16,
-    ...shadows.default,
+    ...shadows(colors).default,
   },
 
   cardLarge: {
@@ -148,7 +155,7 @@ const globalStyles = StyleSheet.create({
     padding: 18,
     marginVertical: 10,
     marginHorizontal: 16,
-    ...shadows.default,
+    ...shadows(colors).default,
   },
 
   cardWhite: {
@@ -157,7 +164,7 @@ const globalStyles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     marginBottom: 15,
-    ...shadows.default,
+    ...shadows(colors).default,
   },
 
   cardBlue: {
@@ -165,7 +172,7 @@ const globalStyles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
-    ...shadows.light,
+    ...shadows(colors).light,
   },
 
   // Textos
@@ -368,7 +375,7 @@ const globalStyles = StyleSheet.create({
     textDecorationLine: "underline",
   },
 
-  dangerText: {
+  dangerText:{
     color: colors.red,
     fontWeight: "600",
   },
@@ -402,7 +409,7 @@ const globalStyles = StyleSheet.create({
     height: 128,
     justifyContent: "center",
     alignItems: "center",
-    ...shadows.strong,
+    ...shadows(colors).strong,
     borderWidth: 1,
     borderColor: colors.white,
   },
@@ -437,7 +444,7 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     backgroundColor: colors.background,
-    ...shadows.light,
+    ...shadows(colors).light,
   },
 
   // Botões de view mode
@@ -534,4 +541,4 @@ const globalStyles = StyleSheet.create({
   },
 });
 
-export default globalStyles;
+export default getGlobalStyles;

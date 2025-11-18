@@ -1,5 +1,6 @@
 import { View, ScrollView } from "react-native";
-import {menuStyles} from "../styles/menu";
+import { getMenuStyles } from "../styles/menu";
+import { useTheme } from "../hooks/ThemeContext";
 
 import { Ionicons } from "@expo/vector-icons";
 import TabsNavegation from "../componentes/tabsNavegation";
@@ -17,6 +18,8 @@ type Botao = {
 
 export default function Menu() {
   const router = useRouter();
+  const { colors } = useTheme();
+  const menuStyles = getMenuStyles(colors);
 
   const card: Botao[] = [
     {
@@ -69,6 +72,7 @@ export default function Menu() {
         <View style={menuStyles.cards}>
           {card.map((item) => (
             <MenuCard
+              key={item.id}
               title={item.title}
               descricao={item.descricao}
               icon={item.icon}

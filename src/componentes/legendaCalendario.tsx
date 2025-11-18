@@ -1,9 +1,13 @@
 import React from "react";
 import { View } from "react-native";
-import {agendaStyles} from "../styles/agenda";
+import { getAgendaStyles } from "../styles/agenda";
 import LegendItem from "../utils/legendaItem";
+import { useTheme } from "../hooks/ThemeContext";
 
 export default function Legenda() {
+  const { colors } = useTheme();
+  const agendaStyles = getAgendaStyles(colors);
+
   return (
     <View style={agendaStyles.legend}>
       <LegendItem color="#2196F3" label="Consulta" />

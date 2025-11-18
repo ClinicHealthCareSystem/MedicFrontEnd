@@ -1,5 +1,6 @@
 import { View, Text } from "react-native";
-import { cardCountsStyles } from "../stylesComponents/cardCounts";
+import { getCardCountsStyles } from "../stylesComponents/cardCounts";
+import { useTheme } from "../hooks/ThemeContext";
 
 type CardCountsProps = {
   titulo: string;
@@ -7,6 +8,9 @@ type CardCountsProps = {
 };
 
 export default function CardCounts({ titulo, valor }: CardCountsProps) {
+  const { colors } = useTheme();
+  const cardCountsStyles = getCardCountsStyles(colors);
+
   return (
     <View style={cardCountsStyles.cardCounts}>
       <View style={cardCountsStyles.caixaTitulo}>

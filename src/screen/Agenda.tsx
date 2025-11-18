@@ -3,7 +3,8 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import { Calendar } from "react-native-calendars";
 import HeaderHome from "../componentes/headerHome";
 import Legenda from "../componentes/legendaCalendario";
-import {agendaStyles} from "../styles/agenda";
+import { getAgendaStyles } from "../styles/agenda";
+import { useTheme } from "../hooks/ThemeContext";
 
 import { Appointment } from "../utils/calendarTypes";
 import {
@@ -18,38 +19,41 @@ import {
 import "../utils/calendarConfig";
 
 export default function Agenda() {
-const appointments: { [key: string]: Appointment[] } = {
-  "2024-10-19": [
-    {
-      id: "1",
-      startTime: "09:00",
-      endTime: "10:00",
-      patientName: "João Silva",
-      status: "Pendente",
-      type: "Consulta",
-      description: "Consulta de rotina",
-    },
-    {
-      id: "2",
-      startTime: "10:00",
-      endTime: "11:00",
-      patientName: "Maria Santos",
-      status: "Confirmado",
-      type: "Retorno",
-      description: "Retorno pós-cirúrgico",
-    },
-  ],
-  "2024-10-20": [
-    {
-      id: "3",
-      startTime: "09:00",
-      endTime: "10:00",
-      patientName: "Ana Paula",
-      status: "Confirmado",
-      type: "Exame",
-    },
-  ],
-};
+  const { colors } = useTheme();
+  const agendaStyles = getAgendaStyles(colors);
+
+  const appointments: { [key: string]: Appointment[] } = {
+    "2024-10-19": [
+      {
+        id: "1",
+        startTime: "09:00",
+        endTime: "10:00",
+        patientName: "João Silva",
+        status: "Pendente",
+        type: "Consulta",
+        description: "Consulta de rotina",
+      },
+      {
+        id: "2",
+        startTime: "10:00",
+        endTime: "11:00",
+        patientName: "Maria Santos",
+        status: "Confirmado",
+        type: "Retorno",
+        description: "Retorno pós-cirúrgico",
+      },
+    ],
+    "2024-10-20": [
+      {
+        id: "3",
+        startTime: "09:00",
+        endTime: "10:00",
+        patientName: "Ana Paula",
+        status: "Confirmado",
+        type: "Exame",
+      },
+    ],
+  };
   const [selectedDate, setSelectedDate] = useState("2024-10-19");
   const [viewMode, setViewMode] = useState<"day" | "week">("week");
   const [showCalendar, setShowCalendar] = useState(false);
@@ -59,52 +63,64 @@ const appointments: { [key: string]: Appointment[] } = {
   const hours = Array.from({ length: 12 }, (_, i) => i + 8);
 
   const markedDates = {
-    [selectedDate]: { selected: true, selectedColor: "#3284f1" },
+    [selectedDate]: { selected: true, selectedColor: colors.secondary },
   };
 
   return (
-        <View style={agendaStyles.container}>
-    <HeaderHome  titulo="Calendário" 
-        mostrarBusca={false}
-        mostrarVoltar={true}/>
+    <View style={agendaStyles.container}>
+      <HeaderHome titulo="Calendário" mostrarBusca={false} mostrarVoltar={true} />
 
-      
       <View style={agendaStyles.controlBar}>
         <TouchableOpacity
           style={agendaStyles.calendarButton}
           onPress={() => setShowCalendar(!showCalendar)}
         >
           <Text style={agendaStyles.calendarButtonText}>
-            {new Date(selectedDate).toLocaleDateString('pt-BR', { 
-              day: '2-digit', 
-              month: 'long',
-              year: 'numeric'
+            {new Date(selectedDate).toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
             })}
           </Text>
-          <Text style={agendaStyles.calendarIcon}>{showCalendar ? '▲' : '▼'}</Text>
+          <Text style={agendaStyles.calendarIcon}>{showCalendar ? "▲" : "▼"}</Text>
         </TouchableOpacity>
 
         <View style={agendaStyles.viewModeButtons}>
           <TouchableOpacity
-            style={[agendaStyles.viewButton, viewMode === 'day' && agendaStyles.viewButtonActive]}
-            onPress={() => setViewMode('day')}
+            style={[
+              agendaStyles.viewButton,
+              viewMode === "day" && agendaStyles.viewButtonActive,
+            ]}
+            onPress={() => setViewMode("day")}
           >
-            <Text style={[agendaStyles.viewButtonText, viewMode === 'day' && agendaStyles.viewButtonTextActive]}>
+            <Text
+              style={[
+                agendaStyles.viewButtonText,
+                viewMode === "day" && agendaStyles.viewButtonTextActive,
+              ]}
+            >
               Dia
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[agendaStyles.viewButton, viewMode === 'week' && agendaStyles.viewButtonActive]}
-            onPress={() => setViewMode('week')}
+            style={[
+              agendaStyles.viewButton,
+              viewMode === "week" && agendaStyles.viewButtonActive,
+            ]}
+            onPress={() => setViewMode("week")}
           >
-            <Text style={[agendaStyles.viewButtonText, viewMode === 'week' && agendaStyles.viewButtonTextActive]}>
+            <Text
+              style={[
+                agendaStyles.viewButtonText,
+                viewMode === "week" && agendaStyles.viewButtonTextActive,
+              ]}
+            >
               Semana
             </Text>
           </TouchableOpacity>
         </View>
       </View>
 
-      
       {showCalendar && (
         <View style={agendaStyles.calendarContainer}>
           <Calendar
@@ -115,24 +131,21 @@ const appointments: { [key: string]: Appointment[] } = {
             }}
             markedDates={markedDates}
             theme={{
-              backgroundColor: '#ADD8E6',
-              calendarBackground: '#ADD8E6',
-              selectedDayBackgroundColor: '#3284f1',
-              selectedDayTextColor: 'white',
-              todayTextColor: 'white',
-              dayTextColor: 'white',
-              textDisabledColor: 'black',
-              arrowColor: "#0D47AB",
-              monthTextColor: "#0D47AB",
-              
+              backgroundColor: colors.background,
+              calendarBackground: colors.background,
+              selectedDayBackgroundColor: colors.secondary,
+              selectedDayTextColor: colors.white,
+              todayTextColor: colors.white,
+              dayTextColor: colors.white,
+              textDisabledColor: colors.black,
+              arrowColor: colors.primary,
+              monthTextColor: colors.primary,
             }}
           />
         </View>
       )}
 
-      
       <ScrollView style={agendaStyles.scheduleContainer}>
-        
         <View style={agendaStyles.daysHeader}>
           <View style={agendaStyles.timeColumnHeader} />
           {displayDates.map((date) => {
@@ -141,14 +154,32 @@ const appointments: { [key: string]: Appointment[] } = {
             return (
               <TouchableOpacity
                 key={date}
-                style={[agendaStyles.dayHeader, viewMode === 'day' && agendaStyles.dayHeaderSingle]}
+                style={[
+                  agendaStyles.dayHeader,
+                  viewMode === "day" && agendaStyles.dayHeaderSingle,
+                ]}
                 onPress={() => setSelectedDate(date)}
               >
-                <Text style={[agendaStyles.weekDayText, isSelected && agendaStyles.selectedDayText]}>
+                <Text
+                  style={[
+                    agendaStyles.weekDayText,
+                    isSelected && agendaStyles.selectedDayText,
+                  ]}
+                >
                   {weekDay}
                 </Text>
-                <View style={[agendaStyles.dayCircle, isSelected && agendaStyles.selectedDayCircle]}>
-                  <Text style={[agendaStyles.dayNumber, isSelected && agendaStyles.selectedDayNumber]}>
+                <View
+                  style={[
+                    agendaStyles.dayCircle,
+                    isSelected && agendaStyles.selectedDayCircle,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      agendaStyles.dayNumber,
+                      isSelected && agendaStyles.selectedDayNumber,
+                    ]}
+                  >
                     {day}
                   </Text>
                 </View>
@@ -157,10 +188,8 @@ const appointments: { [key: string]: Appointment[] } = {
           })}
         </View>
 
-        
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={agendaStyles.scheduleGrid}>
-            
             <View style={agendaStyles.timeColumn}>
               {hours.map((hour) => (
                 <View key={hour} style={agendaStyles.timeSlot}>
@@ -169,21 +198,24 @@ const appointments: { [key: string]: Appointment[] } = {
               ))}
             </View>
 
-            
             {displayDates.map((date) => {
               const dayAppointments = appointments[date] || [];
               return (
-                <View key={date} style={[agendaStyles.dayColumn, viewMode === 'day' && agendaStyles.dayColumnSingle]}>
-                  
+                <View
+                  key={date}
+                  style={[
+                    agendaStyles.dayColumn,
+                    viewMode === "day" && agendaStyles.dayColumnSingle,
+                  ]}
+                >
                   {hours.map((hour) => (
                     <View key={hour} style={agendaStyles.hourLine} />
                   ))}
 
-                  
                   {dayAppointments.map((apt) => {
                     const height = calculateHeight(apt.startTime, apt.endTime);
                     const top = calculateTop(apt.startTime);
-                    
+
                     return (
                       <TouchableOpacity
                         key={apt.id}
@@ -200,15 +232,26 @@ const appointments: { [key: string]: Appointment[] } = {
                         <Text style={agendaStyles.appointmentBlockTime}>
                           {apt.startTime} - {apt.endTime}
                         </Text>
-                        <Text style={agendaStyles.appointmentBlockPatient} numberOfLines={2}>
+                        <Text
+                          style={agendaStyles.appointmentBlockPatient}
+                          numberOfLines={2}
+                        >
                           {apt.patientName}
                         </Text>
                         {apt.description && (
-                          <Text style={agendaStyles.appointmentBlockDescription} numberOfLines={1}>
+                          <Text
+                            style={agendaStyles.appointmentBlockDescription}
+                            numberOfLines={1}
+                          >
                             {apt.description}
                           </Text>
                         )}
-                        <View style={[agendaStyles.statusIndicator, { backgroundColor: getStatusColor(apt.status) }]} />
+                        <View
+                          style={[
+                            agendaStyles.statusIndicator,
+                            { backgroundColor: getStatusColor(apt.status) },
+                          ]}
+                        />
                       </TouchableOpacity>
                     );
                   })}
@@ -218,8 +261,8 @@ const appointments: { [key: string]: Appointment[] } = {
           </View>
         </ScrollView>
       </ScrollView>
-      
+
       <Legenda />
     </View>
   );
-};
+}

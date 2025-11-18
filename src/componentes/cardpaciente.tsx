@@ -1,7 +1,8 @@
-import { View, ScrollView, Text,TouchableOpacity } from "react-native";
-import {cardPacienteStyles} from "../stylesComponents/cardpaciente";
+import { View, ScrollView, Text, TouchableOpacity } from "react-native";
+import { getCardPacienteStyles } from "../stylesComponents/cardpaciente";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
+import { useTheme } from "../hooks/ThemeContext";
 
 type CardTypesPaciente = {
   nome: string;
@@ -9,7 +10,6 @@ type CardTypesPaciente = {
   telefone: string;
   diaConsulta: string;
   detalhes: string;
-
 };
 
 export default function CardPaciente({
@@ -19,10 +19,11 @@ export default function CardPaciente({
   diaConsulta,
   detalhes,
 }: CardTypesPaciente) {
+  const { colors } = useTheme();
+  const cardPacienteStyles = getCardPacienteStyles(colors);
+
   return (
     <View style={cardPacienteStyles.card}>
-
-      
       <View style={cardPacienteStyles.header}>
         <View style={cardPacienteStyles.avatarCaixa}>
           <Ionicons
@@ -47,7 +48,9 @@ export default function CardPaciente({
 
         <View style={cardPacienteStyles.linhaInfo}>
           <Ionicons name="calendar" size={14} color="white" />
-          <Text style={cardPacienteStyles.textInfo}>Consulta: {diaConsulta}</Text>
+          <Text style={cardPacienteStyles.textInfo}>
+            Consulta: {diaConsulta}
+          </Text>
         </View>
 
         {detalhes ? (
@@ -63,7 +66,6 @@ export default function CardPaciente({
       >
         <Text style={cardPacienteStyles.buttonProntuText}>Ver prontuário</Text>
       </TouchableOpacity>
-
     </View>
   );
 }
