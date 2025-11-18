@@ -1,18 +1,26 @@
-import { View, Text, TouchableOpacity} from "react-native";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { View, Text, TouchableOpacity } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {cardInfoDashboardStyles} from "../stylesComponents/cardInfoDashboard";
+import { getCardInfoDashboardStyles } from "../stylesComponents/cardInfoDashboard";
+import { useTheme } from "../hooks/ThemeContext";
 import { useState } from "react";
+
 type Props = {
   activeTab: "opcao1" | "opcao2" | "opcao3";
 };
+
 export default function CardInfoDashboard({ activeTab }: Props) {
+  const { colors } = useTheme();
+  const cardInfoDashboardStyles = getCardInfoDashboardStyles(colors);
+
   return (
     <>
       {activeTab === "opcao1" && (
         <View style={cardInfoDashboardStyles.card}>
           <View style={cardInfoDashboardStyles.header}>
-            <Text style={cardInfoDashboardStyles.textHeader}>Consulta - 14 de janeiro, 2024</Text>
+            <Text style={cardInfoDashboardStyles.textHeader}>
+              Consulta - 14 de janeiro, 2024
+            </Text>
           </View>
 
           <View style={cardInfoDashboardStyles.caixa}>
@@ -35,11 +43,14 @@ export default function CardInfoDashboard({ activeTab }: Props) {
       )}
 
       {activeTab === "opcao2" && (
-       <View style={cardInfoDashboardStyles.card}>
-          
+        <View style={cardInfoDashboardStyles.card}>
           <View style={cardInfoDashboardStyles.header}>
-            <Text style={cardInfoDashboardStyles.textHeader}>Hemograma Completo</Text>
-            <Text style={cardInfoDashboardStyles.dataText}>15 de janeiro, 2024</Text>
+            <Text style={cardInfoDashboardStyles.textHeader}>
+              Hemograma Completo
+            </Text>
+            <Text style={cardInfoDashboardStyles.dataText}>
+              15 de janeiro, 2024
+            </Text>
           </View>
 
           <View style={cardInfoDashboardStyles.caixa}>
@@ -51,7 +62,6 @@ export default function CardInfoDashboard({ activeTab }: Props) {
             </Text>
           </View>
 
-          
           <View style={cardInfoDashboardStyles.caixa}>
             <Text style={cardInfoDashboardStyles.sectionTitle}>Interpretação</Text>
             <Text style={cardInfoDashboardStyles.sectionContent}>
@@ -59,7 +69,6 @@ export default function CardInfoDashboard({ activeTab }: Props) {
             </Text>
           </View>
 
-         
           <View style={cardInfoDashboardStyles.buttonContainer}>
             <TouchableOpacity style={cardInfoDashboardStyles.button}>
               <Ionicons name="eye-outline" size={18} color="white" />
@@ -67,7 +76,11 @@ export default function CardInfoDashboard({ activeTab }: Props) {
             </TouchableOpacity>
 
             <TouchableOpacity style={cardInfoDashboardStyles.button}>
-              <MaterialCommunityIcons name="download-outline" size={18} color="white" />
+              <MaterialCommunityIcons
+                name="download-outline"
+                size={18}
+                color="white"
+              />
               <Text style={cardInfoDashboardStyles.buttonText}>Baixar</Text>
             </TouchableOpacity>
           </View>
@@ -76,50 +89,54 @@ export default function CardInfoDashboard({ activeTab }: Props) {
 
       {activeTab === "opcao3" && (
         <View style={cardInfoDashboardStyles.card}>
-       <View style={cardInfoDashboardStyles.cardMedicTittle}>
-      <Text style={cardInfoDashboardStyles.textHeader}>Atenolol</Text>
+          <View style={cardInfoDashboardStyles.cardMedicTittle}>
+            <Text style={cardInfoDashboardStyles.textHeader}>Atenolol</Text>
 
-      <View style={cardInfoDashboardStyles.caixaActive}>
-        <Text style={cardInfoDashboardStyles.caixaActiveText}>Ativo</Text>
-      </View>
-    </View>
+            <View style={cardInfoDashboardStyles.caixaActive}>
+              <Text style={cardInfoDashboardStyles.caixaActiveText}>Ativo</Text>
+            </View>
+          </View>
 
-    
-    <View style={cardInfoDashboardStyles.caixa}>
-      <Text style={cardInfoDashboardStyles.sectionTitle}>Dosagem:</Text>
-      <Text style={cardInfoDashboardStyles.sectionContent}>50mg</Text>
-    </View>
+          <View style={cardInfoDashboardStyles.caixa}>
+            <Text style={cardInfoDashboardStyles.sectionTitle}>Dosagem:</Text>
+            <Text style={cardInfoDashboardStyles.sectionContent}>50mg</Text>
+          </View>
 
-    <View style={cardInfoDashboardStyles.caixa}>
-      <Text style={cardInfoDashboardStyles.sectionTitle}>Frequência:</Text>
-      <Text style={cardInfoDashboardStyles.sectionContent}>1x ao dia</Text>
-    </View>
+          <View style={cardInfoDashboardStyles.caixa}>
+            <Text style={cardInfoDashboardStyles.sectionTitle}>Frequência:</Text>
+            <Text style={cardInfoDashboardStyles.sectionContent}>1x ao dia</Text>
+          </View>
 
-    <View style={cardInfoDashboardStyles.caixa}>
-      <Text style={cardInfoDashboardStyles.sectionTitle}>Duração:</Text>
-      <Text style={cardInfoDashboardStyles.sectionContent}>30 dias</Text>
-    </View>
+          <View style={cardInfoDashboardStyles.caixa}>
+            <Text style={cardInfoDashboardStyles.sectionTitle}>Duração:</Text>
+            <Text style={cardInfoDashboardStyles.sectionContent}>30 dias</Text>
+          </View>
 
-    <View style={cardInfoDashboardStyles.caixaInstru}>
-      <Text style={cardInfoDashboardStyles.sectionTitleInfo}>
-        Instruções:
-      </Text>
-      <Text style={cardInfoDashboardStyles.sectionContent}>Tomar pela manhã em jejum</Text>
-    </View>
+          <View style={cardInfoDashboardStyles.caixaInstru}>
+            <Text style={cardInfoDashboardStyles.sectionTitleInfo}>
+              Instruções:
+            </Text>
+            <Text style={cardInfoDashboardStyles.sectionContent}>
+              Tomar pela manhã em jejum
+            </Text>
+          </View>
 
-    
-    <View style={cardInfoDashboardStyles.buttonContainer}>
-      <TouchableOpacity style={cardInfoDashboardStyles.button}>
-        <Ionicons name="eye-outline" size={18} color="white" />
-        <Text style={cardInfoDashboardStyles.buttonText}>Visualizar</Text>
-      </TouchableOpacity>
+          <View style={cardInfoDashboardStyles.buttonContainer}>
+            <TouchableOpacity style={cardInfoDashboardStyles.button}>
+              <Ionicons name="eye-outline" size={18} color="white" />
+              <Text style={cardInfoDashboardStyles.buttonText}>Visualizar</Text>
+            </TouchableOpacity>
 
-      <TouchableOpacity style={cardInfoDashboardStyles.button}>
-        <MaterialCommunityIcons name="download-outline" size={18} color="white" />
-        <Text style={cardInfoDashboardStyles.buttonText}>Baixar</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
+            <TouchableOpacity style={cardInfoDashboardStyles.button}>
+              <MaterialCommunityIcons
+                name="download-outline"
+                size={18}
+                color="white"
+              />
+              <Text style={cardInfoDashboardStyles.buttonText}>Baixar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       )}
     </>
   );

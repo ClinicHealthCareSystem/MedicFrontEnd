@@ -6,13 +6,16 @@ import {
   View,
   ScrollView,
 } from "react-native";
-import {loginStyles} from "../styles/login";
+import { getLoginStyles } from "../styles/login";
+import { useTheme } from "../hooks/ThemeContext";
 
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 export default function Login() {
-  
+  const { colors } = useTheme();
+  const loginStyles = getLoginStyles(colors);
+
   const [CPF, setCPF] = useState("");
   const [password, setPassword] = useState("");
   const [passwordShow, setPasswordShow] = useState(false);
@@ -21,11 +24,9 @@ export default function Login() {
     password: false,
   });
 
-
   const passwordEyes = () => {
     setPasswordShow((prev) => !prev);
   };
-
 
   return (
     <ScrollView contentContainerStyle={loginStyles.background}>
@@ -37,24 +38,29 @@ export default function Login() {
         <TextInput
           style={loginStyles.input}
           placeholder="Email institucional"
-          
-          
         />
       </View>
-     
+
       <View style={loginStyles.inputCaixa}>
-        <Ionicons name="lock-closed-outline" size={30} style={loginStyles.lock}   />
+        <Ionicons
+          name="lock-closed-outline"
+          size={30}
+          style={loginStyles.lock}
+        />
         <TextInput
           style={loginStyles.input}
           placeholder="Senha"
           value={password}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={!passwordShow}
-          
         />
         <TouchableOpacity onPress={passwordEyes}>
           {passwordShow ? (
-            <Ionicons name="eye-outline" size={30} style={loginStyles.eyeOpened} />
+            <Ionicons
+              name="eye-outline"
+              size={30}
+              style={loginStyles.eyeOpened}
+            />
           ) : (
             <Ionicons
               name="eye-off-outline"
@@ -64,16 +70,17 @@ export default function Login() {
           )}
         </TouchableOpacity>
       </View>
-      
 
       <TouchableOpacity>
         <Text style={loginStyles.esqueci}>Esqueceu a senha?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={loginStyles.button} onPress={() => router.push("/menu")}>
+      <TouchableOpacity
+        style={loginStyles.button}
+        onPress={() => router.push("/menu")}
+      >
         <Text style={loginStyles.buttonText}>Acessar</Text>
       </TouchableOpacity>
-
     </ScrollView>
   );
 }

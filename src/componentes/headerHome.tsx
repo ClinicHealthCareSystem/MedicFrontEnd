@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, TouchableOpacity, View, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
-import {headHomeStyles} from "../stylesComponents/headHome"
+import { getHeadHomeStyles } from "../stylesComponents/headHome";
+import { useTheme } from "../hooks/ThemeContext";
 import { router } from "expo-router";
 
 export default function HeaderHome({
@@ -11,40 +11,36 @@ export default function HeaderHome({
   mostrarBusca = true,
   mostrarVoltar = false,
 }) {
-  
+  const { colors } = useTheme();
+  const headHomeStyles = getHeadHomeStyles(colors);
 
   return (
     <View style={headHomeStyles.headerView}>
       <View style={headHomeStyles.headerContent}>
-        
         {mostrarVoltar ? (
           <TouchableOpacity
             onPress={() => router.back()}
             style={headHomeStyles.headerBackButton}
-
           >
             <Ionicons name="arrow-back" size={24} color="white" />
           </TouchableOpacity>
         ) : (
-          <View style={{ width: 24 }} /> 
+          <View style={{ width: 24 }} />
         )}
 
-        
         <Text style={headHomeStyles.headerTitle}>{titulo}</Text>
 
-        
         <TouchableOpacity style={headHomeStyles.headerRight}>
           <Ionicons name="notifications" size={24} color="white" />
         </TouchableOpacity>
       </View>
 
-      
       {mostrarBusca ? (
         <View>
           <Ionicons
             name="search"
             size={20}
-            color="#3284f1"
+            color={colors.secondary}
             style={{ top: 32, width: 20, marginLeft: 5 }}
           />
           <TextInput

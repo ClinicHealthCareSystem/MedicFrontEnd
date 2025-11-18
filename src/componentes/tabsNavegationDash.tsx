@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Text, TouchableOpacity } from "react-native";
-import {tabsNavegationDashStyles} from "../stylesComponents/tabsNavegationDash";
-import { FadeIn, FadeOut } from 'react-native-reanimated';
+import { getTabsNavegationDashStyles } from "../stylesComponents/tabsNavegationDash";
+import { useTheme } from "../hooks/ThemeContext";
+import { FadeIn, FadeOut } from "react-native-reanimated";
 import Reanimated, {
   useSharedValue,
   useAnimatedStyle,
@@ -22,7 +23,17 @@ type Props = {
   onPress: (value: string) => void;
 };
 
-function TabButton({ label, isActive, onPress }: { label: string; isActive: boolean; onPress: () => void }) {
+function TabButton({
+  label,
+  isActive,
+  onPress,
+}: {
+  label: string;
+  isActive: boolean;
+  onPress: () => void;
+}) {
+  const { colors } = useTheme();
+  const tabsNavegationDashStyles = getTabsNavegationDashStyles(colors);
   const progress = useSharedValue(isActive ? 1 : 0);
   const press = useSharedValue(0);
 
@@ -31,7 +42,11 @@ function TabButton({ label, isActive, onPress }: { label: string; isActive: bool
   }, [isActive]);
 
   const animatedStyle = useAnimatedStyle(() => {
-    const bgColor = interpolateColor(progress.value, [0, 1], ['#3284f1', '#ffffff']);
+    const bgColor = interpolateColor(
+      progress.value,
+      [0, 1],
+      [colors.secondary, colors.white]
+    );
     const scaleActive = interpolate(progress.value, [0, 1], [1, 1.2]);
     const pressShrink = interpolate(press.value, [0, 1], [0, 0.03]);
     const scale = scaleActive - pressShrink;
@@ -42,7 +57,11 @@ function TabButton({ label, isActive, onPress }: { label: string; isActive: bool
   });
 
   const animatedTextStyle = useAnimatedStyle(() => {
-    const color = interpolateColor(progress.value, [0, 1], ['#ffffff', '#0D47AB']);
+    const color = interpolateColor(
+      progress.value,
+      [0, 1],
+      [colors.white, colors.primary]
+    );
     return { color };
   });
 
@@ -57,16 +76,29 @@ function TabButton({ label, isActive, onPress }: { label: string; isActive: bool
         press.value = withSpring(0, { stiffness: 300, damping: 20 });
       }}
     >
-      <Reanimated.View style={[tabsNavegationDashStyles.tabButtonPerfil, animatedStyle]}>
-        <Reanimated.Text style={[tabsNavegationDashStyles.tabTextPerfil, animatedTextStyle]}>{label}</Reanimated.Text>
+      <Reanimated.View
+        style={[tabsNavegationDashStyles.tabButtonPerfil, animatedStyle]}
+      >
+        <Reanimated.Text
+          style={[tabsNavegationDashStyles.tabTextPerfil, animatedTextStyle]}
+        >
+          {label}
+        </Reanimated.Text>
       </Reanimated.View>
     </TouchableOpacity>
   );
 }
 
 export default function TabsButtonPerfil({ tabs, activeTab, onPress }: Props) {
+  const { colors } = useTheme();
+  const tabsNavegationDashStyles = getTabsNavegationDashStyles(colors);
+
   return (
-    <Reanimated.View style={tabsNavegationDashStyles.tabsCaixa} entering={FadeIn.duration(700)} exiting={FadeOut.duration(500)}>
+    <Reanimated.View
+      style={tabsNavegationDashStyles.tabsCaixa}
+      entering={FadeIn.duration(700)}
+      exiting={FadeOut.duration(500)}
+    >
       {tabs.map((tab) => {
         const isActive = tab.value === activeTab;
         return (
