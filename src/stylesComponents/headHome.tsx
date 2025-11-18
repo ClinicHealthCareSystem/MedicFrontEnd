@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import getGlobalStyles from "../styles/globalStyles";
 
-export const getHeadHomeStyles = (colors) => {
+export const getHeadHomeStyles = (colors: any) => {
   const globalStyles = getGlobalStyles(colors);
   return StyleSheet.create({
     headerView: {

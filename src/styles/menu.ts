@@ -4,7 +4,7 @@ import getGlobalStyles from "./globalStyles";
 
 const { width } = Dimensions.get('window');
 
-export const getMenuStyles = (colors) => {
+export const getMenuStyles = (colors: any) => {
   const globalStyles = getGlobalStyles(colors);
   return StyleSheet.create({
     background: globalStyles.backgroundBase,

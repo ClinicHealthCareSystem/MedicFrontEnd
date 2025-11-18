@@ -26,7 +26,7 @@ export const darkColors = {
   background: lightColors.black,
 };
 
-export const shadows = (colors) => ({
+export const shadows = (colors: any) => ({
   light: {
     shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
@@ -50,7 +50,7 @@ export const shadows = (colors) => ({
   },
 });
 
-const getGlobalStyles = (colors) => StyleSheet.create({
+const getGlobalStyles = (colors: any) => StyleSheet.create({
   // Backgrounds
   backgroundBase: {
     flex: 1,

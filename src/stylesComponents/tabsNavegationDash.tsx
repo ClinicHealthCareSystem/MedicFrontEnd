@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import getGlobalStyles, { shadows } from "../styles/globalStyles";
 
-export const getTabsNavegationDashStyles = (colors) => {
+export const getTabsNavegationDashStyles = (colors: any) => {
   const globalStyles = getGlobalStyles(colors);
   const customShadows = shadows(colors);
   return StyleSheet.create({
