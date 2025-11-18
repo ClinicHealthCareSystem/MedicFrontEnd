@@ -28,8 +28,8 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 const darkColors: Theme = {
   ...lightColors,
   primary: '#000000',
-  secondary: '#000000',
-  background: '#000000',
+  secondary: 'grey',
+  background: '#292929',
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {

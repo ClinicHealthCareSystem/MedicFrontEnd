@@ -25,25 +25,25 @@ export default function Menu() {
     {
       id: 1,
       title: "PACIENTES",
-      descricao: "Gerencie e visualize informações dos pacientes",
+      descricao: "Gerencie seus pacientes",
       icon: "people-outline",
     },
     {
       id: 2,
       title: "DASHBOARD",
-      descricao: "Informações sobre sua escala",
+      descricao: "Informações",
       icon: "document-text-outline",
     },
     {
       id: 3,
       title: "AGENDA MÉDICA",
-      descricao: "Gerenciamento de consultas e compromissos",
+      descricao: "Gerencia sua agenda",
       icon: "calendar-outline",
     },
     {
       id: 4,
-      title: "CLASSIFICAÇÃO CID-10",
-      descricao: "Atestados e Relatórios Médicos",
+      title: "CID-10",
+      descricao: "Consultas de Doenças",
       icon: "clipboard-outline",
     },
   ];
