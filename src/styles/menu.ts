@@ -1,21 +1,21 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalPagesStyles, { pageColors, pageShadows } from "../styles/globalStylesPages";
+import globalStyles from "./globalStyles";
 
 const { width } = Dimensions.get('window');
 export const menuStyles = StyleSheet.create({
-  background: globalPagesStyles.backgroundBase,
+  background: globalStyles.backgroundBase,
   scrollCards: {
     marginTop: 10,
   },
-  cards: globalPagesStyles.menuCardContainer,
-  buttonCards: globalPagesStyles.menuCard,
+  cards: globalStyles.menuCardContainer,
+  buttonCards: globalStyles.menuCard,
   iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: RFValue(4),
   },
-  cardButton: globalPagesStyles.menuCardButton,
-  textCards: globalPagesStyles.menuCardText,
-  descricaoCards: globalPagesStyles.menuCardDescription,
+  cardButton: globalStyles.menuCardButton,
+  textCards: globalStyles.menuCardText,
+  descricaoCards: globalStyles.menuCardDescription,
 });

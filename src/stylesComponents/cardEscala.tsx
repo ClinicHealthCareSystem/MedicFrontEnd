@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalStyles, { colors, shadows } from "../styles/globalStyles";
+import globalStyles, { colors, shadows } from "../styles/globalStyles.ts";
 export const cardEscalaStyles = StyleSheet.create({
   card: {
     ...globalStyles.cardLarge,
