@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalStyles, { colors, shadows } from "../styles/globalStyles.ts";
+import globalStyles, { colors, shadows } from "../styles/globalStyles"
 export const cardPerfilInfoStyles = StyleSheet.create({
   cardInfo: {
     backgroundColor: colors.primary,

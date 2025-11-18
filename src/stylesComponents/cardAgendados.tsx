@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalStyles, { colors, shadows } from "../styles/globalStyles.ts";
+import globalStyles, { colors, shadows } from "../styles/globalStyles"
 
 
 export const cardAgendadoStyles = StyleSheet.create({
   card: {
     ...globalStyles.cardLarge,
     padding: 15,
+    ...shadows.strong,
   },
   header: {
     ...globalStyles.headerBase,
@@ -60,6 +61,6 @@ export const cardAgendadoStyles = StyleSheet.create({
   },
   statusTextAgendado: globalStyles.statusTextAgendado,
   statusTextConfirmado: globalStyles.statusTextConfirmado,
-  emptyState: globalStyles.emptyState,
+  emptyContainer: globalStyles.emptyContainer,
   emptyText: globalStyles.emptyText,
 });

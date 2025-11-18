@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalStyles, { colors, shadows } from "../styles/globalStyles.ts";
+import globalStyles, { colors, shadows } from "../styles/globalStyles"
 export const cardPerfilStyles = StyleSheet.create({
   cardPerfil: {
     ...globalStyles.cardBase,
+    ...shadows.strong,
     alignItems: "center",
     marginTop: 30,
     marginHorizontal: 20,
+
   },
   avatarCaixa: globalStyles.avatarContainerLarge,
   avatar: globalStyles.avatarLarge,

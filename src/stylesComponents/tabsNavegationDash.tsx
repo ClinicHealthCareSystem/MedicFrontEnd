@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalStyles, { colors, shadows } from "../styles/globalStyles.ts";
+import globalStyles, { colors, shadows } from "../styles/globalStyles"
 export const tabsNavegationDashStyles = StyleSheet.create({
   tabsCaixa: {
     flexDirection: "row",
@@ -11,7 +11,7 @@ export const tabsNavegationDashStyles = StyleSheet.create({
     backgroundColor: colors.primary,
     width: "90%",
     padding: 5,
-    ...shadows.default,
+    ...shadows.strong,
     borderRadius: 8,
   },
   tabButtonPerfil: {
