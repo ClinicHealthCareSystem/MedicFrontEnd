@@ -1,48 +1,48 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalPagesStyles, { pageColors, pageShadows } from "../styles/globalStylesPages";
+import globalStyles, { colors } from "./globalStyles";
 
 const { width } = Dimensions.get('window');
 export const cidStyles = StyleSheet.create({
-  background: globalPagesStyles.backgroundBase,
-  containerCid: globalPagesStyles.containerPadded,
-  buscaContainer: globalPagesStyles.searchContainer,
-  buscaIcon: globalPagesStyles.iconMarginRight,
-  buscaInput: globalPagesStyles.searchInput,
-  infoContainer: globalPagesStyles.infoContainer,
-  infoTexto: globalPagesStyles.infoText,
+  background: globalStyles.backgroundBase,
+  containerCid: globalStyles.containerPadded,
+  buscaContainer: globalStyles.searchContainer,
+  buscaIcon: globalStyles.iconMarginRight,
+  buscaInput: globalStyles.searchInput,
+  infoContainer: globalStyles.infoContainer,
+  infoTexto: globalStyles.infoText,
   btnLimparSelecao: {
     paddingHorizontal: 12,
     paddingVertical: 6,
   },
   btnLimparTexto: {
     fontSize: 14,
-    color: pageColors.blue,
+    color: colors.blue,
   },
-  lista: globalPagesStyles.listPadding,
-  cidItem: globalPagesStyles.cardBlue,
+  lista: globalStyles.listPadding,
+  cidItem: globalStyles.cardBlue,
   cidItemHeader: {
-    ...globalPagesStyles.rowBetween,
+    ...globalStyles.rowBetween,
     marginBottom: 8,
   },
   cidCodigo: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: pageColors.white,
+    color: colors.white,
   },
   cidDescricao: {
     fontSize: 16,
-    color: pageColors.white,
+    color: colors.white,
     marginBottom: 6,
     lineHeight: 22,
   },
   cidCapitulo: {
     fontSize: 13,
-    color: pageColors.white,
+    color: colors.white,
     fontStyle: 'italic',
   },
-  loadingContainer: globalPagesStyles.loadingContainer,
-  emptyContainer: globalPagesStyles.emptyContainer,
-  emptyTexto: globalPagesStyles.emptyText,
-  emptySubtexto: globalPagesStyles.emptySubtext,
+  loadingContainer: globalStyles.loadingContainer,
+  emptyContainer: globalStyles.emptyContainer,
+  emptyTexto: globalStyles.emptyText,
+  emptySubtexto: globalStyles.emptySubtext,
 });

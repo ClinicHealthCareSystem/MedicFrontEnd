@@ -1,20 +1,20 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalPagesStyles, { pageColors, pageShadows } from "../styles/globalStylesPages";
+import globalStyles from "./globalStyles";
 
 const { width } = Dimensions.get('window');
 export const configStyles = StyleSheet.create({
-  background: globalPagesStyles.backgroundBase,
-  scrollArea: globalPagesStyles.scrollArea,
+  background: globalStyles.backgroundBase,
+  scrollArea: globalStyles.scrollArea,
   caixa: {
-    ...globalPagesStyles.cardWhite,
-    ...globalPagesStyles.rowBetween,
+    ...globalStyles.cardWhite,
+    ...globalStyles.rowBetween,
   },
   caixa2: {
-    ...globalPagesStyles.cardWhite,
-    ...globalPagesStyles.rowBetween,
+    ...globalStyles.cardWhite,
+    ...globalStyles.rowBetween,
     marginTop: 20,
   },
-  texto: globalPagesStyles.textPrimary,
-  textoSair: globalPagesStyles.dangerText,
+  texto: globalStyles.textPrimary,
+  textoSair: globalStyles.dangerText,
 });

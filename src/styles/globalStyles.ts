@@ -3,8 +3,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 
 const { width } = Dimensions.get('window');
 
-// Cores do tema (estendendo as cores dos componentes)
-export const pageColors = {
+export const colors = {
   primary: "#0D47AB",
   secondary: "#3284f1",
   background: "#ADD8E6",
@@ -14,26 +13,29 @@ export const pageColors = {
   textGray: "#797979ff",
   red: "#FF0000",
   blue: "#007AFF",
+  statusAgendado: "#FFF5E0",
+  statusAgendadoText: "#D97B00",
+  statusConfirmado: "#DFFCE0",
+  statusConfirmadoText: "#1D9A41",
 };
 
-// Sombras padrão para páginas
-export const pageShadows = {
+export const shadows = {
   light: {
-    shadowColor: pageColors.black,
+    shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 2,
   },
   default: {
-    shadowColor: pageColors.black,
+    shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.15,
     shadowRadius: 3,
     elevation: 3,
   },
   strong: {
-    shadowColor: pageColors.black,
+    shadowColor: colors.black,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.7,
     shadowRadius: 8,
@@ -41,13 +43,11 @@ export const pageShadows = {
   },
 };
 
-// Estilos globais para páginas
-const globalPagesStyles = StyleSheet.create({
+const globalStyles = StyleSheet.create({
   // Backgrounds
   backgroundBase: {
     flex: 1,
-    backgroundColor: pageColors.background,
-    
+    backgroundColor: colors.background,
   },
 
   // Scroll Views
@@ -71,7 +71,7 @@ const globalPagesStyles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: pageColors.white,
+    backgroundColor: colors.white,
     borderRadius: 8,
     paddingHorizontal: 10,
     height: 55,
@@ -81,7 +81,7 @@ const globalPagesStyles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: pageColors.lightGray,
+    backgroundColor: colors.lightGray,
     borderRadius: 12,
     paddingHorizontal: 12,
     marginBottom: 16,
@@ -91,62 +91,108 @@ const globalPagesStyles = StyleSheet.create({
     flex: 1,
     height: '100%',
     fontSize: 16,
-    
     overflow: "hidden",
   },
 
   searchInput: {
     flex: 1,
     fontSize: 16,
-    color: pageColors.black,
-    
+    color: colors.black,
     overflow: "hidden",
   },
 
-  // Botões base
+  searchBar: {
+    backgroundColor: colors.white,
+    height: 40,
+    borderRadius: 12,
+    paddingLeft: 30,
+    fontSize: 16,
+    color: colors.textGray,
+    outlineWidth: 0,
+  },
+
+  // Botões
   buttonPrimary: {
-    backgroundColor: pageColors.secondary,
-    justifyContent: "center",
+    backgroundColor: colors.secondary,
+    borderRadius: 10,
+    paddingVertical: 10,
     alignItems: "center",
-    height: 50,
-    borderRadius: 8,
-    marginBottom: 15,
-    marginTop: 15,
+    justifyContent: "center",
   },
 
   buttonText: {
-    color: pageColors.white,
-    fontSize: 18,
+    color: colors.white,
+    fontSize: 16,
     fontWeight: "bold",
   },
 
-  // Cards/Caixas base
+  buttonTextSmall: {
+    color: colors.white,
+    fontWeight: "500",
+    fontSize: RFValue(13),
+  },
+
+  // Cards/Caixas
+  cardBase: {
+    backgroundColor: colors.primary,
+    borderRadius: 12,
+    padding: 16,
+    marginVertical: 10,
+    marginHorizontal: 16,
+    ...shadows.default,
+  },
+
+  cardLarge: {
+    backgroundColor: colors.primary,
+    borderRadius: 14,
+    padding: 18,
+    marginVertical: 10,
+    marginHorizontal: 16,
+    ...shadows.default,
+  },
+
   cardWhite: {
-    backgroundColor: pageColors.white,
+    backgroundColor: colors.white,
     borderRadius: 12,
     paddingVertical: 15,
     paddingHorizontal: 15,
     marginBottom: 15,
-    ...pageShadows.default,
+    ...shadows.default,
   },
 
   cardBlue: {
-    backgroundColor: pageColors.primary,
+    backgroundColor: colors.primary,
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
-    ...pageShadows.light,
+    ...shadows.light,
   },
 
-  // Textos comuns
+  // Textos
   textPrimary: {
     fontSize: 16,
     fontWeight: "500",
-    color: pageColors.primary,
+    color: colors.primary,
   },
 
   textWhite: {
-    color: pageColors.white,
+    color: colors.white,
+  },
+
+  textWhiteBold: {
+    color: colors.white,
+    fontWeight: "bold",
+  },
+
+  textLabel: {
+    fontSize: RFValue(14),
+    color: colors.white,
+  },
+
+  textValue: {
+    fontSize: RFValue(14),
+    fontWeight: "500",
+    color: colors.white,
   },
 
   textBold: {
@@ -158,6 +204,25 @@ const globalPagesStyles = StyleSheet.create({
   },
 
   // Títulos
+  headerBase: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.white,
+    marginBottom: 12,
+    paddingBottom: 6,
+  },
+
+  headerText: {
+    fontSize: RFValue(18),
+    fontWeight: "bold",
+    color: colors.white,
+  },
+
+  headerTextMedium: {
+    fontSize: RFValue(16),
+    fontWeight: "600",
+    color: colors.white,
+  },
+
   titleLarge: {
     fontSize: 32,
     fontWeight: "bold",
@@ -170,7 +235,7 @@ const globalPagesStyles = StyleSheet.create({
     textAlign: "center",
   },
 
-  // Layouts comuns
+  // Layouts
   row: {
     flexDirection: "row",
     alignItems: "center",
@@ -189,6 +254,37 @@ const globalPagesStyles = StyleSheet.create({
   },
 
   centered: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  // Avatar
+  avatar: {
+    width: 55,
+    height: 55,
+    borderRadius: 50,
+  },
+
+  avatarLarge: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+
+  avatarContainer: {
+    height: 58,
+    width: 58,
+    borderRadius: 50,
+    backgroundColor: colors.primary,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  avatarContainerLarge: {
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+    backgroundColor: colors.primary,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -212,14 +308,14 @@ const globalPagesStyles = StyleSheet.create({
 
   emptyText: {
     fontSize: 18,
-    color: pageColors.primary,
+    color: colors.primary,
     marginTop: 16,
     fontWeight: '600',
   },
 
   emptySubtext: {
     fontSize: 14,
-    color: pageColors.primary,
+    color: colors.primary,
     marginTop: 8,
   },
 
@@ -235,30 +331,49 @@ const globalPagesStyles = StyleSheet.create({
     paddingBottom: 100,
   },
 
+  itemBase: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    padding: 12,
+    marginBottom: 10,
+  },
+
   // Bordas e divisores
   borderBottom: {
     borderBottomWidth: 1,
-    borderBottomColor: pageColors.white,
+    borderBottomColor: colors.white,
   },
 
   borderTop: {
     borderTopWidth: 1,
-    borderTopColor: pageColors.white,
+    borderTopColor: colors.white,
+  },
+
+  dividerWhite: {
+    borderBottomWidth: 1,
+    borderBottomColor: colors.white,
+  },
+
+  dividerTopWhite: {
+    borderTopWidth: 1,
+    borderTopColor: colors.white,
   },
 
   // Links/Textos especiais
   linkText: {
-    color: pageColors.primary,
+    color: colors.primary,
     fontWeight: "bold",
     textDecorationLine: "underline",
   },
 
   dangerText: {
-    color: pageColors.red,
+    color: colors.red,
     fontWeight: "600",
   },
 
-  // Margins comuns
+  // Margins
   marginTop: {
     marginTop: 15,
   },
@@ -271,7 +386,7 @@ const globalPagesStyles = StyleSheet.create({
     marginVertical: 15,
   },
 
-  // Menu cards específicos
+  // Menu
   menuCardContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
@@ -280,16 +395,16 @@ const globalPagesStyles = StyleSheet.create({
   },
 
   menuCard: {
-    backgroundColor: pageColors.primary,
+    backgroundColor: colors.primary,
     borderRadius: 8,
     marginBottom: 16,
     width: "47%",
     height: 128,
     justifyContent: "center",
     alignItems: "center",
-    ...pageShadows.strong,
+    ...shadows.strong,
     borderWidth: 1,
-    borderColor: pageColors.white,
+    borderColor: colors.white,
   },
 
   menuCardButton: {
@@ -302,7 +417,7 @@ const globalPagesStyles = StyleSheet.create({
 
   menuCardText: {
     fontSize: RFValue(18),
-    color: pageColors.white,
+    color: colors.white,
     fontWeight: "bold",
     textAlign: "center",
     marginTop: 8,
@@ -310,25 +425,25 @@ const globalPagesStyles = StyleSheet.create({
 
   menuCardDescription: {
     fontSize: RFValue(16),
-    color: pageColors.white,
+    color: colors.white,
     textAlign: "center",
   },
 
-  // Controles específicos (usados em várias páginas)
+  // Controles
   controlBar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 15,
     paddingVertical: 10,
-    backgroundColor: pageColors.background,
-    ...pageShadows.light,
+    backgroundColor: colors.background,
+    ...shadows.light,
   },
 
-  // Botões de view mode (agenda, etc)
+  // Botões de view mode
   viewModeContainer: {
     flexDirection: 'row',
-    backgroundColor: pageColors.background,
+    backgroundColor: colors.background,
     borderRadius: 8,
     padding: 2,
   },
@@ -340,17 +455,17 @@ const globalPagesStyles = StyleSheet.create({
   },
 
   viewModeButtonActive: {
-    backgroundColor: pageColors.secondary,
+    backgroundColor: colors.secondary,
   },
 
   viewModeButtonText: {
     fontSize: 14,
-    color: pageColors.primary,
+    color: colors.primary,
     fontWeight: '500',
   },
 
   viewModeButtonTextActive: {
-    color: pageColors.white,
+    color: colors.white,
   },
 
   // Info containers
@@ -363,15 +478,15 @@ const globalPagesStyles = StyleSheet.create({
 
   infoText: {
     fontSize: 14,
-    color: pageColors.primary,
+    color: colors.primary,
   },
 
-  // Legend/Status
+  // Legenda/Status
   legend: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 12,
-    backgroundColor: pageColors.background,
+    backgroundColor: colors.background,
   },
 
   legendItem: {
@@ -388,8 +503,35 @@ const globalPagesStyles = StyleSheet.create({
 
   legendText: {
     fontSize: 12,
-    color: pageColors.primary,
+    color: colors.primary,
+  },
+
+  // Status badges
+  statusBadge: {
+    borderRadius: 20,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+  },
+
+  statusBadgeAgendado: {
+    backgroundColor: colors.statusAgendado,
+  },
+
+  statusBadgeConfirmado: {
+    backgroundColor: colors.statusConfirmado,
+  },
+
+  statusTextAgendado: {
+    color: colors.statusAgendadoText,
+    fontWeight: "bold",
+    fontSize: 12,
+  },
+
+  statusTextConfirmado: {
+    color: colors.statusConfirmadoText,
+    fontWeight: "bold",
+    fontSize: 12,
   },
 });
 
-export default globalPagesStyles;
+export default globalStyles;

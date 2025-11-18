@@ -1,47 +1,47 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalPagesStyles, { pageColors, pageShadows } from "../styles/globalStylesPages";
+import globalStyles, { colors } from "./globalStyles";
 
 const { width } = Dimensions.get('window');
 export const agendaStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: pageColors.background,
+    backgroundColor: colors.background,
   },
   controlBar: {
-    ...globalPagesStyles.controlBar,
+    ...globalStyles.controlBar,
     borderBottomWidth: 1,
-    borderBottomColor: pageColors.white,
+    borderBottomColor: colors.white,
   },
-  calendarButton: globalPagesStyles.row,
+  calendarButton: globalStyles.row,
   calendarButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: pageColors.primary,
+    color: colors.primary,
     marginRight: 5,
   },
   calendarIcon: {
     fontSize: 12,
-    color: pageColors.primary,
+    color: colors.primary,
   },
-  viewModeButtons: globalPagesStyles.viewModeContainer,
-  viewButton: globalPagesStyles.viewModeButton,
-  viewButtonActive: globalPagesStyles.viewModeButtonActive,
-  viewButtonText: globalPagesStyles.viewModeButtonText,
-  viewButtonTextActive: globalPagesStyles.viewModeButtonTextActive,
+  viewModeButtons: globalStyles.viewModeContainer,
+  viewButton: globalStyles.viewModeButton,
+  viewButtonActive: globalStyles.viewModeButtonActive,
+  viewButtonText: globalStyles.viewModeButtonText,
+  viewButtonTextActive: globalStyles.viewModeButtonTextActive,
   calendarContainer: {
-    backgroundColor: pageColors.white,
+    backgroundColor: colors.white,
     borderBottomWidth: 1,
-    borderBottomColor: pageColors.white,
+    borderBottomColor: colors.white,
   },
   scheduleContainer: {
     flex: 1,
   },
   daysHeader: {
     flexDirection: 'row',
-    backgroundColor: pageColors.background,
+    backgroundColor: colors.background,
     borderBottomWidth: 1,
-    borderBottomColor: pageColors.white,
+    borderBottomColor: colors.white,
     paddingVertical: 10,
   },
   timeColumnHeader: {
@@ -59,12 +59,12 @@ export const agendaStyles = StyleSheet.create({
   },
   weekDayText: {
     fontSize: 12,
-    color: pageColors.primary,
+    color: colors.primary,
     marginBottom: 4,
     right: 10,
   },
   selectedDayText: {
-    color: pageColors.white,
+    color: colors.white,
     fontWeight: '600',
     right: 10,
   },
@@ -77,14 +77,14 @@ export const agendaStyles = StyleSheet.create({
     right: 10,
   },
   selectedDayCircle: {
-    backgroundColor: pageColors.secondary,
+    backgroundColor: colors.secondary,
   },
   dayNumber: {
     fontSize: 16,
-    color: pageColors.primary,
+    color: colors.primary,
   },
   selectedDayNumber: {
-    color: pageColors.white,
+    color: colors.white,
     fontWeight: 'bold',
   },
   scheduleGrid: {
@@ -102,14 +102,14 @@ export const agendaStyles = StyleSheet.create({
   },
   timeText: {
     fontSize: 12,
-    color: pageColors.primary,
+    color: colors.primary,
     textAlign: 'right',
   },
   dayColumn: {
     flex: 1,
     minWidth: 100,
     borderLeftWidth: 1,
-    borderLeftColor: pageColors.white,
+    borderLeftColor: colors.white,
     position: 'relative',
   },
   dayColumnSingle: {
@@ -118,7 +118,7 @@ export const agendaStyles = StyleSheet.create({
   hourLine: {
     height: 60,
     borderBottomWidth: 1,
-    borderBottomColor: pageColors.white,
+    borderBottomColor: colors.white,
   },
   appointmentBlock: {
     position: 'absolute',
@@ -131,19 +131,19 @@ export const agendaStyles = StyleSheet.create({
   },
   appointmentBlockTime: {
     fontSize: 11,
-    color: pageColors.white,
+    color: colors.white,
     fontWeight: '600',
     marginBottom: 2,
   },
   appointmentBlockPatient: {
     fontSize: 13,
-    color: pageColors.white,
+    color: colors.white,
     fontWeight: 'bold',
     marginBottom: 2,
   },
   appointmentBlockDescription: {
     fontSize: 11,
-    color: pageColors.white,
+    color: colors.white,
     opacity: 0.9,
   },
   statusIndicator: {
@@ -154,8 +154,8 @@ export const agendaStyles = StyleSheet.create({
     height: 8,
     borderRadius: 4,
   },
-  legend: globalPagesStyles.legend,
-  legendItem: globalPagesStyles.legendItem,
-  legendDot: globalPagesStyles.legendDot,
-  legendText: globalPagesStyles.legendText,
+  legend: globalStyles.legend,
+  legendItem: globalStyles.legendItem,
+  legendDot: globalStyles.legendDot,
+  legendText: globalStyles.legendText,
 });

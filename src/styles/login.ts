@@ -1,63 +1,63 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import globalPagesStyles, { pageColors, pageShadows } from "../styles/globalStylesPages";
+import globalStyles, { colors } from "./globalStyles";
 
 const { width } = Dimensions.get('window');
 
 
 export const loginStyles = StyleSheet.create({
   background: {
-    ...globalPagesStyles.backgroundBase,
+    ...globalStyles.backgroundBase,
     justifyContent: "center",
     paddingHorizontal: 20,
   },
   tittle: {
-    ...globalPagesStyles.titleLarge,
-    color: pageColors.primary,
+    ...globalStyles.titleLarge,
+    color: colors.primary,
   },
   subtittle: {
-    ...globalPagesStyles.titleMedium,
-    color: pageColors.primary,
+    ...globalStyles.titleMedium,
+    color: colors.primary,
     bottom: 40,
   },
-  inputCaixa: globalPagesStyles.inputContainer,
-  input: globalPagesStyles.input,
+  inputCaixa: globalStyles.inputContainer,
+  input: globalStyles.input,
   eyeOpened: {
-    ...globalPagesStyles.iconMarginLeft,
-    color: pageColors.primary,
+    ...globalStyles.iconMarginLeft,
+    color: colors.primary,
   },
   eyeClosed: {
-    ...globalPagesStyles.iconMarginLeft,
-    color: pageColors.primary,
+    ...globalStyles.iconMarginLeft,
+    color: colors.primary,
   },
   esqueci: {
-    ...globalPagesStyles.linkText,
+    ...globalStyles.linkText,
     alignSelf: "flex-end",
     fontSize: RFValue(14),
     marginBottom: 10,
   },
   button: {
-    ...globalPagesStyles.buttonPrimary,
+    ...globalStyles.buttonPrimary,
     width: "100%",
   },
-  buttonText: globalPagesStyles.buttonText,
+  buttonText: globalStyles.buttonText,
   cadastroCaixa: {
     marginTop: 20,
     alignItems: "center",
   },
   text: {
-    ...globalPagesStyles.textPrimary,
+    ...globalStyles.textPrimary,
   },
   cadastro: {
-    ...globalPagesStyles.textPrimary,
-    ...globalPagesStyles.textBold,
+    ...globalStyles.textPrimary,
+    ...globalStyles.textBold,
   },
   id_card: {
     marginRight: 5,
-    color: pageColors.primary,
+    color: colors.primary,
   },
   lock: {
     marginRight: 5,
-    color: pageColors.primary,
+    color: colors.primary,
   },
 });
