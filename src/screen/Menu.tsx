@@ -59,7 +59,7 @@ export default function Menu() {
       case "AGENDA MÉDICA":
         router.push("/agenda");
         break;
-      case "CLASSIFICAÇÃO CID-10":
+      case "CID-10":
         router.push("/CID10");
         break;
     }
