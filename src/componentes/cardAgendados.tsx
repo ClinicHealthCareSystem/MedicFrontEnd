@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { getCardAgendadoStyles } from "../stylesComponents/cardAgendados";
 import { useTheme } from "../hooks/ThemeContext";
-
+import { useAgendamento } from "../hooks/useAgendamento";
 interface Agendamento {
   id: string;
   nome: string;
@@ -10,11 +10,12 @@ interface Agendamento {
   status: "Retorno" | "Consulta";
 }
 
-const dados: Agendamento[] = [
-  { id: "1", nome: "Maria Silva", hora: "09:00", status: "Retorno" },
-  { id: "2", nome: "José Santos", hora: "10:00", status: "Consulta" },
-  { id: "3", nome: "Ana Costa", hora: "14:00", status: "Retorno" },
-];
+// const dados: Agendamento[] = [
+//   { id: "1", nome: "Maria Silva", hora: "09:00", status: "Retorno" },
+//   { id: "2", nome: "José Santos", hora: "10:00", status: "Consulta" },
+//   { id: "3", nome: "Ana Costa", hora: "14:00", status: "Retorno" },
+// ];
+const { agendamentos, loading } = useAgendamento();
 
 export default function CardAgendados() {
   const { colors } = useTheme();
@@ -31,11 +32,11 @@ export default function CardAgendados() {
           </TouchableOpacity>
         </View>
         <Text style={cardAgendadoStyles.subtitle}>
-          {dados.length} consulta(s)
+          {agendamentos.length} consulta(s)
         </Text>
       </View>
 
-      {dados.length === 0 ? (
+      {agendamentos.length === 0 ? (
         <View style={cardAgendadoStyles.emptyContainer}>
           <Ionicons name="calendar-outline" size={48} color="white" />
           <Text style={cardAgendadoStyles.emptyText}>
@@ -44,10 +45,10 @@ export default function CardAgendados() {
         </View>
       ) : (
         <View>
-          {dados.map((item) => (
+          {agendamentos.map((item) => (
             <View key={item.id} style={cardAgendadoStyles.item}>
               <View style={cardAgendadoStyles.info}>
-                <Text style={cardAgendadoStyles.nome}>{item.nome}</Text>
+                <Text style={cardAgendadoStyles.nome}>{item.usuario.nome}</Text>
 
                 <View style={cardAgendadoStyles.horaContainer}>
                   <Ionicons
