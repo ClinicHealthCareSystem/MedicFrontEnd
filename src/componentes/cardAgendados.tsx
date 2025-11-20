@@ -59,25 +59,6 @@ export default function CardAgendados() {
                   <Text style={cardAgendadoStyles.hora}> {item.hora}</Text>
                 </View>
               </View>
-              <View
-                style={[
-                  cardAgendadoStyles.statusContainer,
-                  item.status === "Consulta"
-                    ? cardAgendadoStyles.confirmado
-                    : cardAgendadoStyles.agendado,
-                ]}
-              >
-                <Text
-                  style={[
-                    cardAgendadoStyles.statusText,
-                    item.status === "Consulta"
-                      ? cardAgendadoStyles.statusTextConfirmado
-                      : cardAgendadoStyles.statusTextAgendado,
-                  ]}
-                >
-                  {item.status}
-                </Text>
-              </View>
             </View>
           ))}
         </View>
