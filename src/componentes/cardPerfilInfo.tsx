@@ -7,7 +7,6 @@
 // export default function CardPerfilInfo() {
 //   const { colors } = useTheme();
 //   const cardPerfilInfoStyles = getCardPerfilInfoStyles(colors);
-  
 
 //   return (
 //     <View style={cardPerfilInfoStyles.cardInfo}>
@@ -42,10 +41,9 @@ import { useProfile } from "../hooks/useMedic";
 export default function CardPerfilInfo() {
   const { colors } = useTheme();
   const cardPerfilInfoStyles = getCardPerfilInfoStyles(colors);
-  
 
   const { profile, loading, error } = useProfile();
-  
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
 
@@ -56,13 +54,14 @@ export default function CardPerfilInfo() {
     }
   }, [profile]);
 
-
   return (
     <View style={cardPerfilInfoStyles.cardInfo}>
       <View style={cardPerfilInfoStyles.cardInfoTittle}>
-        <Text style={cardPerfilInfoStyles.tittleInfo}>Informações Pessoais</Text>
+        <Text style={cardPerfilInfoStyles.tittleInfo}>
+          Informações Pessoais
+        </Text>
       </View>
-      
+
       <Text style={cardPerfilInfoStyles.labelInfo}>Nome:</Text>
       <View style={cardPerfilInfoStyles.textInfo}>
         <TextInput
@@ -78,7 +77,7 @@ export default function CardPerfilInfo() {
         <TextInput
           style={cardPerfilInfoStyles.inputInfo}
           value={email}
-           editable={false}
+          editable={false}
           onChangeText={setEmail}
         />
       </View>

@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
 import getGlobalStyles, { shadows } from "../styles/globalStyles";
 
 export const getCardPerfilInfoStyles = (colors: any) => {
   const globalStyles = getGlobalStyles(colors);
   const customShadows = shadows(colors);
+
   return StyleSheet.create({
     cardInfo: {
       backgroundColor: colors.primary,
@@ -15,11 +15,13 @@ export const getCardPerfilInfoStyles = (colors: any) => {
       width: "90%",
       alignSelf: "center",
     },
+
     cardInfoTittle: {
       ...globalStyles.centered,
       position: "relative",
       marginBottom: 8,
     },
+
     editButton: {
       position: "absolute",
       right: 0,
@@ -27,6 +29,7 @@ export const getCardPerfilInfoStyles = (colors: any) => {
       transform: [{ translateY: -15 }],
       padding: 4,
     },
+
     tittleInfo: {
       fontSize: 20,
       fontWeight: "bold",
@@ -34,6 +37,7 @@ export const getCardPerfilInfoStyles = (colors: any) => {
       color: colors.white,
       textAlign: "center",
     },
+
     textInfo: {
       backgroundColor: colors.white,
       borderRadius: 8,
@@ -45,12 +49,14 @@ export const getCardPerfilInfoStyles = (colors: any) => {
       marginBottom: 15,
       alignSelf: "center",
     },
+
     labelInfo: {
       fontSize: 14,
       color: colors.white,
       marginHorizontal: 30,
       fontWeight: "600",
     },
+
     inputInfo: {
       color: colors.primary,
       fontWeight: "700",

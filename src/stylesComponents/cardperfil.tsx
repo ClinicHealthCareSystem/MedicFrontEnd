@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
 import getGlobalStyles, { shadows } from "../styles/globalStyles";
 
 export const getCardPerfilStyles = (colors: any) => {

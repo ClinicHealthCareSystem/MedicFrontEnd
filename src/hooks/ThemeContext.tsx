@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { lightColors } from '../styles/globalStyles';
+import React, { createContext, useState, useContext, ReactNode } from "react";
+import { lightColors } from "../styles/globalStyles";
 
 interface Theme {
   primary: string;
@@ -18,7 +18,7 @@ interface Theme {
 }
 
 interface ThemeContextType {
-  theme: 'light' | 'dark';
+  theme: "light" | "dark";
   colors: Theme;
   toggleTheme: () => void;
 }
@@ -27,19 +27,19 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const darkColors: Theme = {
   ...lightColors,
-  primary: '#000000',
-  secondary: 'grey',
-  background: '#292929',
+  primary: "#000000",
+  secondary: "grey",
+  background: "#292929",
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
-  const colors = theme === 'light' ? lightColors : darkColors;
+  const colors = theme === "light" ? lightColors : darkColors;
 
   return (
     <ThemeContext.Provider value={{ theme, colors, toggleTheme }}>
@@ -51,7 +51,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };

@@ -18,10 +18,12 @@ export default function CardPerfil() {
         />
       </View>
       <Text style={cardPerfilStyles.nome}>{profile?.name}</Text>
-      <Text style={cardPerfilStyles.info}>Desde:{" "}
-                {profile?.created_at
-                  ? new Date(profile.created_at).toLocaleDateString("pt-BR")
-                  : ""}</Text>
+      <Text style={cardPerfilStyles.info}>
+        Desde:{" "}
+        {profile?.created_at
+          ? new Date(profile.created_at).toLocaleDateString("pt-BR")
+          : ""}
+      </Text>
 
       <View style={cardPerfilStyles.statusAvatar}>
         <View style={cardPerfilStyles.planoStatus}>

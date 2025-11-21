@@ -10,11 +10,17 @@ import { useTheme } from "../hooks/ThemeContext";
 export default function DashboardPaciente() {
   const { colors } = useTheme();
   const pacientesStyles = getPacientesStyles(colors);
-  const [activeTab, setActiveTab] = useState<"opcao1" | "opcao2" | "opcao3">("opcao1");
+  const [activeTab, setActiveTab] = useState<"opcao1" | "opcao2" | "opcao3">(
+    "opcao1"
+  );
 
   return (
     <View style={pacientesStyles.background}>
-      <HeaderHome titulo="Prontuario" mostrarBusca={false} mostrarVoltar={true} />
+      <HeaderHome
+        titulo="Prontuario"
+        mostrarBusca={false}
+        mostrarVoltar={true}
+      />
       <ScrollView>
         <CardDashboard />
         <TabsNavegationDash

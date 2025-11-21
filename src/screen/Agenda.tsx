@@ -68,7 +68,11 @@ export default function Agenda() {
 
   return (
     <View style={agendaStyles.container}>
-      <HeaderHome titulo="Calendário" mostrarBusca={false} mostrarVoltar={true} />
+      <HeaderHome
+        titulo="Calendário"
+        mostrarBusca={false}
+        mostrarVoltar={true}
+      />
 
       <View style={agendaStyles.controlBar}>
         <TouchableOpacity
@@ -82,7 +86,9 @@ export default function Agenda() {
               year: "numeric",
             })}
           </Text>
-          <Text style={agendaStyles.calendarIcon}>{showCalendar ? "▲" : "▼"}</Text>
+          <Text style={agendaStyles.calendarIcon}>
+            {showCalendar ? "▲" : "▼"}
+          </Text>
         </TouchableOpacity>
 
         <View style={agendaStyles.viewModeButtons}>

@@ -12,11 +12,17 @@ export default function Config() {
   const [SilenceNotific, SetSilenceNotific] = useState(false);
   const configStyles = getConfigStyles(colors);
 
-  const isDarkMode = theme === 'dark';
+  const isDarkMode = theme === "dark";
 
   return (
-    <View style={[configStyles.background, { backgroundColor: colors.background }]}>
-      <HeaderHome mostrarBusca={false} mostrarVoltar={true} titulo="Configurações" />
+    <View
+      style={[configStyles.background, { backgroundColor: colors.background }]}
+    >
+      <HeaderHome
+        mostrarBusca={false}
+        mostrarVoltar={true}
+        titulo="Configurações"
+      />
       <ScrollView contentContainerStyle={configStyles.scrollArea}>
         <View style={configStyles.caixa}>
           <Text style={configStyles.texto}>Aumentar a Fonte</Text>

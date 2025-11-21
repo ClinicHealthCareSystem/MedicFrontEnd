@@ -25,11 +25,15 @@ export default function CardInfoDashboard({ activeTab }: Props) {
 
           <View style={cardInfoDashboardStyles.caixa}>
             <Text style={cardInfoDashboardStyles.caixaTitle}>Resultado </Text>
-            <Text style={cardInfoDashboardStyles.caixaText}>Dor na Garganta</Text>
+            <Text style={cardInfoDashboardStyles.caixaText}>
+              Dor na Garganta
+            </Text>
           </View>
 
           <View style={cardInfoDashboardStyles.caixa}>
-            <Text style={cardInfoDashboardStyles.caixaTitle}>Diagnóstico: </Text>
+            <Text style={cardInfoDashboardStyles.caixaTitle}>
+              Diagnóstico:{" "}
+            </Text>
             <Text style={cardInfoDashboardStyles.caixaText}>Resfriado</Text>
           </View>
 
@@ -63,7 +67,9 @@ export default function CardInfoDashboard({ activeTab }: Props) {
           </View>
 
           <View style={cardInfoDashboardStyles.caixa}>
-            <Text style={cardInfoDashboardStyles.sectionTitle}>Interpretação</Text>
+            <Text style={cardInfoDashboardStyles.sectionTitle}>
+              Interpretação
+            </Text>
             <Text style={cardInfoDashboardStyles.sectionContent}>
               Exame dentro dos parâmetros normais
             </Text>
@@ -103,8 +109,12 @@ export default function CardInfoDashboard({ activeTab }: Props) {
           </View>
 
           <View style={cardInfoDashboardStyles.caixa}>
-            <Text style={cardInfoDashboardStyles.sectionTitle}>Frequência:</Text>
-            <Text style={cardInfoDashboardStyles.sectionContent}>1x ao dia</Text>
+            <Text style={cardInfoDashboardStyles.sectionTitle}>
+              Frequência:
+            </Text>
+            <Text style={cardInfoDashboardStyles.sectionContent}>
+              1x ao dia
+            </Text>
           </View>
 
           <View style={cardInfoDashboardStyles.caixa}>

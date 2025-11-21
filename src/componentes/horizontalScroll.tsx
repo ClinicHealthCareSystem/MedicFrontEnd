@@ -1,12 +1,10 @@
 import { ScrollView } from "react-native";
 import CardCounts from "./cardCounts";
 
-
 interface Card {
   id: string;
   titulo: string;
   valor: string;
-  
 }
 
 interface HorizontalScrollProps {
@@ -21,11 +19,7 @@ export default function HorizontalScroll({ cards }: HorizontalScrollProps) {
       contentContainerStyle={{ paddingHorizontal: 10 }}
     >
       {cards.map((card) => (
-        <CardCounts
-          key={card.id}
-          titulo={card.titulo}
-          valor={card.valor}
-        />
+        <CardCounts key={card.id} titulo={card.titulo} valor={card.valor} />
       ))}
     </ScrollView>
   );

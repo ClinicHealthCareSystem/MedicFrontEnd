@@ -35,7 +35,12 @@ export default function Cid10() {
 
       <View style={cidStyles.containerCid}>
         <View style={cidStyles.buscaContainer}>
-          <Ionicons name="search" size={20} color={colors.primary} style={cidStyles.buscaIcon} />
+          <Ionicons
+            name="search"
+            size={20}
+            color={colors.primary}
+            style={cidStyles.buscaIcon}
+          />
           <TextInput
             style={cidStyles.buscaInput}
             placeholder="Buscar por código, doença ou capítulo..."
@@ -64,7 +69,9 @@ export default function Cid10() {
         ) : resultados.length === 0 ? (
           <View style={cidStyles.emptyContainer}>
             <Ionicons name="search-outline" size={48} color={colors.primary} />
-            <Text style={cidStyles.emptyTexto}>Nenhum resultado encontrado</Text>
+            <Text style={cidStyles.emptyTexto}>
+              Nenhum resultado encontrado
+            </Text>
             <Text style={cidStyles.emptySubtexto}>
               Tente buscar por outro termo
             </Text>

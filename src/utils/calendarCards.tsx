@@ -11,19 +11,27 @@ export const getWeekDates = (date: string) => {
 
 export const getStatusColor = (status: string): string => {
   switch (status) {
-    case "Pendente": return "#FFA500";
-    case "Confirmado": return "#4CAF50";
-    case "Cancelado": return "#F44336";
-    default: return "#999";
+    case "Pendente":
+      return "#FFA500";
+    case "Confirmado":
+      return "#4CAF50";
+    case "Cancelado":
+      return "#F44336";
+    default:
+      return "#999";
   }
 };
 
 export const getTypeColor = (type: string): string => {
   switch (type) {
-    case "Consulta": return "#2196F3";
-    case "Exame": return "#4CAF50";
-    case "Retorno": return "#FFA500";
-    default: return "#999";
+    case "Consulta":
+      return "#2196F3";
+    case "Exame":
+      return "#4CAF50";
+    case "Retorno":
+      return "#FFA500";
+    default:
+      return "#999";
   }
 };
 
@@ -48,6 +56,8 @@ export const calculateTop = (time: string): number => {
 export const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   const day = date.getDate();
-  const weekDay = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"][date.getDay()];
+  const weekDay = ["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SÁB"][
+    date.getDay()
+  ];
   return { day, weekDay };
 };

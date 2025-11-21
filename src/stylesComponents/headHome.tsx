@@ -4,6 +4,7 @@ import getGlobalStyles from "../styles/globalStyles";
 
 export const getHeadHomeStyles = (colors: any) => {
   const globalStyles = getGlobalStyles(colors);
+
   return StyleSheet.create({
     headerView: {
       backgroundColor: colors.primary,
@@ -13,16 +14,19 @@ export const getHeadHomeStyles = (colors: any) => {
       paddingHorizontal: 15,
       elevation: 6,
     },
+
     headerContent: {
       ...globalStyles.rowBetween,
       marginTop: 25,
       position: "relative",
     },
+
     headerBackButton: {
       width: 40,
       justifyContent: "center",
       alignItems: "flex-start",
     },
+
     headerTitle: {
       fontSize: RFValue(28),
       fontWeight: "bold",
@@ -31,16 +35,20 @@ export const getHeadHomeStyles = (colors: any) => {
       right: 0,
       textAlign: "center",
     },
+
     headerRight: {
       width: 40,
       alignItems: "flex-end",
       justifyContent: "center",
     },
+
     search_bar: globalStyles.searchBar,
+
     headerInfo: {
       alignItems: "center",
       marginTop: 15,
     },
+    
     headerInfoText: {
       color: colors.white,
       fontSize: RFValue(15),

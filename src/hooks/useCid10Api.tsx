@@ -1,38 +1,37 @@
 import { Cid10Item } from "../utils/cid10Types";
-export const CID10_API ={
-    BASE_URL: "https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search",
+export const CID10_API = {
+  BASE_URL: "https://clinicaltables.nlm.nih.gov/api/icd10cm/v3/search",
 
-    buscar: async (termo: string): Promise<Cid10Item[]> =>{
-        try {
-            if (!termo || termo.trim().length < 2){
-                return [];
-            }
-            const url = `${CID10_API.BASE_URL}?sf=code,name&terms=${encodeURIComponent(
-                termo
-            )}&maxList=50`;
-            const response = await fetch(url);
-            if (!response.ok){
-                throw new Error("Erro ao ao buscar CID-10");
-            }
-            const data: [number, string[], null, string[]] = await response.json();
-            const [total, codigos, , descricoes] = data;
+  buscar: async (termo: string): Promise<Cid10Item[]> => {
+    try {
+      if (!termo || termo.trim().length < 2) {
+        return [];
+      }
+      const url = `${
+        CID10_API.BASE_URL
+      }?sf=code,name&terms=${encodeURIComponent(termo)}&maxList=50`;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Erro ao ao buscar CID-10");
+      }
+      const data: [number, string[], null, string[]] = await response.json();
+      const [total, codigos, , descricoes] = data;
 
-            if (!codigos || codigos.length == 0){
-                return [];
-            }
-            return codigos.map((codigo, index)=>({
-                codigo,
-                descricao: descricoes[index] || "Sem descrição",
-                capitulo: CID10_API.obterCapitulo(codigo),
+      if (!codigos || codigos.length == 0) {
+        return [];
+      }
+      return codigos.map((codigo, index) => ({
+        codigo,
+        descricao: descricoes[index] || "Sem descrição",
+        capitulo: CID10_API.obterCapitulo(codigo),
+      }));
+    } catch (error) {
+      console.error("Erro ao ao buscar CID-10", error);
+      throw error;
+    }
+  },
 
-            }))
-        } catch (error){
-            console.error("Erro ao ao buscar CID-10", error);
-            throw error;
-        }
-    },
-
-    obterCapitulo: (codigo: string): string => {
+  obterCapitulo: (codigo: string): string => {
     const letra = codigo.charAt(0).toUpperCase();
 
     const capitulos: Record<string, string> = {
@@ -65,4 +64,4 @@ export const CID10_API ={
 
     return capitulos[letra] || "Capítulo não identificado";
   },
-}
+};

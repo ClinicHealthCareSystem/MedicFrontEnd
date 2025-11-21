@@ -25,7 +25,7 @@
 
 //   return (
 //     <View>
-      
+
 //       <ScrollView>
 //         <Text >Login Médico</Text>
 //         <Text style={loginStyles.subtittle}>Bem-vindo(a) ao Saúde Mania</Text>
@@ -37,7 +37,7 @@
 //             placeholder="Email institucional"
 //           />
 //         </View>
-      
+
 //         <View style={loginStyles.inputCaixa}>
 //           <Ionicons name="lock-closed-outline" size={30} style={loginStyles.lock} />
 //           <TextInput
