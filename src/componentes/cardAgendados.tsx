@@ -3,11 +3,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { getCardAgendadoStyles } from "../stylesComponents/cardAgendados";
 import { useTheme } from "../hooks/ThemeContext";
 import { useAgendamento } from "../hooks/useAgendamento";
+
 interface Agendamento {
   id: string;
   nome: string;
   hora: string;
-  status: "Retorno" | "Consulta";
 }
 
 // const dados: Agendamento[] = [
@@ -15,11 +15,11 @@ interface Agendamento {
 //   { id: "2", nome: "José Santos", hora: "10:00", status: "Consulta" },
 //   { id: "3", nome: "Ana Costa", hora: "14:00", status: "Retorno" },
 // ];
-const { agendamentos, loading } = useAgendamento();
 
 export default function CardAgendados() {
   const { colors } = useTheme();
   const cardAgendadoStyles = getCardAgendadoStyles(colors);
+  const { agendamentos, loading } = useAgendamento();
 
   return (
     <View style={cardAgendadoStyles.card}>
