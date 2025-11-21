@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
-interface UserProfile { 
-  created_at: string;
+interface UserProfile {
   name: string;
   email: string;
+  CRM: string;
+  created_at: string;
+  specialty: string;
 }
 
 export function useProfile() {
@@ -18,16 +19,7 @@ export function useProfile() {
         setLoading(true);
         setError(null);
 
-        const token = await AsyncStorage.getItem("token");
-        if (!token) {
-          throw new Error("Token not found");
-        }
-
-        const response = await fetch("http://localhost:3000/auth/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch("http://localhost:3000/medic/profile", {});
 
         if (!response.ok) {
           throw new Error("Error when searching profile");
