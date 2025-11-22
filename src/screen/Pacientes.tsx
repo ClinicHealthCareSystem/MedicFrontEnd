@@ -1,6 +1,7 @@
 import { View, ScrollView, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import HeaderHome from "../componentes/headerHome";
+import TabsNavegation from "../componentes/tabsNavegation";
 import { getPacientesStyles } from "../styles/pacientes";
 import CardPaciente from "../componentes/cardpaciente";
 import { useTheme } from "../hooks/ThemeContext";
@@ -51,7 +52,9 @@ export default function Pacientes() {
             detalhes={item.detalhes}
           />
         ))}
+        
       </ScrollView>
+      <TabsNavegation/>
     </View>
   );
 }

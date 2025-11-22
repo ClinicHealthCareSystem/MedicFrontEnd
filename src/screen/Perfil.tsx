@@ -1,5 +1,6 @@
 import { View, ScrollView } from "react-native";
 import HeaderHome from "../componentes/headerHome";
+import TabsNavegation from "../componentes/tabsNavegation";
 import { getPerfilStyles } from "../styles/perfil";
 import CardPerfil from "../componentes/cardPerfil";
 import CardPerfilInfo from "../componentes/cardPerfilInfo";
@@ -18,6 +19,7 @@ export default function Perfil() {
         <View style={perfilStyles.margem}></View>
         <CardPerfilInfo />
       </ScrollView>
+      <TabsNavegation/>
     </View>
   );
 }
