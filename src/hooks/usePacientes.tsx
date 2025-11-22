@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 
 type Paciente = {
   id: string;
-  nome: string;
-  detalhes: string;
-  telefone: string;
+  name: string;
+  age: string;
+  phone: string;
+  appointments: string;
+  conditions: string;
 };
 
-export function usePaciente() {
+export function usePacientes() {
   const [pacientes, setPacientes] = useState<Paciente[]>([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
@@ -15,7 +17,7 @@ export function usePaciente() {
   const fetchPacientes = async () => {
     setError("");
     try {
-      const response = await fetch("localHost");
+      const response = await fetch("http://localhost:3000/user/fetchUsers");
 
       const data = await response.json();
 
@@ -25,7 +27,7 @@ export function usePaciente() {
         setError("Erro ao carregar pacientes");
       }
     } catch (error) {
-      setError("Falhha na conexão com o servidor");
+      setError("Falha na conexão com o servidor");
     } finally {
       setLoading(false);
     }

@@ -56,7 +56,7 @@ export default function CardPaciente({
         {detalhes ? (
           <View style={cardPacienteStyles.linhaInfo}>
             <Ionicons name="document-text" size={14} color="white" />
-            <Text style={cardPacienteStyles.textInfo}>{detalhes}</Text>
+            <Text style={cardPacienteStyles.textInfo}>Condições: {detalhes}</Text>
           </View>
         ) : null}
       </View>

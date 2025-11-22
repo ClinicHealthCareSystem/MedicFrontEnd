@@ -11,7 +11,12 @@ export default function TabsNavegation() {
 
   return (
     <View style={tabNavegationStyles.tabNavegation}>
-      <TouchableOpacity style={tabNavegationStyles.tabButton}>
+      <TouchableOpacity
+        style={tabNavegationStyles.tabButton}
+        onPress={() => {
+          router.push("/menu");
+        }}
+      >
         <Ionicons name="home" size={26} color="#fff" />
         <Text style={tabNavegationStyles.tabText}>Home</Text>
       </TouchableOpacity>
