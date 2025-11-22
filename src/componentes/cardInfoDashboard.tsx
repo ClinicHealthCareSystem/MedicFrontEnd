@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Modal, ScrollView } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { getCardInfoDashboardStyles } from "../stylesComponents/cardInfoDashboard";
 import { useTheme } from "../hooks/ThemeContext";
 import { useState } from "react";
+import FormMedicamento from "./formMedicine";
 
 type Props = {
   activeTab: "opcao1" | "opcao2" | "opcao3";
@@ -12,7 +13,7 @@ type Props = {
 export default function CardInfoDashboard({ activeTab }: Props) {
   const { colors } = useTheme();
   const cardInfoDashboardStyles = getCardInfoDashboardStyles(colors);
-  
+  const [modal, setModalVisible] = useState(false);
 
   return (
     <>
@@ -96,66 +97,95 @@ export default function CardInfoDashboard({ activeTab }: Props) {
 
       {activeTab === "opcao3" && (
         <View>
-        <View style={cardInfoDashboardStyles.filterIcon}>
-        <TouchableOpacity>
-          <Ionicons name="add-circle-outline" size={30} color={colors.primary} />
-        </TouchableOpacity>
-      </View>
-        <View style={cardInfoDashboardStyles.card}>
-          <View style={cardInfoDashboardStyles.cardMedicTittle}>
-            <Text style={cardInfoDashboardStyles.textHeader}>Atenolol</Text>
+          <View style={cardInfoDashboardStyles.filterIcon}>
+            <TouchableOpacity onPress={() => setModalVisible(true)}>
+              <Ionicons
+                name="add-circle-outline"
+                size={30}
+                color={colors.primary}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={cardInfoDashboardStyles.card}>
+            <View style={cardInfoDashboardStyles.cardMedicTittle}>
+              <Text style={cardInfoDashboardStyles.textHeader}>Atenolol</Text>
 
-            <View style={cardInfoDashboardStyles.caixaActive}>
-              <Text style={cardInfoDashboardStyles.caixaActiveText}>Ativo</Text>
+              <View style={cardInfoDashboardStyles.caixaActive}>
+                <Text style={cardInfoDashboardStyles.caixaActiveText}>
+                  Ativo
+                </Text>
+              </View>
+            </View>
+
+            <View style={cardInfoDashboardStyles.caixa}>
+              <Text style={cardInfoDashboardStyles.sectionTitle}>Dosagem:</Text>
+              <Text style={cardInfoDashboardStyles.sectionContent}>50mg</Text>
+            </View>
+
+            <View style={cardInfoDashboardStyles.caixa}>
+              <Text style={cardInfoDashboardStyles.sectionTitle}>
+                Frequência:
+              </Text>
+              <Text style={cardInfoDashboardStyles.sectionContent}>
+                1x ao dia
+              </Text>
+            </View>
+
+            <View style={cardInfoDashboardStyles.caixa}>
+              <Text style={cardInfoDashboardStyles.sectionTitle}>Duração:</Text>
+              <Text style={cardInfoDashboardStyles.sectionContent}>
+                30 dias
+              </Text>
+            </View>
+
+            <View style={cardInfoDashboardStyles.caixaInstru}>
+              <Text style={cardInfoDashboardStyles.sectionTitleInfo}>
+                Instruções:
+              </Text>
+              <Text style={cardInfoDashboardStyles.sectionContent}>
+                Tomar pela manhã em jejum
+              </Text>
+            </View>
+
+            <View style={cardInfoDashboardStyles.buttonContainer}>
+              <TouchableOpacity style={cardInfoDashboardStyles.button}>
+                <Ionicons name="eye-outline" size={18} color="white" />
+                <Text style={cardInfoDashboardStyles.buttonText}>
+                  Visualizar
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={cardInfoDashboardStyles.button}>
+                <MaterialCommunityIcons
+                  name="download-outline"
+                  size={18}
+                  color="white"
+                />
+                <Text style={cardInfoDashboardStyles.buttonText}>Baixar</Text>
+              </TouchableOpacity>
             </View>
           </View>
-
-          <View style={cardInfoDashboardStyles.caixa}>
-            <Text style={cardInfoDashboardStyles.sectionTitle}>Dosagem:</Text>
-            <Text style={cardInfoDashboardStyles.sectionContent}>50mg</Text>
-          </View>
-
-          <View style={cardInfoDashboardStyles.caixa}>
-            <Text style={cardInfoDashboardStyles.sectionTitle}>
-              Frequência:
-            </Text>
-            <Text style={cardInfoDashboardStyles.sectionContent}>
-              1x ao dia
-            </Text>
-          </View>
-
-          <View style={cardInfoDashboardStyles.caixa}>
-            <Text style={cardInfoDashboardStyles.sectionTitle}>Duração:</Text>
-            <Text style={cardInfoDashboardStyles.sectionContent}>30 dias</Text>
-          </View>
-
-          <View style={cardInfoDashboardStyles.caixaInstru}>
-            <Text style={cardInfoDashboardStyles.sectionTitleInfo}>
-              Instruções:
-            </Text>
-            <Text style={cardInfoDashboardStyles.sectionContent}>
-              Tomar pela manhã em jejum
-            </Text>
-          </View>
-
-          <View style={cardInfoDashboardStyles.buttonContainer}>
-            <TouchableOpacity style={cardInfoDashboardStyles.button}>
-              <Ionicons name="eye-outline" size={18} color="white" />
-              <Text style={cardInfoDashboardStyles.buttonText}>Visualizar</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={cardInfoDashboardStyles.button}>
-              <MaterialCommunityIcons
-                name="download-outline"
-                size={18}
-                color="white"
-              />
-              <Text style={cardInfoDashboardStyles.buttonText}>Baixar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
         </View>
       )}
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modal}
+        onRequestClose={() => {
+          setModalVisible(!modal);
+        }}
+      >
+        <ScrollView>
+          <FormMedicamento
+            onClose={() => setModalVisible(false)}
+            onSubmit={(data) => {
+              console.log("Medicamento salvo:", data);
+              setModalVisible(false);
+            }}
+          />
+        </ScrollView>
+      </Modal>
     </>
   );
 }
