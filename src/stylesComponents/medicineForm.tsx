@@ -27,18 +27,19 @@ export const styles = StyleSheet.create({
 
   label: {
     fontSize: 14,
+    fontWeight: "500",
     marginBottom: 4,
     color: "white",
   },
 
   input: {
-    borderWidth: 1,
-    borderColor: "#ADD8E6",
+    outlineWidth: 0,
     padding: 10,
     borderRadius: 8,
     marginBottom: 12,
     color: "white",
     fontSize: 15,
+    backgroundColor: "white"
   },
 
   form: {
@@ -47,15 +48,16 @@ export const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#4CAF50",
+    backgroundColor: "#3284f1",
     paddingVertical: 12,
     borderRadius: 8,
     marginTop: 10,
   },
 
   buttonText: {
-    color: "#fff",
+    color: "white",
     textAlign: "center",
-    fontWeight: "600",
+    fontWeight: "bold",
+    fontSize: 20,
   },
 });
