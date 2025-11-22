@@ -102,6 +102,7 @@ const getGlobalStyles = (colors: any) =>
       height: "100%",
       fontSize: 16,
       overflow: "hidden",
+      outlineWidth: 0,
     },
 
     searchInput: {

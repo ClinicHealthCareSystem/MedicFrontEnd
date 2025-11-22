@@ -38,6 +38,7 @@ export default function Login() {
         <TextInput
           style={loginStyles.input}
           placeholder="Email institucional"
+          placeholderTextColor="#0D47AB"
         />
       </View>
 
@@ -50,6 +51,7 @@ export default function Login() {
         <TextInput
           style={loginStyles.input}
           placeholder="Senha"
+          placeholderTextColor="#0D47AB"
           value={password}
           onChangeText={(text) => setPassword(text)}
           secureTextEntry={!passwordShow}
