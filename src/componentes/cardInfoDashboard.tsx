@@ -12,6 +12,7 @@ type Props = {
 export default function CardInfoDashboard({ activeTab }: Props) {
   const { colors } = useTheme();
   const cardInfoDashboardStyles = getCardInfoDashboardStyles(colors);
+  
 
   return (
     <>
@@ -94,6 +95,12 @@ export default function CardInfoDashboard({ activeTab }: Props) {
       )}
 
       {activeTab === "opcao3" && (
+        <View>
+        <View style={cardInfoDashboardStyles.filterIcon}>
+        <TouchableOpacity>
+          <Ionicons name="add-circle-outline" size={30} color={colors.primary} />
+        </TouchableOpacity>
+      </View>
         <View style={cardInfoDashboardStyles.card}>
           <View style={cardInfoDashboardStyles.cardMedicTittle}>
             <Text style={cardInfoDashboardStyles.textHeader}>Atenolol</Text>
@@ -146,6 +153,7 @@ export default function CardInfoDashboard({ activeTab }: Props) {
               <Text style={cardInfoDashboardStyles.buttonText}>Baixar</Text>
             </TouchableOpacity>
           </View>
+        </View>
         </View>
       )}
     </>

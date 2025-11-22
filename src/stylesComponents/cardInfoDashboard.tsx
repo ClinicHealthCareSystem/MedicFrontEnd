@@ -104,5 +104,10 @@ export const getCardInfoDashboardStyles = (colors: any) => {
       marginTop: 8,
       opacity: 0.8,
     },
+    filterIcon: {
+      flexDirection: "row",
+      justifyContent: "flex-end",
+      paddingRight: 16,
+    },
   });
 };
