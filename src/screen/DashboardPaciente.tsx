@@ -20,7 +20,7 @@ export default function DashboardPaciente() {
   return (
     <View style={pacientesStyles.background}>
       <HeaderHome
-        titulo="Prontuario"
+        titulo="Prontuário"
         mostrarBusca={false}
         mostrarVoltar={true}
       />
@@ -29,7 +29,7 @@ export default function DashboardPaciente() {
         <TabsNavegationDash
           activeTab={activeTab}
           tabs={[
-            { label: "Prontuario", value: "opcao1" },
+            { label: "Prontuário", value: "opcao1" },
             { label: "Exames", value: "opcao2" },
             { label: "Medicamentos", value: "opcao3" },
           ]}
