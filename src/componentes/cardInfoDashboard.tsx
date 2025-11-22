@@ -8,9 +8,10 @@ import FormMedicamento from "./formMedicine";
 
 type Props = {
   activeTab: "opcao1" | "opcao2" | "opcao3";
+  userId: string;
 };
 
-export default function CardInfoDashboard({ activeTab }: Props) {
+export default function CardInfoDashboard({ activeTab, userId }: Props) {
   const { colors } = useTheme();
   const cardInfoDashboardStyles = getCardInfoDashboardStyles(colors);
   const [modal, setModalVisible] = useState(false);
@@ -179,8 +180,8 @@ export default function CardInfoDashboard({ activeTab }: Props) {
         <ScrollView>
           <FormMedicamento
             onClose={() => setModalVisible(false)}
+            userId={userId}
             onSubmit={(data) => {
-              console.log("Medicamento salvo:", data);
               setModalVisible(false);
             }}
           />

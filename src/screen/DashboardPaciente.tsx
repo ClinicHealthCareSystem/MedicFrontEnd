@@ -6,6 +6,7 @@ import HeaderHome from "../componentes/headerHome";
 import TabsNavegationDash from "../componentes/tabsNavegationDash";
 import CardInfoDashboard from "../componentes/cardInfoDashboard";
 import { useTheme } from "../hooks/ThemeContext";
+import { useLocalSearchParams } from "expo-router";
 
 export default function DashboardPaciente() {
   const { colors } = useTheme();
@@ -13,6 +14,8 @@ export default function DashboardPaciente() {
   const [activeTab, setActiveTab] = useState<"opcao1" | "opcao2" | "opcao3">(
     "opcao1"
   );
+  const { id } = useLocalSearchParams()
+  const userId = Array.isArray(id) ? id[0] : (id || "")
 
   return (
     <View style={pacientesStyles.background}>
@@ -34,7 +37,7 @@ export default function DashboardPaciente() {
             setActiveTab(value as "opcao1" | "opcao2" | "opcao3")
           }
         />
-        <CardInfoDashboard activeTab={activeTab} />
+        <CardInfoDashboard activeTab={activeTab} userId={userId} />
       </ScrollView>
     </View>
   );

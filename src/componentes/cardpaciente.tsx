@@ -5,6 +5,7 @@ import { router } from "expo-router";
 import { useTheme } from "../hooks/ThemeContext";
 
 type CardTypesPaciente = {
+  id: string;
   nome: string;
   idade: string;
   telefone: string;
@@ -13,6 +14,7 @@ type CardTypesPaciente = {
 };
 
 export default function CardPaciente({
+  id,
   nome,
   idade,
   telefone,
@@ -56,13 +58,15 @@ export default function CardPaciente({
         {detalhes ? (
           <View style={cardPacienteStyles.linhaInfo}>
             <Ionicons name="document-text" size={14} color="white" />
-            <Text style={cardPacienteStyles.textInfo}>Condições: {detalhes}</Text>
+            <Text style={cardPacienteStyles.textInfo}>
+              Condições: {detalhes}
+            </Text>
           </View>
         ) : null}
       </View>
       <TouchableOpacity
         style={cardPacienteStyles.buttonProntu}
-        onPress={() => router.push("/dashboardPaciente")}
+        onPress={() => router.push(`/dashboardPaciente?id=${id}`)}
       >
         <Text style={cardPacienteStyles.buttonProntuText}>Ver prontuário</Text>
       </TouchableOpacity>

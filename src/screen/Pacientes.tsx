@@ -44,7 +44,7 @@ export default function Pacientes() {
       <ScrollView>
         {pacientes.map((item) => (
           <CardPaciente
-            key={item.id}
+            id={item.id}
             nome={item.name}
             idade={item.age}
             telefone={item.phone ? maskPhone(item.phone) : "-"}

@@ -2,13 +2,14 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "../stylesComponents/medicineForm";
 import { useState } from "react";
+import { useSendMedicine } from "../hooks/useSendMedicine";
 
 type Props = {
   onClose: () => void;
   onSubmit: (data: any) => void;
+  userId: string;
 };
 
-// Função para formatar data (DD/MM/AAAA)
 const formatDate = (text: string) => {
   const cleaned = text.replace(/\D/g, "");
   const limited = cleaned.substring(0, 8);
@@ -36,7 +37,7 @@ const formatTime = (text: string) => {
   }
 };
 
-export default function FormMedicamento({ onClose, onSubmit }: Props) {
+export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
   const [nome, setNome] = useState("");
   const [dosagem, setDosagem] = useState("");
   const [dataInicio, setDataInicio] = useState("");
@@ -46,8 +47,10 @@ export default function FormMedicamento({ onClose, onSubmit }: Props) {
   const [horarioTarde, setHorarioTarde] = useState("");
   const [nomeMedico, setNomeMedico] = useState("");
 
-  const handleSave = () => {
-    onSubmit({
+  const { error, handleSendMedicine } = useSendMedicine();
+
+  const handleSave = async () => {
+    const data = {
       nome,
       dosagem,
       dataInicio,
@@ -56,7 +59,16 @@ export default function FormMedicamento({ onClose, onSubmit }: Props) {
       horarioManha,
       horarioTarde,
       nomeMedico,
-    });
+      userId: userId,
+    };
+
+    const result = await handleSendMedicine(data);
+
+    if (result?.error) {
+      return;
+    }
+
+    onSubmit(data);
   };
 
   return (
