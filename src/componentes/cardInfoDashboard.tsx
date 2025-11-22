@@ -5,6 +5,7 @@ import { getCardInfoDashboardStyles } from "../stylesComponents/cardInfoDashboar
 import { useTheme } from "../hooks/ThemeContext";
 import { useState } from "react";
 import FormMedicamento from "./formMedicine";
+import { useFetchMedicines } from "../hooks/useFetchMedicines";
 
 type Props = {
   activeTab: "opcao1" | "opcao2" | "opcao3";
@@ -15,6 +16,8 @@ export default function CardInfoDashboard({ activeTab, userId }: Props) {
   const { colors } = useTheme();
   const cardInfoDashboardStyles = getCardInfoDashboardStyles(colors);
   const [modal, setModalVisible] = useState(false);
+
+  const { data: medicines, loading, error, reload } = useFetchMedicines(userId);
 
   return (
     <>
@@ -107,65 +110,74 @@ export default function CardInfoDashboard({ activeTab, userId }: Props) {
               />
             </TouchableOpacity>
           </View>
-          <View style={cardInfoDashboardStyles.card}>
-            <View style={cardInfoDashboardStyles.cardMedicTittle}>
-              <Text style={cardInfoDashboardStyles.textHeader}>Atenolol</Text>
 
-              <View style={cardInfoDashboardStyles.caixaActive}>
-                <Text style={cardInfoDashboardStyles.caixaActiveText}>
-                  Ativo
+          {loading && (
+            <Text style={{ color: colors.textGray }}>Carregando...</Text>
+          )}
+          {error && <Text style={{ color: "red" }}>{error}</Text>}
+
+          {medicines.map((medicine: any) => (
+            <View key={medicine.id} style={cardInfoDashboardStyles.card}>
+              <View style={cardInfoDashboardStyles.cardMedicTittle}>
+                <Text style={cardInfoDashboardStyles.textHeader}>
+                  {medicine.nome}
+                </Text>
+
+                <View style={cardInfoDashboardStyles.caixaActive}>
+                  <Text style={cardInfoDashboardStyles.caixaActiveText}>
+                    Ativo
+                  </Text>
+                </View>
+              </View>
+
+              <View style={cardInfoDashboardStyles.caixa}>
+                <Text style={cardInfoDashboardStyles.sectionTitle}>
+                  Dosagem:
+                </Text>
+                <Text style={cardInfoDashboardStyles.sectionContent}>
+                  {medicine.dosagem}
+                </Text>
+              </View>
+
+              <View style={cardInfoDashboardStyles.caixa}>
+                <Text style={cardInfoDashboardStyles.sectionTitle}>
+                  Frequência:
+                </Text>
+                <Text style={cardInfoDashboardStyles.sectionContent}>
+                  {medicine.vezesAoDia}x ao dia
+                </Text>
+              </View>
+
+              <View style={cardInfoDashboardStyles.caixa}>
+                <Text style={cardInfoDashboardStyles.sectionTitle}>
+                  Duração:
+                </Text>
+                <Text style={cardInfoDashboardStyles.sectionContent}>
+                  {medicine.dataInicio} até {medicine.dataTermino}
+                </Text>
+              </View>
+
+              <View style={cardInfoDashboardStyles.caixaInstru}>
+                <Text style={cardInfoDashboardStyles.sectionTitleInfo}>
+                  Instruções:
+                </Text>
+                <Text style={cardInfoDashboardStyles.sectionContent}>
+                  Manhã: {medicine.horarioManha}
+                  {"\n"}
+                  Tarde: {medicine.horarioTarde}
+                </Text>
+              </View>
+
+              <View style={cardInfoDashboardStyles.caixaInstru}>
+                <Text style={cardInfoDashboardStyles.sectionTitleInfo}>
+                  Medicado por:
+                </Text>
+                <Text style={cardInfoDashboardStyles.sectionContent}>
+                  {medicine.nomeMedico}
                 </Text>
               </View>
             </View>
-
-            <View style={cardInfoDashboardStyles.caixa}>
-              <Text style={cardInfoDashboardStyles.sectionTitle}>Dosagem:</Text>
-              <Text style={cardInfoDashboardStyles.sectionContent}>50mg</Text>
-            </View>
-
-            <View style={cardInfoDashboardStyles.caixa}>
-              <Text style={cardInfoDashboardStyles.sectionTitle}>
-                Frequência:
-              </Text>
-              <Text style={cardInfoDashboardStyles.sectionContent}>
-                1x ao dia
-              </Text>
-            </View>
-
-            <View style={cardInfoDashboardStyles.caixa}>
-              <Text style={cardInfoDashboardStyles.sectionTitle}>Duração:</Text>
-              <Text style={cardInfoDashboardStyles.sectionContent}>
-                30 dias
-              </Text>
-            </View>
-
-            <View style={cardInfoDashboardStyles.caixaInstru}>
-              <Text style={cardInfoDashboardStyles.sectionTitleInfo}>
-                Instruções:
-              </Text>
-              <Text style={cardInfoDashboardStyles.sectionContent}>
-                Tomar pela manhã em jejum
-              </Text>
-            </View>
-
-            <View style={cardInfoDashboardStyles.buttonContainer}>
-              <TouchableOpacity style={cardInfoDashboardStyles.button}>
-                <Ionicons name="eye-outline" size={18} color="white" />
-                <Text style={cardInfoDashboardStyles.buttonText}>
-                  Visualizar
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={cardInfoDashboardStyles.button}>
-                <MaterialCommunityIcons
-                  name="download-outline"
-                  size={18}
-                  color="white"
-                />
-                <Text style={cardInfoDashboardStyles.buttonText}>Baixar</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+          ))}
         </View>
       )}
 

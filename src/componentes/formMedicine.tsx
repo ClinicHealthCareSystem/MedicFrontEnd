@@ -3,6 +3,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { styles } from "../stylesComponents/medicineForm";
 import { useState } from "react";
 import { useSendMedicine } from "../hooks/useSendMedicine";
+import { reload } from "expo-router/build/global-state/routing";
 
 type Props = {
   onClose: () => void;
@@ -62,9 +63,9 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
       userId: userId,
     };
 
-    const result = await handleSendMedicine(data);
+    await handleSendMedicine(data).then(() => reload());
 
-    if (result?.error) {
+    if (error) {
       return;
     }
 
