@@ -87,7 +87,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="Ex: Dipirona"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={nome}
           onChangeText={setNome}
         />
@@ -96,7 +96,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="Ex: 500mg"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={dosagem}
           onChangeText={setDosagem}
         />
@@ -105,7 +105,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="DD/MM/AAAA"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={dataInicio}
           onChangeText={(text) => setDataInicio(formatDate(text))}
           keyboardType="numeric"
@@ -116,7 +116,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="DD/MM/AAAA"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={dataTermino}
           onChangeText={(text) => setDataTermino(formatDate(text))}
           keyboardType="numeric"
@@ -127,7 +127,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="Ex: 2"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={vezesAoDia}
           onChangeText={setVezesAoDia}
           keyboardType="numeric"
@@ -137,7 +137,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="Ex: 08:00"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={horarioManha}
           onChangeText={(text) => setHorarioManha(formatTime(text))}
           keyboardType="numeric"
@@ -148,7 +148,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="Ex: 16:00"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={horarioTarde}
           onChangeText={(text) => setHorarioTarde(formatTime(text))}
           keyboardType="numeric"
@@ -159,7 +159,7 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
         <TextInput
           style={styles.input}
           placeholder="Ex: Dr. João Silva"
-          placeholderTextColor="#ADD8E6"
+          placeholderTextColor="#0D47AB"
           value={nomeMedico}
           onChangeText={setNomeMedico}
         />
