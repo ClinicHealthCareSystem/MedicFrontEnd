@@ -2,9 +2,11 @@ import { useState } from "react";
 
 export function useSendMedicine() {
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSendMedicine = async (medicineData: any) => {
     setError("");
+    setLoading(true);
 
     try {
       const response = await fetch(
@@ -20,15 +22,18 @@ export function useSendMedicine() {
 
       if (!response.ok) {
         setError("Erro ao receitar remédio");
-        return { error: true, json };
+        setLoading(false);
+        return { success: false, error: "Erro ao receitar remédio", json };
       }
 
+      setLoading(false);
       return { success: true, json };
-    } catch (error) {
+    } catch (e) {
       setError("Erro de conexão");
-      return { error: true };
+      setLoading(false);
+      return { success: false, error: "Erro de conexão" };
     }
   };
 
-  return { error, handleSendMedicine };
+  return { error, loading, handleSendMedicine };
 }

@@ -60,12 +60,12 @@ export default function FormMedicamento({ onClose, onSubmit, userId }: Props) {
       horarioManha,
       horarioTarde,
       nomeMedico,
-      userId: userId,
+      userId,
     };
 
-    await handleSendMedicine(data).then(() => reload());
+    const result = await handleSendMedicine(data);
 
-    if (error) {
+    if (!result.success) {
       return;
     }
 
