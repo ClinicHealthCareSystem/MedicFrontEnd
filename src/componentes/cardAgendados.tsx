@@ -1,25 +1,33 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { getCardAgendadoStyles } from "../stylesComponents/cardAgendados";
 import { useTheme } from "../hooks/ThemeContext";
-import { useAgendamento } from "../hooks/useAgendamento";
+import { useFetchScheduling } from "../hooks/useFetchScheduling";
 
-interface Agendamento {
+interface Scheduling {
   id: string;
-  nome: string;
-  hora: string;
+  type: "consulta" | "exame";
+  unit: string;
+  serviceModel: string;
+  serviceDate: string;
+  serviceTime: string;
+  medicName?: string;
+  service?: string;
+  exame?: string;
+  usuario?: {
+    nome: string;
+  };
 }
-
-// const dados: Agendamento[] = [
-//   { id: "1", nome: "Maria Silva", hora: "09:00", status: "Retorno" },
-//   { id: "2", nome: "José Santos", hora: "10:00", status: "Consulta" },
-//   { id: "3", nome: "Ana Costa", hora: "14:00", status: "Retorno" },
-// ];
 
 export default function CardAgendados() {
   const { colors } = useTheme();
   const cardAgendadoStyles = getCardAgendadoStyles(colors);
-  const { agendamentos, loading } = useAgendamento();
+
+  const { schedulings, loading } = useFetchScheduling();
+
+  if (loading) {
+    return <ActivityIndicator size="large" color="#000" />;
+  }
 
   return (
     <View style={cardAgendadoStyles.card}>
@@ -31,12 +39,13 @@ export default function CardAgendados() {
             <Ionicons name="filter-outline" size={22} color="white" />
           </TouchableOpacity>
         </View>
+
         <Text style={cardAgendadoStyles.subtitle}>
-          {agendamentos.length} consulta(s)
+          {schedulings.length} agendamento(s)
         </Text>
       </View>
 
-      {agendamentos.length === 0 ? (
+      {schedulings.length === 0 ? (
         <View style={cardAgendadoStyles.emptyContainer}>
           <Ionicons name="calendar-outline" size={48} color="white" />
           <Text style={cardAgendadoStyles.emptyText}>
@@ -45,10 +54,12 @@ export default function CardAgendados() {
         </View>
       ) : (
         <View>
-          {agendamentos.map((item) => (
+          {schedulings.map((item: Scheduling, index) => (
             <View key={item.id} style={cardAgendadoStyles.item}>
               <View style={cardAgendadoStyles.info}>
-                <Text style={cardAgendadoStyles.nome}>{item.usuario.nome}</Text>
+                <Text style={cardAgendadoStyles.nome}>
+                  {item.usuario?.nome ?? "Paciente"} {index + 1}
+                </Text>
 
                 <View style={cardAgendadoStyles.horaContainer}>
                   <Ionicons
@@ -56,8 +67,19 @@ export default function CardAgendados() {
                     size={14}
                     color={colors.primary}
                   />
-                  <Text style={cardAgendadoStyles.hora}> {item.hora}</Text>
+                  <Text style={cardAgendadoStyles.hora}>
+                    {" "}
+                    {item.serviceTime}{" "}
+                  </Text>
                 </View>
+
+                <Text style={cardAgendadoStyles.tipo}>
+                  Tipo: {item.type === "consulta" ? "Consulta" : "Exame"}
+                </Text>
+
+                {item.type === "exame" && (
+                  <Text style={cardAgendadoStyles.detalhe}>{item.exame}</Text>
+                )}
               </View>
             </View>
           ))}

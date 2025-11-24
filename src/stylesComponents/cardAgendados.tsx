@@ -84,5 +84,20 @@ export const getCardAgendadoStyles = (colors: any) => {
     emptyContainer: globalStyles.emptyContainer,
 
     emptyText: globalStyles.emptyText,
+
+    tipo: {
+      fontSize: 14,
+      fontWeight: "600",
+      color: colors.primary,
+      marginTop: 4,
+      marginBottom: 4,
+    },
+
+    detalhe: {
+      fontSize: 14,
+      fontWeight: "600",
+      color: colors.primary,
+      marginBottom: 4,
+    },
   });
 };
