@@ -5,14 +5,26 @@ import { getConfigStyles } from "../styles/config";
 import HeaderHome from "../componentes/headerHome";
 import TabsNavegation from "../componentes/tabsNavegation";
 import { useTheme } from "../hooks/ThemeContext";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useRouter } from "expo-router";
 
 export default function Config() {
   const [FontSize, SetFontsize] = useState(false);
   const { theme, toggleTheme, colors } = useTheme();
   const [SilenceNotific, SetSilenceNotific] = useState(false);
   const configStyles = getConfigStyles(colors);
+  const router = useRouter();
 
   const isDarkMode = theme === "dark";
+
+  async function handleLogout() {
+    try {
+      await AsyncStorage.removeItem("token");
+      router.replace("/");
+    } catch (error) {
+      throw new Error(`Error logging out, ${error}`);
+    }
+  }
 
   return (
     <View
@@ -56,7 +68,7 @@ export default function Config() {
 
         <View style={configStyles.caixa2}>
           <Text style={configStyles.textoSair}>Sair</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => handleLogout()}>
             <MaterialIcons name="logout" size={20} color="red" />
           </TouchableOpacity>
         </View>

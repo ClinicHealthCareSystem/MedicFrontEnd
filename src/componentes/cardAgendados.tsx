@@ -14,9 +14,7 @@ interface Scheduling {
   medicName?: string;
   service?: string;
   exame?: string;
-  usuario?: {
-    nome: string;
-  };
+  userName?: string;
 }
 
 export default function CardAgendados() {
@@ -58,7 +56,7 @@ export default function CardAgendados() {
             <View key={item.id} style={cardAgendadoStyles.item}>
               <View style={cardAgendadoStyles.info}>
                 <Text style={cardAgendadoStyles.nome}>
-                  {item.usuario?.nome ?? "Paciente"} {index + 1}
+                  {item.userName}
                 </Text>
 
                 <View style={cardAgendadoStyles.horaContainer}>
